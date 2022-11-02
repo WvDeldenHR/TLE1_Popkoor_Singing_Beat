@@ -24,6 +24,7 @@ Route::get('/repertoire', [SongController::class, 'index']);
 Route::get('/song/{song:id}', [SongController::class, 'show']);
 Route::resource('song', SongController::class);
 
+
 Route::resource('photo', PhotoController::class);
 
 Route::get('/events', [EventController::class, 'index']);
@@ -35,3 +36,7 @@ Route::resource('event', EventController::class);
 //          -> playlists -> playlist
 //photo albums -> photoAlbum -> photo
 //events -> event
+
+
+
+
