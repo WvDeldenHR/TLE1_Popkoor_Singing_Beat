@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Song;
 use Illuminate\Http\Request;
 
-class MusicController extends Controller
+class SongController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
+    //http://127.0.0.1:8000/repertoire
     public function index()
     {
-        //
+        return view('repertoire');
+//        return view('repertoire', [Song::All()]);
+
     }
 
     /**
@@ -21,6 +25,8 @@ class MusicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+//http://127.0.0.1:8000/song/create
+//only by admin
     public function create()
     {
         //
@@ -41,11 +47,12 @@ class MusicController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
+    //http://127.0.0.1:8000/song/{id}
     public function show($id)
     {
-        //
+        return view('song');
     }
 
     /**
