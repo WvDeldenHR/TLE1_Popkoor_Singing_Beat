@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::resource('music', MusicController::class);
+//Route::resource('photo', PhotoController::class);
+//Route::resource('event', EventController::class);
+
+//music -> musicAlbum
+//photo -> photoAlbum
+//event -> events
