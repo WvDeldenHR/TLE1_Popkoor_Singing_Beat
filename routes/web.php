@@ -21,14 +21,20 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/repertoire', [SongController::class, 'index']);
-Route::get('/song/{song:id}', [SongController::class, 'show']);
-Route::resource('song', SongController::class);
+
+
+//Route::get('/song/{song:id}', [SongController::class, 'show']);
+//Route::resource('song', SongController::class);
+Route::get('/song/create', [SongController::class, 'create']);
+Route::post('/song/store', [SongController::class, 'store']);
 
 
 Route::resource('photo', PhotoController::class);
 
 Route::get('/events', [EventController::class, 'index']);
 Route::resource('event', EventController::class);
+Route::post('/event/create', [EventController::class, 'create']);
+Route::post('/event/store', [EventController::class, 'store']);
 
 //repertoire -> song
 //         |

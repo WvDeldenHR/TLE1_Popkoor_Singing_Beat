@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -23,7 +24,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('eventCreate');
     }
 
     /**
@@ -34,7 +35,21 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+//        dd(request()->all());
+        $attributes = request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required',
+            'thumbnail' => 'required|image',
+            'active' => 'required'
+        ]);
+
+        $attributes['user_id'] = auth()->id();
+        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        Event::create($attributes);
+
+        return redirect('/');
     }
 
     /**

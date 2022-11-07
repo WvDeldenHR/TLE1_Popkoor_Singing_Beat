@@ -29,7 +29,7 @@ class SongController extends Controller
 //only by admin
     public function create()
     {
-        //
+        return view('songCreate');
     }
 
     /**
@@ -40,7 +40,34 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd(request()->all());
+        $attributes = request()->validate([
+            'name' => 'required',
+            'artist' => 'required',
+            'album' => 'required',
+            'song_text' => 'required',
+            'song_text_dutch' => 'required',
+            'cover_art' => 'required',
+            'path' => 'required',
+            'path_instrumental' => 'required',
+            'path_contralto' => 'required',
+            'path_soprano' => 'required',
+            'path_tenor' => 'required',
+            'path_bass' => 'required',
+            'active' => 'required',
+        ]);
+
+        $attributes['cover_art'] = request()->file('cover_art')->store('thumbnails');
+        $attributes['path'] = request()->file('path')->store('mp3');
+        $attributes['path_instrumental'] = request()->file('path_instrumental')->store('mp3');
+        $attributes['path_contralto'] = request()->file('path_contralto')->store('mp3');
+        $attributes['path_soprano'] = request()->file('path_soprano')->store('mp3');
+        $attributes['path_tenor'] = request()->file('path_tenor')->store('mp3');
+        $attributes['path_bass'] = request()->file('path_bass')->store('mp3');
+
+        Song::create($attributes);
+
+        return redirect('/');
     }
 
     /**
