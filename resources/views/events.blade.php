@@ -7,7 +7,7 @@
                 <div class="container card w-50 p-3">
                     <h2>{{$event->title}}</h2>
                     <p>{{$event->body}}</p>
-                    <img src="{{asset('storage/' . $event->thumbnail)}}">
+                    <img class="card-img-bottom" src="{{asset('storage/' . $event->thumbnail)}}">
                 </div>
             @endforeach
         </div>

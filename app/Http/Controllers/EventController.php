@@ -49,8 +49,7 @@ class EventController extends Controller
         ]);
 
         $attributes['user_id'] = auth()->id();
-        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
-
+        $attributes['thumbnail'] = request()->file('thumbnail')->store('/thumbnails');
         Event::create($attributes);
 
         return redirect('/');
