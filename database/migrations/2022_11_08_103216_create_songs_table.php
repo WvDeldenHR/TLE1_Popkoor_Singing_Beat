@@ -27,7 +27,7 @@ class Songs extends Migration
             $table->text('path_soprano');
             $table->text('path_tenor');
             $table->text('path_bass');
-            $table->smallInteger('active');
+            $table->boolean('active');
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
         });
