@@ -38,32 +38,20 @@ class SongController extends Controller
      */
     public function store()
     {
-        $all_files = request()->file('all_files');
-
-//        $attributes = request()->validate([
-//            'name' => 'required',
-//            'artist' => 'required',
-//            'album' => 'required',
-//            'song_text' => 'required',
-//            'song_text_dutch' => 'required',
-//            'cover_art' => 'required',
-//            'path_0' => 'required',
-//            'path_1' => 'required',
-//            'path_2' => 'required',
-//            'path_3' => 'required',
-//            'path_4' => 'required',
-//            'path_5' => 'required',
-//            'active' => 'required',
-//        ]);
-
+//        todo: validation and security for songs
+        $audiofiles = request()->file('audioFiles');
         $attributes = request()->all();
 
-        $attributes['cover_art'] = request()->file('cover_art')->store('thumbnails', 'public');
+//        cover art
+        $coverArt = request()->file('cover_art');
+        $coverArtName = pathinfo($coverArt->getClientOriginalName(), PATHINFO_FILENAME) . '[' . time() . ']';
+        $attributes['cover_art'] = $coverArt->storeAs('cover_arts', $coverArtName, 'public');
 
-        foreach ($all_files as $i => $file) {
-            $path_name = 'path_' . $i;
-            $attributes[$path_name] = $file->store('mp3', 'public');
-            echo $path_name;
+//        loop through each audio file and store it with its original name
+        foreach ($audiofiles as $i => $audio) {
+            $audioName = pathinfo($audio->getClientOriginalName(), PATHINFO_FILENAME) . '[' . time() . ']';
+            $pathName = 'path_' . $i;
+            $attributes[$pathName] = $audio->storeAs('mp3', $audioName, 'public');
         }
 
         Song::create($attributes);
@@ -79,7 +67,8 @@ class SongController extends Controller
     //http://127.0.0.1:8000/song/{id}
     public function show($id)
     {
-        return view('song');
+        $song = Song::find($id);
+        return view('song', compact('song'));
     }
 
     /**
