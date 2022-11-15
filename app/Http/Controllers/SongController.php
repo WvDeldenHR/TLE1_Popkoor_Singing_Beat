@@ -79,7 +79,8 @@ class SongController extends Controller
     //http://127.0.0.1:8000/song/{id}
     public function show($id)
     {
-        return view('song');
+        $song = Song::with($id);
+        return view('song', compact('song'));
     }
 
     /**

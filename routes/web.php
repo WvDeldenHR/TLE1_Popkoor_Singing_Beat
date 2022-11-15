@@ -24,7 +24,7 @@ Route::get('/repertoire', [SongController::class, 'index']);
 
 
 //Route::get('/song/{song:id}', [SongController::class, 'show']);
-//Route::resource('song', SongController::class);
+Route::resource('song', SongController::class);
 Route::get('/song/create', [SongController::class, 'create']);
 Route::post('/song/store', [SongController::class, 'store']);
 
