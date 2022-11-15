@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\SongController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +18,25 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/repertoire', [SongController::class, 'index']);
+Route::get('/song/{song:id}', [SongController::class, 'show']);
+Route::resource('song', SongController::class);
+
+
+Route::resource('photo', PhotoController::class);
+
+Route::get('/events', [EventController::class, 'index']);
+Route::resource('event', EventController::class);
+
+//repertoire -> song
+//         |
+//         V
+//          -> playlists -> playlist
+//photo albums -> photoAlbum -> photo
+//events -> event
+
+
+
+
