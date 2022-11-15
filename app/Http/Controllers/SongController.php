@@ -15,8 +15,7 @@ class SongController extends Controller
     //http://127.0.0.1:8000/repertoire
     public function index()
     {
-        return view('repertoire', [Song::All()]);
-
+        return view('repertoire', ['songs' => Song::All()]);
     }
 
     /**
@@ -66,8 +65,9 @@ class SongController extends Controller
             $attributes[$path_name] = $file->store('mp3', 'public');
             echo $path_name;
         }
+
         Song::create($attributes);
-        return redirect('/repertoire');
+        return back();
     }
 
     /**
