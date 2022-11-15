@@ -47,7 +47,7 @@
                         <a class="nav-link" href="/event/create">Create event</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/songs">Repertoire</a>
+                        <a class="nav-link" href="/repertoire">Repertoire</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/song/create">Create song</a>
