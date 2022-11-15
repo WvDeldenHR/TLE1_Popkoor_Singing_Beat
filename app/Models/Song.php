@@ -7,7 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Song extends Model
 {
-    protected $fillable = ['name', 'artist', 'album', 'song_text', 'song_text_dutch', 'cover_art', 'path', 'path_instrumental', 'path_contralto', 'path_soprano','path_tenor', 'path_bass', 'active'];
+    protected $fillable = [
+        'name',
+        'artist',
+        'album',
+        'song_text',
+        'song_text_dutch',
+        'cover_art',
+        'path_0',
+        'path_1',
+        'path_2',
+        'path_3',
+        'path_4',
+        'path_5',
+        'active'
+    ];
 
     use HasFactory;
 }
