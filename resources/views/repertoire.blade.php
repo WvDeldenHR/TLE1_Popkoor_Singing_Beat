@@ -5,8 +5,19 @@
             <h1>Repertoire</h1>
         </div>
     </section>
+    <div class="container">
+        <div class="search">
+            <form action="#" method="GET">Search:
+                <input type="text"
+                       name="search"
+                       placeholder="its a searchbox"
+                       value="{{request('search')}}">
+                <button>Search</button>
+            </form>
+        </div>
+    </div>
     <section class="section">
-        <div class="container">
+
             <table class="table w-25">
                 <tr>
                     <th>Cover</th>
