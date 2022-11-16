@@ -7,38 +7,35 @@
     </section>
     <div class="container">
         <div class="search">
-            <form action="#" method="GET">Search:
-                <input type="text"
-                       name="search"
-                       placeholder="its a searchbox"
-                       value="{{request('search')}}">
+            <form action="#" method="GET">
+                <input type="text" name="search" placeholder="Search" value="{{request('search')}}">
                 <button>Search</button>
             </form>
         </div>
     </div>
     <section class="section">
 
-            <table class="table w-25">
+        <table class="table w-25">
+            <tr>
+                <th>Cover</th>
+                <th>Name</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Details</th>
+            </tr>
+            @foreach($songs as $song)
                 <tr>
-                    <th>Cover</th>
-                    <th>Name</th>
-                    <th>Artist</th>
-                    <th>Album</th>
-                    <th>Details</th>
+                    <td>
+                        <img class="img-thumbnail" src="{{asset('storage/' . $song->cover_art)}}"
+                             alt="cover art {{$song->name}}">
+                    </td>
+                    <td>{{$song->name}}</td>
+                    <td>{{$song->artist}}</td>
+                    <td>{{$song->album}}</td>
+                    <td><a href="{{ route('songs.show', $song) }}">Details</a></td>
                 </tr>
-                @foreach($songs as $song)
-                    <tr>
-                        <td>
-                            <img class="img-thumbnail" src="{{asset('storage/' . $song->cover_art)}}"
-                                 alt="cover art {{$song->name}}">
-                        </td>
-                        <td>{{$song->name}}</td>
-                        <td>{{$song->artist}}</td>
-                        <td>{{$song->album}}</td>
-                        <td><a href="{{ route('songs.show', $song) }}">Details</a></td>
-                    </tr>
-                @endforeach
-            </table>
+            @endforeach
+        </table>
         </div>
     </section>
 @endsection
