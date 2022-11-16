@@ -15,13 +15,14 @@ class SongController extends Controller
     //http://127.0.0.1:8000/repertoire
     public function index()
     {
-//        dd(request('search'));
-
+        //if there is a request 'sort' with value of 'Z-A'
         if (\request('sort') == 'Z-A') {
             return view('repertoire', [
                 'songs' => Song::latest()->filter(request(['search']))->get()->sortByDesc('name')
             ]);
         } else {
+            //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
+            //this is the default sorting
             return view('repertoire', [
                 'songs' => Song::latest()->filter(request(['search']))->get()->sortBy('name')
             ]);
