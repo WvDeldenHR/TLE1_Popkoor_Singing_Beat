@@ -8,9 +8,9 @@
     <section class="section">
         <div class="container">
             <form action="#" method="GET">
-                <input type="text" name="search" placeholder="Search" value="{{request('search')}}">
-                <button type="submit">Search</button>
-                <button type="submit" name="sort" value="A-Z">
+                <input class="form-control mb-4 w-25" type="text" name="search" placeholder="Search" value="{{request('search')}}">
+                <button class="btn btn-primary mb-2" type="submit">Search</button>
+                <button class="btn btn-light mb-2" type="submit" name="sort" value="A-Z">
                     <svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'
                          xmlns:xlink='http://www.w3.org/1999/xlink'>
                         <rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
@@ -23,7 +23,7 @@
                         </g>
                     </svg>
                 </button>
-                <button type="submit" name="sort" value="Z-A">
+                <button class="btn btn-light mb-2" type="submit" name="sort" value="Z-A">
                     <svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'
                          xmlns:xlink='http://www.w3.org/1999/xlink'>
                         <rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
