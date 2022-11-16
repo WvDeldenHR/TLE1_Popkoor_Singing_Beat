@@ -17,9 +17,15 @@ class SongController extends Controller
     {
 //        dd(request('search'));
 
-        return view('repertoire', [
-           'songs' => Song::latest()->filter(request(['search']))->get()->sortBy('name')
-        ]);
+        if (\request('sort') == 'Z-A') {
+            return view('repertoire', [
+                'songs' => Song::latest()->filter(request(['search']))->get()->sortByDesc('name')
+            ]);
+        } else {
+            return view('repertoire', [
+                'songs' => Song::latest()->filter(request(['search']))->get()->sortBy('name')
+            ]);
+        }
     }
 
     /**
