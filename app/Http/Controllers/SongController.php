@@ -15,7 +15,7 @@ class SongController extends Controller
     //http://127.0.0.1:8000/repertoire
     public function index()
     {
-        return view('repertoire', ['songs' => Song::All()]);
+        return view('repertoire', ['songs' => Song::sortZA()]);
     }
 
     /**
@@ -44,12 +44,12 @@ class SongController extends Controller
 
 //        cover art
         $coverArt = request()->file('cover_art');
-        $coverArtName = pathinfo($coverArt->getClientOriginalName(), PATHINFO_FILENAME) . '[' . time() . ']';
+        $coverArtName = pathinfo($coverArt->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . ']';
         $attributes['cover_art'] = $coverArt->storeAs('cover_arts', $coverArtName, 'public');
 
 //        loop through each audio file and store it with its original name
         foreach ($audiofiles as $i => $audio) {
-            $audioName = pathinfo($audio->getClientOriginalName(), PATHINFO_FILENAME) . '[' . time() . ']';
+            $audioName = pathinfo($audio->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . ']';
             $pathName = 'path_' . $i;
             $attributes[$pathName] = $audio->storeAs('mp3', $audioName, 'public');
         }

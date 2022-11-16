@@ -23,5 +23,14 @@ class Song extends Model
         'active'
     ];
 
-    use HasFactory;
+    public static function sortAZ(): \Illuminate\Database\Eloquent\Collection|array
+    {
+        return Song::All()->sortBy('name');
+    }
+
+    public static function sortZA(): \Illuminate\Database\Eloquent\Collection|array
+    {
+        return Song::All()->sortByDesc('name');
+    }
+use HasFactory;
 }
