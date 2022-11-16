@@ -18,7 +18,7 @@ class SongController extends Controller
 //        dd(request('search'));
 
         return view('repertoire', [
-           'songs' => Song::latest()->filter(request(['search']))->get()
+           'songs' => Song::latest()->filter(request(['search']))->get()->sortBy('name')
         ]);
     }
 
