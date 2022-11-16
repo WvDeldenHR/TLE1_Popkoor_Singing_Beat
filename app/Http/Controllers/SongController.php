@@ -15,7 +15,11 @@ class SongController extends Controller
     //http://127.0.0.1:8000/repertoire
     public function index()
     {
-        return view('repertoire', ['songs' => Song::All()]);
+//        dd(request('search'));
+
+        return view('repertoire', [
+           'songs' => Song::latest()->filter(request(['search']))->get()
+        ]);
     }
 
     /**
