@@ -44,13 +44,13 @@
                         <a class="nav-link" href="/events">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/event/create">Create event</a>
+                        <a class="nav-link" href="/events/create">Create event</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/repertoire">Repertoire</a>
+                        <a class="nav-link" href="/songs">Repertoire</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/song/create">Create song</a>
+                        <a class="nav-link" href="/songs/create">Create song</a>
                     </li>
                     <!-- Authentication Links -->
                     @guest

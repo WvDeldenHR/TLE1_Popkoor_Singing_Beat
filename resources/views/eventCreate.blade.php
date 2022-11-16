@@ -7,7 +7,7 @@
     </section>
     <section class="section">
         <div class="container">
-            <form class="form" method="post" action="/event/store" enctype="multipart/form-data">
+            <form class="form" method="post" action=" {{ route('events.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>

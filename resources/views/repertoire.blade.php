@@ -24,7 +24,7 @@
                         <td>{{$song->name}}</td>
                         <td>{{$song->artist}}</td>
                         <td>{{$song->album}}</td>
-                        <td><a href="/song/{{$song->id}}">Details</a></td>
+                        <td><a href="{{ route('songs.show', $song) }}">Details</a></td>
                     </tr>
                 @endforeach
             </table>

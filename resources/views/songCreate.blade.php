@@ -7,7 +7,7 @@
     </section>
     <section class="section">
         <div class="container w-50">
-            <form method="post" action="/song/store" enctype="multipart/form-data">
+            <form method="post" action="{{ route('songs.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
 {{--                    name--}}
