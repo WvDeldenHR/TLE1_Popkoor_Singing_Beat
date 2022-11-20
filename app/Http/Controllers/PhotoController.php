@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
+use App\Models\PhotoAlbum;
 use Illuminate\Http\Request;
 
 class PhotoController extends Controller
@@ -19,11 +21,11 @@ class PhotoController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        return view('photoAlbumCreate');
     }
 
     /**
@@ -34,7 +36,41 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validate incoming request
+        $request->validate([
+            'title' => 'required|max:255|unique:albums',
+            'description' => 'required|max:1000',
+            'photos' => 'required',
+            'photos.*' => 'required|mimes:png,jpg,jpeg,bmp|max:20048',
+        ]);
+
+        $photoAlbum = new PhotoAlbum();
+        $photoAlbum->title = $request->input('title');
+        $photoAlbum->description = $request->input('description');
+        $photoAlbum->save();
+
+        // loop through each audio file and store it with its original name
+        foreach ($request->file('photos') as $photoRequest) {
+            $photo = new Photo();
+            //Hash picture name
+            $photoName = $photoRequest->hashName();
+            $photo->path = $photoRequest->storeAs('photos', $photoName, 'public');
+            $photo->album_id = PhotoAlbum::where('title', $request->input('title'))->get()->value('id');
+            $photo->save();
+        }
+
+//        Base for when adding custom validation messages
+//        This is to avoid the user seeing messages like: "Photos.0 dient een bestand te zijn van het type: png, jpg, jpeg, bmp."
+//        $request->validate([
+//            'title' => 'required|max:255',
+//            'description' => 'required|max:1000',
+//            'photos' => 'required',
+//            'photos.*' => 'required|mimes:png,jpg,jpeg,bmp|max:20048',
+//        ],
+//            [
+//                'title.required' => 'Het veld Titel is verplicht.',
+//                'description.required' => 'Het veld Beschrijving is verplicht.'
+//            ]);
     }
 
     /**
