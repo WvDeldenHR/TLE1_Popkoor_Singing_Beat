@@ -65,7 +65,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="genre">Genre</label>
                     <select class="form-control" id="genre" name="genre">
-                        <option value="Hiphop"></option>
+                        <option value=""></option>
                         <option value="Ballad">Ballad</option>
                         <option value="Blues">Blues</option>
                         <option value="Dance">Dance</option>
