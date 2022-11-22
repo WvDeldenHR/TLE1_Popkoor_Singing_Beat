@@ -1,20 +1,27 @@
-//Hamburger Menu
+//Hamburger Menu + Nav Drodown Menu
+const menuBtn = document.querySelector('.nav-hamburger-area');
+
+let menuOpen = false;
+menuBtn.addEventListener('click', () => {
+    if(!menuOpen) {
+        menuBtn.classList.add('open');
+        menuOpen = true;
+    } else {
+        menuBtn.classList.remove('open');
+        menuOpen = false;
+    }
+});
+
 const primaryHeader = document.querySelector(".primary-header");
 const navHamburger = document.querySelector(".nav-hamburger");
 const primaryNav = document.querySelector(".nav");
 
-navHamburger.addEventListener("click", myFunction);
-
-function myFunction() {
-    navHamburger.classList.toggle("change");
-}
-
 navHamburger.addEventListener("click", () => {
-  primaryNav.hasAttribute("data-visible")
+  primaryNav.hasAttribute("open")
     ? navHamburger.setAttribute("aria-expanded", false)
     : navHamburger.setAttribute("aria-expanded", true);
-  primaryNav.toggleAttribute("data-visible");
-  primaryHeader.toggleAttribute("data-overlay");
+  primaryNav.toggleAttribute("open");
+  primaryHeader.toggleAttribute("open");
 });
 
 //Nav Dropdown Menu
