@@ -7,6 +7,9 @@
     </section>
     <section class="section">
         <div class="container">
+            @if (session('status'))
+                <h6 class="alert alert-success">{{ session('status') }}</h6>
+            @endif
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <strong>Oeps!</strong> Er is iets mis gegaan bij het aanmaken van dit fotoalbum.

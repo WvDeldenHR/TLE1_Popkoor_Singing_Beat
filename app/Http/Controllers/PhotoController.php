@@ -49,17 +49,22 @@ class PhotoController extends Controller
         $photoAlbum->description = $request->input('description');
         $photoAlbum->save();
 
+        $photoAlbumID = PhotoAlbum::where('title', $request->input('title'))->get()->value('id');
+
         // loop through each audio file and store it with its original name
         foreach ($request->file('photos') as $photoRequest) {
             $photo = new Photo();
             //Hash picture name
             $photoName = $photoRequest->hashName();
             $photo->path = $photoRequest->storeAs('photos', $photoName, 'public');
-            $photo->album_id = PhotoAlbum::where('title', $request->input('title'))->get()->value('id');
+            $photo->album_id = $photoAlbumID;
             $photo->save();
         }
 
-//        Base for when adding custom validation messages
+
+        return redirect()->route('photo.create')->with('status', 'Album is Succesvol aangemaakt');
+
+        //        Base for when adding custom validation messages
 //        This is to avoid the user seeing messages like: "Photos.0 dient een bestand te zijn van het type: png, jpg, jpeg, bmp."
 //        $request->validate([
 //            'title' => 'required|max:255',
