@@ -32,7 +32,7 @@ class PhotoController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -43,24 +43,20 @@ class PhotoController extends Controller
             'photos' => 'required',
             'photos.*' => 'required|mimes:png,jpg,jpeg,bmp|max:20048',
         ]);
-
+        //create an album
         $photoAlbum = new PhotoAlbum();
         $photoAlbum->title = $request->input('title');
         $photoAlbum->description = $request->input('description');
         $photoAlbum->save();
 
-        $photoAlbumID = PhotoAlbum::where('title', $request->input('title'))->get()->value('id');
-
-        // loop through each audio file and store it with its original name
+        // loop through each photo and save it in the album
         foreach ($request->file('photos') as $photoRequest) {
             $photo = new Photo();
-            //Hash picture name
             $photoName = $photoRequest->hashName();
             $photo->path = $photoRequest->storeAs('photos', $photoName, 'public');
-            $photo->album_id = $photoAlbumID;
+            $photo->album_id = $photoAlbum->id;
             $photo->save();
         }
-
 
         return redirect()->route('photo.create')->with('status', 'Album is Succesvol aangemaakt');
 
