@@ -124,4 +124,21 @@ class SongController extends Controller
         Favorite::toggle(Song::find($id), Auth::user());
         return redirect()->back();
     }
+
+    public function showFavourites()
+    {
+
+        //if there is a request 'sort' with value of 'Z-A'
+        if (\request('sort') == 'Z-A') {
+            return view('favourites', [
+                'songs' => Song::latest()->filter(request(['search']))->get()->sortByDesc('name')
+            ]);
+        } else {
+            //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
+            //this is the default sorting
+            return view('favourites', [
+                'songs' => Song::latest()->filter(request(['search']))->get()->sortBy('name')
+            ]);
+        }
+    }
 }
