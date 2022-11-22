@@ -8,7 +8,8 @@
     <section class="section">
         <div class="container">
             <form action="#" method="GET">
-                <input class="form-control mb-4 w-25" type="text" name="search" placeholder="Search" value="{{request('search')}}">
+                <input class="form-control mb-4 w-25" type="text" name="search" placeholder="Search"
+                       value="{{request('search')}}">
                 <button class="btn btn-primary mb-2" type="submit">Search</button>
                 <button class="btn btn-light mb-2" type="submit" name="sort" value="A-Z">
                     <svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'
@@ -47,6 +48,7 @@
                     <th>Name</th>
                     <th>Artist</th>
                     <th>Album</th>
+                    <th>Genre</th>
                     <th>Details</th>
                 </tr>
                 @foreach($songs as $song)
@@ -59,6 +61,7 @@
                         <td>{{$song->name}}</td>
                         <td>{{$song->artist}}</td>
                         <td>{{$song->album}}</td>
+                        <td>{{$song->genre}}</td>
                         <td><a href="{{ route('songs.show', $song) }}">Details</a></td>
                     </tr>
                 @endforeach

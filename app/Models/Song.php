@@ -20,13 +20,22 @@ class Song extends Model
         'path_3',
         'path_4',
         'path_5',
-        'active'
+        'active',
+        'genre'
     ];
 
-    public function scopeFilter($query, array $filters){
-        if ($filters['search'] ?? false){
-            $query-> where('name', 'like', '%' . request('search') . '%');
-            $query-> orWhere('artist', 'like', '%' . request('search') . '%');
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['search'] ?? false) {
+            $query->where('name', 'like', '%' . request('search') . '%');
+            $query->orWhere('artist', 'like', '%' . request('search') . '%');
+        }
+    }
+
+    public function scopeFilterGenre($query, array $filters)
+    {
+        if ($filters['genre'] ?? false) {
+            $query->where('genre', 'like', '%' . request('genre') . '%');
         }
     }
 

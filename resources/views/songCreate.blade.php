@@ -61,6 +61,26 @@
                         @enderror
                     </div>
                 </div>
+{{--                genres--}}
+                <div class="mb-3">
+                    <label class="form-label" for="genre">Genre</label>
+                    <select class="form-control" id="genre" name="genre">
+                        <option value="Hiphop"></option>
+                        <option value="Ballad">Ballad</option>
+                        <option value="Blues">Blues</option>
+                        <option value="Dance">Dance</option>
+                        <option value="Disco">Disco</option>
+                        <option value="Funk">Funk</option>
+                        <option value="Pop">Pop</option>
+                        <option value="RnB">RnB</option>
+                        <option value="Rock">Rock</option>
+                        <option value="RockAndRoll">Rock & Roll</option>
+                        <option value="Soul">Soul</option>
+                    </select>
+                    @error('genre')
+                    <span>{{$message}}</span>
+                    @enderror
+                </div>
 {{--                cover art--}}
                 <div class="mb-3">
                     <label class="form-label" for="cover_art">Cover art</label>
