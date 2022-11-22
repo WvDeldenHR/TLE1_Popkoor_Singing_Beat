@@ -11,6 +11,7 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('songs', SongController::class);
+Route::post('songs/{song:id}/favourite', [SongController::class, 'favourite'])->name('song.favourite');
 
 Route::resource('photos', PhotoController::class);
 

@@ -4,9 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Maize\Markable\Markable;
+use Maize\Markable\Models\Favorite;
 
 class Song extends Model
 {
+    use markable;
+
+    protected static array $marks = [
+        Favorite::class,
+    ];
+
     protected $fillable = [
         'name',
         'artist',

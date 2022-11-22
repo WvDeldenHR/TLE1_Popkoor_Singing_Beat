@@ -9,6 +9,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Maize\Markable\Models\Favorite;
 
 class SongController extends Controller
 {
@@ -115,5 +117,11 @@ class SongController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function favourite($id)
+    {
+        Favorite::toggle(Song::find($id), Auth::user());
+        return redirect()->back();
     }
 }
