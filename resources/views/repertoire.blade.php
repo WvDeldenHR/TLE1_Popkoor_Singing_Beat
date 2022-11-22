@@ -10,18 +10,6 @@
             <form action="#" method="GET">
                 <input class="form-control mb-4 w-25" type="text" name="search" placeholder="Search"
                        value="{{request('search')}}">
-                <label for="genre" class="filterList"><span class="filterTitle">Genre</span>
-                    <span class="checkBox"><input name="genre" type="checkbox" value="Ballad">Ballad</span>
-                    <span class="checkBox"><input name="genre" type="checkbox" value="Blues">Blues</span>
-                    <span class="checkBox"><input name="genre" type="checkbox" value="Dance">Dance</span>
-                    <span class="checkBox"><input name="genre" type="checkbox" value="Disco">Disco</span>
-                    <span class="checkBox"><input name="genre" type="checkbox" value="Funk">Funk</span>
-                    <span class="checkBox"><input name="genre" type="checkbox" value="Pop">Pop</span>
-                    <span class="checkBox"><input name="genre" type="checkbox" value="RnB">RnB</span>
-                    <span class="checkBox"><input name="genre" type="checkbox" value="Rock">Rock</span>
-                    <span class="checkBox"><input name="genre" type="checkbox" value="RockAndRoll">Rock & Roll</span>
-                    <span class="checkBox"><input name="genre" type="checkbox" value="Soul">Soul</span>
-                </label>
                 <button class="btn btn-primary mb-2" type="submit">Search</button>
                 </input>
                 <button class="btn btn-light mb-2" type="submit" name="sort" value="A-Z">

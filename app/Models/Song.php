@@ -27,17 +27,10 @@ class Song extends Model
     public function scopeFilter($query, array $filters)
     {
         if ($filters['search'] ?? false) {
-            $query->where('name', 'like', '%' . request('search') . '%');
-            $query->orWhere('artist', 'like', '%' . request('search') . '%');
+            $query->where('name', 'like', '%' . request('search') . '%')
+                ->orWhere('artist', 'like', '%' . request('search') . '%')
+                ->orWhere('genre', 'like', '%' . request('search') . '%');
         }
     }
-
-    public function scopeFilterGenre($query, array $filters)
-    {
-        if ($filters['genre'] ?? false) {
-            $query->where('genre', 'like', '%' . request('genre') . '%');
-        }
-    }
-
     use HasFactory;
 }
