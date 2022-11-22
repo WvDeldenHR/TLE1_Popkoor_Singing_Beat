@@ -21,7 +21,7 @@
     </head>
 
     <body>
-        <header class="primary-header">
+        <header class="primary-header nav-container">
             <div class="primary-header-content">
                 <a class="nav-logo" href="{{ route('home')}}">
                     <img src="img/popkoor_singing_beat_logo.svg" alt="Popkoor Singing Beat">
