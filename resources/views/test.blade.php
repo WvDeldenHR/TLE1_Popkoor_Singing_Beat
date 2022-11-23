@@ -2,32 +2,30 @@
 
 @section('content')
     <main>
-        <section>
-            <div class="container">
-                <div class="even-columns">
-                    <div class="flow">
-                        <h1 class="fw-bold">Zingen maakt blij</h1>
-                        <p class="">
-                            zingen is vrijheid, zingen is gezellig,
-                            <br></br>
-                            zingen is samenwerking, zingen is los van alles,
-                            <br></br>
-                            zingen is gewoon leuk, dat vinden wij nou ook!
-                        </p>
-                        <div class="">
-                            <img class="" src="img/icon/icon_socials_facebook_001_5F3F6D_32x32.svg" alt="facebook">
-                            <img class="" src="img/icon/icon_socials_instagram_001_5F3F6D_32x32.svg" alt="instagram">
-                        </div>
-                    </div>
-                    <div class="">
-                        <img class="" src="img/popkoor_singing_beat_001.jpg">
+        <section class="py-7">
+            <div class="psb-top container | align-items-center">
+                <div class="m-auto">
+                    <img class="psb-circle-img" src="img/popkoor_singing_beat_001.jpg">
+                 </div>
+                <div class="">
+                    <h1 class="mb-3 fs-900 fw-medium">Zingen maakt blij</h1>
+                    <p class="mb-4 fs-700 fw-regular lh-base">
+                        zingen is vrijheid, zingen is gezellig,
+                        <br></br>
+                        zingen is samenwerking, zingen is los van alles,
+                        <br></br>
+                        zingen is gewoon leuk, dat vinden wij nou ook!
+                    </p>
+                    <div class="d-flex justify-content-end">
+                        <a href=""><img class="psb-icon | px-1" src="img/icon/icon_socials_facebook_001_5F3F6D_32x32.svg" alt="facebook"></a>
+                        <a href=""><img class="psb-icon | px-1" src="img/icon/icon_socials_instagram_001_5F3F6D_32x32.svg" alt="instagram"></a>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="py-6">
-            <div class="d-flex justify-content-center py-4">
+            <div class="d-flex justify-content-center pb-4">
                 <h2 class="fs-800 fw-extra-bold">Events</h2>
             </div>
             <div class="psb-events-boxes container">
@@ -85,7 +83,39 @@
             </div>
         </section>
 
-        <section class="carousel padding-block-900">
+        <section class="py-6">
+            <div class="psb-boxes-area container">
+                <div class="psb-boxes">
+                    <div class="pr-4">
+                        <span class="psb-circle-icon"></span>
+                    </div>
+                    <div>
+                        <h3 class="mb-3 fs-500 fw-semi-bold">Popkoor Singing Beat</h3>
+                        <p class="fs-500 fw-regular">
+                            Popkoor Singing Beat bestaat sinds maart 
+                            2001 en telt inmiddels zo’n 70 enthousiaste 
+                            zangliefhebbers, maar we hebben zeker 
+                            nog plaats voor Hoge en Lage stempartijen.
+                        </p>
+                    </div>
+                </div>
+                <div class="psb-boxes">
+                    <div class="pr-4">
+                        <span class="psb-circle-icon"></span>
+                    </div>
+                    <div>
+                        <h3 class="mb-3 fs-500 fw-semi-bold">Wie kan lid worden van Popkoor Singing Beat?</h3>
+                        <p class="fs-500 fw-regular">
+                        Iedereen die van zingen houdt: JONG 
+                        (vanaf 18 jaar) OF OUD, MAN OF VROUW.
+                        Dus lees verder en misschien wel TOT ZINGS!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="carousel">
             <h2>Even Voorstellen</h2>
 
         </section>
