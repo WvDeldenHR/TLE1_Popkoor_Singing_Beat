@@ -4,34 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\Photo;
 use App\Models\PhotoAlbum;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class PhotoAlbumsController extends Controller
+class PhotoAlbumController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function index()
     {
-        //if there is a request 'sort' with value of 'Z-A'
-        if (\request('sort') == 'Z-A') {
-            return view('photoAlbums', [
-                'songs' => Photo::latest()->get()->sortByDesc('name')
-            ]);
-        } else {
-            //this is the default sorting
-            return view('photoAlbums', [
-                'songs' => Photo::latest()->get()->sortBy('name')
-            ]);
-        }
+        return view('photoAlbums', [
+            'photoAlbums' => PhotoAlbum::latest()->get()->sortByDesc('id'),
+            'photos' => Photo::all()->sortByDesc('id')->skip(0)->take(4)
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -53,11 +49,14 @@ class PhotoAlbumsController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function show($id)
     {
-
+        $photoAlbum = PhotoAlbum::find($id);
+        $photos = $photoAlbum->photos;
+//        dd($photos);
+        return view('photoAlbum', compact('photoAlbum', 'photos'));
     }
 
     /**
