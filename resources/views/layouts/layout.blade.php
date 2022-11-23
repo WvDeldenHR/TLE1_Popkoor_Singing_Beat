@@ -12,9 +12,9 @@
         <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <l<link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <!-- CSS -->
         <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -43,13 +43,13 @@
                 <div class="nav-user">
                     @guest
                         @if (Route::has('login'))
-                        <a class="nav-btn" href="{{ route('login') }}">Inloggen</a>
+                        <a class="nav-btn button-primary" href="{{ route('login') }}">Inloggen</a>
                         <a class="nav-user-icon-btn" href="{{ route('login') }}">
                             <img class="nav-user-icon" src="img/icon/icon_user_001_212427_32x32.svg">
                         </a>
                         @endif
                     @else
-                        <div class="nav-btn nav-user-btn" href="{{ route('login') }}">
+                        <div class="nav-user-btn button-primary" href="{{ route('login') }}">
                             <span>{{ Auth::user()->name }}</span>
                             <img class="nav-user-avatar"src="img/popkoor_singing_beat_001.jpg">
                         </div>
@@ -64,8 +64,36 @@
         @yield('content')
 
         <footer>
-            <div></div>
+            <div class="container">
+                <div class="even-columns">
+                    <div>
+                        <img src="img/popkoor_singing_beat_logo.svg">
+                        <p>© Popkoor Singing Beat 2001 - 2022</p>
+                    </div>
+                    <div>
+                        <ul role="list" aria-label="Footer">
+                            <li><a href="">Contact</a></li>
+                            <li><a href="">Over Ons</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>contact@popkoorsingingbeat.nl</li>
+                            <li>+31 018 163 9892</li>
+                            <li>Spijknisse, Nederland</li>
+                        </ul>
+
+                        <ul role="list" aria-label="Social links">
+                            <li><a aria-label="facebook" href=""></a></li>
+                            <li><a aria-label="instagram" href=""></a></li>
+                            <li><a aria-label="youtube" href=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div></div>
+            </div>
         </footer>
+
         <script src="{{ asset('js/main.js')}}"></script>
     </body>
 </html>
