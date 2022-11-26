@@ -5,6 +5,10 @@
         <section class="py-7">
             <div class="psb-top container | align-items-center">
                 <div class="m-auto">
+                    <div class="psb-circle-medium-primary"></div>
+                    <div class="psb-circle-small-primary"></div>
+                    <div class="psb-circle-small-secondary-top"></div>
+                    <div class="psb-circle-small-secondary-bottom"></div>
                     <img class="psb-circle-img" src="img/popkoor_singing_beat_001.jpg">
                  </div>
                 <div class="">
@@ -115,9 +119,44 @@
             </div>
         </section>
 
-        <section class="carousel">
-            <h2>Even Voorstellen</h2>
-
+        <section class="py-6">
+            <div class="d-flex justify-content-center pb-4">
+            <h2 class="fs-800 fw-extra-bold">Even Voorstellen</h2>
+            </div>
+            <div class="psb-carousel container">
+              <div class="psb-carousel-column | d-flex flex-column align-items-center justify-content-center pt-5 pb-4 px-3">
+                <h3 class="mb-3 fs-500 fw-semi-bold">Suzanne</h3>
+                <p class="mb-3 fs-500 fw-regular">
+                    Mijn naam is Suzanne de Jonge en ik ben geboren op 
+                    30 november 1987 te Rotterdam en vanaf augustus 2017 
+                    mag ik mijzelf de songcoach van Singing Beat noemen, 
+                    waar ik met enorm veel plezier mee aan de slag ga!
+                </p>
+                <button class="button-primary">Lees Verder</button>
+              </div>
+      
+              <div class="psb-carousel-column | d-flex flex-column align-items-center justify-content-center pt-5 pb-4 px-3">
+                <h3 class="mb-3 fs-500 fw-semi-bold">Diny</h3>
+                <p class="mb-3 fs-500 fw-regular">
+                    Een groot aantal jaren geleden riep ik nog "Ik kan niet zingen". 
+                    En nu zing ik al een groot aantal jaren bij het leukste koor
+                    van Spijkenisse. Ik kan hier wel zingen, we zingen vanuit 
+                    plezier en de liedjes zijn de liedjes die je hoort op de radio.
+                </p>
+                <button class="button-primary">Lees Verder</button>
+              </div>
+           
+              <div class="psb-carousel-column | d-flex flex-column align-items-center justify-content-center pt-5 pb-4 px-3">
+                <h3 class="mb-3 fs-500 fw-semi-bold">Nathalie</h3>
+                <p class="mb-3 fs-500 fw-regular">
+                    Ik ben Nathalie Bos. Naast mijn functie als secretaris ben ik
+                    de oprichtster van Singing Beat. Samen met Corina Versloot 
+                    heb ik Singing Beat in 2001 opgericht. Inmiddels bestaat
+                    het koor uit ca. 70 leden waar ik natuurlijk erg trots op ben. 
+                    t is en blijft iedere week weer een feestje om te mogen zingen!
+                </p>
+                <button class="button-primary">Lees Verder</button>
+              </div>
         </section>
 
         <section>
