@@ -6,17 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name = “theme-color” content = “#5f3f6d”>
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
         <title>Popkoor Singing Beat</title>
-
-        <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
-
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <!-- CSS -->
-        <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     </head>
 
@@ -61,32 +54,32 @@
             </div>
         </header>
 
+        <main>
         @yield('content')
+        </main>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-content-top footer-container">
-                    <a class="footer-img" href="{{ route('home')}}">
-                        <img src="img/popkoor_singing_beat_logo.svg" alt="Popkoor Singing Beat">
-                    </a>
-                    <ul class="footer-list" role="list" aria-label="Footer">
-                        <li class="footer-list-item"><a class="footer-list-link" href="">Contact</a></li>
-                        <li class="footer-list-item"><a class="footer-list-link" href="">Over Ons</a></li>
-                    </ul>
-                    <ul class="footer-contact">
-                        <li class="footer-list-item | fs-600 fw-regulart">contact@popkoorsingingbeat.nl</li>
-                        <li class="footer-list-item">+31 018 163 9892</li>
-                        <li class="footer-list-item">Spijknisse, Nederland</li>
-                    </ul>
-                    <ul class="footer-socials" role="list" aria-label="Social links">
-                        <li class="footer-socials-item"><a aria-label="facebook" href=""><img src="img/icon/icon_socials_facebook_001_212427_32x32.svg"></a></li>
-                        <li class="footer-socials-item"><a aria-label="instagram" href=""><img src="img/icon/icon_socials_instagram_001_212427_32x32.svg"></a></li>
-                        <li class="footer-socials-item"><a aria-label="youtube" href=""><img src="img/icon/icon_socials_youtube_001_212427_32x32.svg"></a></li>
-                    </ul>
-                    <p class="footer-copyright | fs-300 fw-light">© Popkoor Singing Beat 2001 - 2022</p>
-                </div>
-                    <p class="footer-privacy | fs-300 fw-light">Privacybeleid</p>
+        <footer class="mt-5">
+            <div class="footer-content footer-container">
+                <a class="footer-logo" href="{{ route('home')}}">
+                    <img src="img/popkoor_singing_beat_logo.svg" alt="Popkoor Singing Beat">
+                </a>
+                <ul class="footer-list" role="list" aria-label="Footer">
+                    <li class="footer-list-item"><a class="footer-list-link" href="">Contact</a></li>
+                    <li class="footer-list-item"><a class="footer-list-link" href="">Over Ons</a></li>
+                </ul>
+                <ul class="footer-contact">
+                    <li class="footer-list-item">contact@popkoorsingingbeat.nl</li>
+                    <li class="footer-list-item">+31 018 163 9892</li>
+                    <li class="footer-list-item">Spijknisse, Nederland</li>
+                </ul>
+                <ul class="footer-socials | d-flex" role="list" aria-label="Social links">
+                    <li class="footer-socials-item | px-1"><a href="" aria-label="facebook"><img src="img/icon/icon_socials_facebook_001_212427_32x32.svg"></a></li>
+                    <li class="footer-socials-item | px-1"><a href="" aria-label="instagram"><img src="img/icon/icon_socials_instagram_001_212427_32x32.svg"></a></li>
+                    <li class="footer-socials-item | px-1"><a href="" aria-label="youtube"><img src="img/icon/icon_socials_youtube_001_212427_32x32.svg"></a></li>
+                </ul>
+                <p class="footer-copyright | pt-3 fs-300 fw-light">© Popkoor Singing Beat 2001 - 2022</p>
             </div>
+                <p class="footer-privacy | fs-300 fw-light">Privacybeleid</p>
         </footer>
 
         <script src="{{ asset('js/main.js')}}"></script>
