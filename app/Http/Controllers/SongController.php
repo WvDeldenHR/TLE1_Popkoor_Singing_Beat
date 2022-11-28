@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Song;
+use App\Models\Track;
 use Illuminate\Http\Request;
 
 class SongController extends Controller
@@ -15,7 +15,7 @@ class SongController extends Controller
     //http://127.0.0.1:8000/repertoire
     public function index()
     {
-        return view('repertoire', ['songs' => Song::sortZA()]);
+        return view('repertoire', ['songs' => Track::sortZA()]);
     }
 
     /**
@@ -54,7 +54,7 @@ class SongController extends Controller
             $attributes[$pathName] = $audio->storeAs('mp3', $audioName, 'public');
         }
 
-        Song::create($attributes);
+        Track::create($attributes);
         return back();
     }
 
@@ -67,7 +67,7 @@ class SongController extends Controller
     //http://127.0.0.1:8000/song/{id}
     public function show($id)
     {
-        $song = Song::find($id);
+        $song = Track::find($id);
         return view('song', compact('song'));
     }
 
