@@ -6,3 +6,15 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+.section {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: grid;
+    width: 20rem;
+}

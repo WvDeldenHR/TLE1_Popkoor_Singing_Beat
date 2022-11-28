@@ -10823,3 +10823,13 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.section {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: grid;
+  width: 20rem;
+}

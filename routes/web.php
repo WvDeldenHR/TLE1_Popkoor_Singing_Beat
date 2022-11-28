@@ -1,25 +1,21 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\SongController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
-Route::get('/test', [App\Http\Controllers\HomeController::class, 'test'])->name('test');
+use App\Http\Controllers\HomeController;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::resource('songs', SongController::class);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('photos', PhotoController::class);
+
+Route::resource('events', EventController::class);
+
+
+
+
