@@ -13,8 +13,11 @@ class CreateAlbumsTable extends Migration
      */
     public function up()
     {
-        Schema::create('album', function (Blueprint $table) {
+        Schema::create('albums', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 255);
+            $table->tinyText('description')->nullable();
+            $table->boolean('public');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateAlbumsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('album');
+        Schema::dropIfExists('albums');
     }
-}
+};
