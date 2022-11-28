@@ -3,16 +3,16 @@
 @section('content')
     <section class="py-7">
         <div class="psb-hero container | d-grid align-items-center">
-            <div class="m-auto">
+            <div class="psb-hero-content-img">
                 <div class="psb-circle-medium-primary"></div>
                 <div class="psb-circle-small-primary"></div>
                 <div class="psb-circle-small-secondary-top"></div>
                 <div class="psb-circle-small-secondary-bottom"></div>
                 <img class="psb-hero-img" src="img/popkoor_singing_beat_001.jpg">
              </div>
-            <div class="">
-                <h1 class="mb-3 fs-900 fw-medium">Zingen maakt blij</h1>
-                <p class="mb-4 fs-700 fw-regular lh-base">
+            <div class="psb-hero-content">
+                <h1 class="psb-hero-header">Zingen maakt blij</h1>
+                <p class="psb-hero-txt">
                     zingen is vrijheid, zingen is gezellig,
                     <br></br>
                     zingen is samenwerking, zingen is los van alles,
@@ -88,8 +88,8 @@
 
     <section class="py-6">
         <div class="psb-boxes-area container | d-grid">
-            <div class="psb-boxes | d-grid pr-5">
-                <div class="pr-4">
+            <div class="psb-boxes | d-grid">
+                <div>
                     <span class="psb-circle"></span>
                 </div>
                 <div>
@@ -102,8 +102,8 @@
                     </p>
                 </div>
             </div>
-            <div class="psb-boxes | d-grid pr-5">
-                <div class="pr-4">
+            <div class="psb-boxes | d-grid">
+                <div>
                     <span class="psb-circle"></span>
                 </div>
                 <div>
