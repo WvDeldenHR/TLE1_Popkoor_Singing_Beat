@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Track extends Model
+class Song extends Model
 {
     protected $fillable = [
         'title',
@@ -32,12 +32,12 @@ class Track extends Model
 
     public static function sortAZ(): \Illuminate\Database\Eloquent\Collection|array
     {
-        return Track::All()->sortBy('title');
+        return Song::All()->sortBy('title');
     }
 
     public static function sortZA(): \Illuminate\Database\Eloquent\Collection|array
     {
-        return Track::All()->sortByDesc('title');
+        return Song::All()->sortByDesc('title');
     }
 use HasFactory;
 }

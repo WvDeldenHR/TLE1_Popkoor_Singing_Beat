@@ -13,7 +13,7 @@
 //     */
 //    public function up()
 //    {
-//        Schema::table('tracks', function (Blueprint $table) {
+//        Schema::table('songs', function (Blueprint $table) {
 //            $table->text('path_0')->nullable();
 //            $table->text('path_1')->nullable();
 //            $table->text('path_2')->nullable();
@@ -30,7 +30,7 @@
 //     */
 //    public function down()
 //    {
-//        Schema::table('tracks', function (Blueprint $table) {
+//        Schema::table('songs', function (Blueprint $table) {
 //            $table->dropColumn('path_0');
 //            $table->dropColumn('path_1');
 //            $table->dropColumn('path_2');

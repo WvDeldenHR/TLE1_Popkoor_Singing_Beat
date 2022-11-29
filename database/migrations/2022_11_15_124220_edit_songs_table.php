@@ -13,7 +13,7 @@
 //     */
 //    public function up()
 //    {
-//        Schema::table('tracks', function (Blueprint $table) {
+//        Schema::table('songs', function (Blueprint $table) {
 //            $table->dropColumn('path');
 //            $table->dropColumn('path_instrumental');
 //            $table->dropColumn('path_contralto');
@@ -30,7 +30,7 @@
 //     */
 //    public function down()
 //    {
-//        Schema::create('tracks', function (Blueprint $table) {
+//        Schema::create('songs', function (Blueprint $table) {
 //            $table->text('path');
 //            $table->text('path_instrumental');
 //            $table->text('path_contralto');

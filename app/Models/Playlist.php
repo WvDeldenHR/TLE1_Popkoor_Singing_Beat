@@ -16,7 +16,7 @@ class Playlist extends Model
 
     public function tracks(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Track::class, 'playlist_track', 'playlist_id', 'track_id');
+        return $this->belongsToMany(Song::class, 'playlist_track', 'playlist_id', 'song_id');
     }
 
     public static function sortAZ(): \Illuminate\Database\Eloquent\Collection|array
