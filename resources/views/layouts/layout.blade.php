@@ -10,6 +10,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     </head>
 
@@ -26,10 +27,19 @@
                     <div class="nav-content">
                         <ul class="nav-list" aria-label="Primary" role="list">
                             <li class="nav-list-item"><a class="nav-list-link" href="">Over Ons</a></li>
-                            <li class="nav-list-item"><a class="nav-list-link" href="">Events</a></li>
-                            <li class="nav-list-item"><a class="nav-list-link" href="">Repertoire</a></li>
+                            <li class="nav-list-item"><a class="nav-list-link" href="/events">Events</a></li>
+                            <li class="nav-list-item"><a class="nav-list-link" href="/songs">Repertoire</a></li>
                             <li class="nav-list-item"><a class="nav-list-link" href="">Fotoalbum</a></li>
                             <li class="nav-list-item"><a class="nav-list-link" href="">Contact</a></li>
+                            <div><a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
                         </ul>
                     </div>
                 </nav>
