@@ -41,6 +41,12 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="/playlists">Playlists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/playlists/create">Create playlist</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/events">Events</a>
                     </li>
                     <li class="nav-item">

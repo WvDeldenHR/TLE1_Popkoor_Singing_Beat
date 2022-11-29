@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\playlist;
 use App\Models\Song;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -19,7 +20,9 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-
+        return view('playlists', [
+            'playlists' => Playlist::all()
+        ]);
     }
 
     /**
@@ -29,17 +32,33 @@ class PlaylistController extends Controller
      */
     public function create()
     {
+        return view('playlistCreate', [
+            'songs' => Song::all()]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     *
+     * @param \Illuminate\Http\Request $request
      * @return RedirectResponse
      */
-    public function store()
+    public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|max:255|unique:albums',
+            'description' => 'required|max:1000',
+        ]);
 
+        //create a playlist
+        $playlist = new Playlist();
+        $playlist->title = $request->input('title');
+        $playlist->description = $request->input('description');
+        $playlist->save();
+
+        foreach ($request->songs as $song) {
+            $playlist->songs()->attach($song);
+        }
+        return redirect()->back();
     }
 
     /**
@@ -50,7 +69,8 @@ class PlaylistController extends Controller
      */
     public function show($id)
     {
-
+        $playlist = Playlist::find($id);
+        return view('playlist', compact('playlist'));
     }
 
 

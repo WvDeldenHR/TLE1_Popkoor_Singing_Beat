@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class playlist extends Model
+class Playlist extends Model
 {
     use HasFactory;
 
@@ -19,6 +19,6 @@ class playlist extends Model
 
     public function songs(): BelongsToMany
     {
-        return $this->belongsToMany(Song::class, 'playlist_track', 'playlist_id', 'song_id');
+        return $this->belongsToMany(Song::class, 'song_playlist', 'playlist_id', 'song_id');
     }
 }
