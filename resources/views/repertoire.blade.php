@@ -1,5 +1,63 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+
 @section('content')
+    <section>
+        <div class="psbr-side-menu">
+            <div>
+                <h2>Repertoire</h2>
+                <p>Alle Nummers</p>
+            </div>
+            <div>
+                <ul>
+                    <li><a href=""><img src="">Afspeellijsten</a></li>
+                    <li><a href=""><img src="">Favorieten</a></li>
+                    <li><a href="/songs/create"><img src="">Toevoegen +</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Recent Toegevoegde Afspeellijsten</h3>
+                <div>
+                </div>
+            </div>
+        </div>
+    <section>
+
+    <section>
+        <div>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th></th>
+                    <th>Titel</th>
+                    <th>Artiest</th>
+                    <th>Genre</th>
+                    <th>Datum Toegevoegd</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                @foreach($songs as $song)
+                <tr>
+                    <td></td>
+                    <td>
+                        <img class="img-thumbnail"
+                            src="{{asset('storage/' . $song->cover_art)}}"
+                             alt="cover art {{$song->name}}">
+                    </td>
+                    <td>{{$song->name}}</td>
+                    <td>{{$song->artist}}</td>
+                    <td>{{$song->genre}}</td>
+                    <td>{{$song->album}}</td>
+                    <td><img src=""></td>
+                    <td><img src=""></td>
+                    <td><a href="{{ route('songs.show', $song) }}"><img src=""></a></td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
+    </section>
+
+
     <section class="section">
         <div class="container">
             <h1>Repertoire</h1>
