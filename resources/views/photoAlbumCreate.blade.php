@@ -20,7 +20,7 @@
                     </ul>
                 </div>
             @endif
-            <form class="form" method="post" action="{{route('photo.store')}}" enctype="multipart/form-data">
+            <form class="form" method="post" action="{{route('photos.store')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label" for="title">Titel</label>
