@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Song extends Model
 {
@@ -32,5 +33,11 @@ class Song extends Model
                 ->orWhere('genre', 'like', '%' . request('search') . '%');
         }
     }
+
+    public function playlists(): BelongsToMany
+    {
+        return $this->belongsToMany(Playlist::class, 'playlist_track', 'track_id', 'playlist_id');
+    }
+
     use HasFactory;
 }

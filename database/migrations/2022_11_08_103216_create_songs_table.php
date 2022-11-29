@@ -21,12 +21,12 @@ class CreateSongsTable extends Migration
             $table->string('song_text');
             $table->text('song_text_dutch');
             $table->string('cover_art')->nullable();
-            $table->text('path');
-            $table->text('path_instrumental');
-            $table->text('path_contralto');
-            $table->text('path_soprano');
-            $table->text('path_tenor');
-            $table->text('path_bass');
+            $table->text('path_0');
+            $table->text('path_1');
+            $table->text('path_2');
+            $table->text('path_3');
+            $table->text('path_4');
+            $table->text('path_5');
             $table->boolean('active');
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
@@ -40,6 +40,6 @@ class CreateSongsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('songs');
     }  //
 }
