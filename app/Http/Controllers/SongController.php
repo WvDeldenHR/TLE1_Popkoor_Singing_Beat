@@ -33,11 +33,12 @@ class SongController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store()
+    public function store(Request $request)
     {
+        dd($request);
 //        todo: validation and security for songs
         $audiofiles = request()->file('audioFiles');
         $attributes = request()->all();

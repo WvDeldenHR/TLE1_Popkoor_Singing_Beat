@@ -25,14 +25,18 @@ class CreateSongsTable extends Migration
             $table->text('path_directions')->nullable();
             $table->text('path_cover_art')->nullable();
             $table->text('path_track')->nullable();
+            $table->text('path_track_solo')->nullable();
             $table->text('path_track_instrumental')->nullable();
-            $table->text('path_track_soprano')->nullable();
-            $table->text('path_track_contralto')->nullable();
-            $table->text('path_track_tenor')->nullable();
-            $table->text('path_track_bass')->nullable();
-//            $table->boolean('active')->nullable();
+            $table->text('path_track_soprano_1')->nullable();
+            $table->text('path_track_soprano_2')->nullable();
+            $table->text('path_track_contralto_1')->nullable();
+            $table->text('path_track_contralto_2')->nullable();
+            $table->text('path_track_tenor_1')->nullable();
+            $table->text('path_track_tenor_2')->nullable();
+            $table->text('path_track_bass_1')->nullable();
+            $table->text('path_track_bass_2')->nullable();
+
             $table->timestamps();
-//            $table->timestamp('published_at')->nullable();
         });
     }
 
