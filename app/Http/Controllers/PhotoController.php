@@ -58,7 +58,7 @@ class PhotoController extends Controller
             $photo->save();
         }
 
-        return redirect()->route('photo.create')->with('status', 'Album is Succesvol aangemaakt');
+        return redirect()->back()->with('status', 'Album is Succesvol aangemaakt');
 
         //        Base for when adding custom validation messages
 //        This is to avoid the user seeing messages like: "Photos.0 dient een bestand te zijn van het type: png, jpg, jpeg, bmp."

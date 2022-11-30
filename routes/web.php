@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PhotoAlbumController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\PhotoController;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,8 @@ Route::get('favourites', [SongController::class, 'showFavourites'])->name('favou
 
 
 Route::resource('photos', PhotoController::class);
+
+Route::resource('PhotoAlbums', PhotoAlbumController::class);
 
 Route::resource('events', EventController::class);
 
