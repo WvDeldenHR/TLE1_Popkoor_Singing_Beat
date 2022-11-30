@@ -5,6 +5,7 @@
             <h1>Playlists</h1>
         </div>
     </section>
+    <x-search/>
     <section class="section">
         <div class="container">
             <table class="table w-25">

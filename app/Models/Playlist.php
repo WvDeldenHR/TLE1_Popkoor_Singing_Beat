@@ -17,6 +17,13 @@ class Playlist extends Model
         'description',
     ];
 
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%');
+        }
+    }
+
     public function songs(): BelongsToMany
     {
         return $this->belongsToMany(Song::class, 'song_playlist', 'playlist_id', 'song_id');
