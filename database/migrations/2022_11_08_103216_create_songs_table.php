@@ -18,6 +18,7 @@ class CreateSongsTable extends Migration
             $table->string('title');
             $table->text('artist');
             $table->text('album');
+            $table->text('genre');
             $table->boolean('public');
             $table->text('path_song_text')->nullable();
             $table->text('path_song_text_dutch')->nullable();
@@ -47,6 +48,6 @@ class CreateSongsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tracks');
+        Schema::dropIfExists('songs');
     }
 }
