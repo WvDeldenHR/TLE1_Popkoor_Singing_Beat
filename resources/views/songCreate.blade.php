@@ -6,16 +6,21 @@
         </div>
     </section>
     <section class="section">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
         <div class="container w-50">
             <form method="post"
                   action="{{ route('songs.store') }}"
                   enctype="multipart/form-data">
                 @csrf
-                {{-- name --}}
+                {{-- title --}}
                 <div class="mb-3">
-                    <label class="form-label" for="name">Name</label>
-                    <input class="form-control" name="name" id="name" type="text" value="{{old('name')}}">
-                    @error('name')
+                    <label class="form-label" for="title">Titel</label>
+                    <input class="form-control" name="title" id="title" type="text" value="{{old('title')}}">
+                    @error('title')
                     <p>{{$message}}</p>
                     @enderror
                 </div>

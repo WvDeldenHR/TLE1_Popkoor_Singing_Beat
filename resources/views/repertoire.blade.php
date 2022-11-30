@@ -5,37 +5,30 @@
             <h1>Repertoire</h1>
         </div>
     </section>
-    <div class="container">
-        <div class="search">
-            <form action="#" method="GET">
-                <input type="text" name="search" placeholder="Search" value="{{request('search')}}">
-                <button>Search</button>
-            </form>
-        </div>
-    </div>
     <section class="section">
-
-        <table class="table w-25">
-            <tr>
-                <th>Cover</th>
-                <th>Name</th>
-                <th>Artist</th>
-                <th>Album</th>
-                <th>Details</th>
-            </tr>
-            @foreach($songs as $song)
+        <div class="container">
+            <table class="table w-25">
                 <tr>
-                    <td>
-                        <img class="img-thumbnail" src="{{asset('storage/' . $song->cover_art)}}"
-                             alt="cover art {{$song->name}}">
-                    </td>
-                    <td>{{$song->name}}</td>
-                    <td>{{$song->artist}}</td>
-                    <td>{{$song->album}}</td>
-                    <td><a href="{{ route('songs.show', $song) }}">Details</a></td>
+                    <th>Cover</th>
+                    <th>Name</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Details</th>
                 </tr>
-            @endforeach
-        </table>
+                @foreach($songs as $song)
+                    <tr>
+                        <td>
+                            <img class="img-thumbnail" src="{{asset('storage/' . $song->path_cover_art)}}"
+                                 alt="Albumhoes {{$song->title}}">
+                        </td>
+                        <td>{{$song->title}}</td>
+                        <td>{{$song->artist}}</td>
+                        <td>{{$song->album}}</td>
+                        <td>{{$song->genre}}</td>
+                        <td><a href="{{ route('songs.show', $song) }}">Details</a></td>
+                    </tr>
+                @endforeach
+            </table>
         </div>
     </section>
 @endsection

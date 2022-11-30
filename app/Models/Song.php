@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Song extends Model
 {
+    use HasFactory;
+
+    protected $table = 'songs';
     protected $fillable = [
         'title',
         'artist',
         'album',
+        'genre',
         'public',
         'path_song_text',
         'path_song_text_dutch',
@@ -27,7 +31,7 @@ class Song extends Model
 
     public function playlists(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Playlist::class, 'playlist_track', 'track_id', 'playlist_id');
+        return $this->belongsToMany(Playlist::class, 'playlist_song', 'song_id', 'playlist_id');
     }
 
     public static function sortAZ(): \Illuminate\Database\Eloquent\Collection|array
@@ -39,5 +43,4 @@ class Song extends Model
     {
         return Song::All()->sortByDesc('title');
     }
-use HasFactory;
 }

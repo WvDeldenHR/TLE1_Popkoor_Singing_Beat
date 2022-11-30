@@ -15,11 +15,7 @@ class SongController extends Controller
     //http://127.0.0.1:8000/repertoire
     public function index()
     {
-//        dd(request('search'));
-
-        return view('repertoire', [
-           'songs' => Song::latest()->filter(request(['search']))->get()
-        ]);
+        return view('repertoire', ['songs' => Song::sortZA()]);
     }
 
     /**
@@ -37,29 +33,61 @@ class SongController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store()
+    public function store(Request $request)
     {
-//        todo: validation and security for songs
-        $audiofiles = request()->file('audioFiles');
-        $attributes = request()->all();
+//        dd($request);
 
-//        cover art
-        $coverArt = request()->file('cover_art');
-        $coverArtName = pathinfo($coverArt->getClientOriginalName(), PATHINFO_FILENAME) . '[' . time() . ']';
-        $attributes['cover_art'] = $coverArt->storeAs('cover_arts', $coverArtName, 'public');
+        $request->validate([
+            'title' => 'required|max:255|unique:songs',
+            'artist' => 'required|max:255',
+            'album' => 'required|max:255',
+            'genre' => 'required|max:255',
+            'files' => 'required',
+            'files.*' => 'required|mimes:png,jpg,jpeg,bmp,gif,pdf,mp3,aac,wav|max:20048',
+        ]);
 
-//        loop through each audio file and store it with its original name
-        foreach ($audiofiles as $i => $audio) {
-            $audioName = pathinfo($audio->getClientOriginalName(), PATHINFO_FILENAME) . '[' . time() . ']';
-            $pathName = 'path_' . $i;
-            $attributes[$pathName] = $audio->storeAs('mp3', $audioName, 'public');
+        $song = new Song();
+        $song->title = $request->input('title');
+        $song->artist = $request->input('artist');
+        $song->album = $request->input('album');
+        $song->genre = $request->input('genre');
+
+        foreach ($request->file('files') as $i => $file) {
+            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . '].' . $file->getClientOriginalExtension();
+            $pathName = $request->input('files_'. $i);
+//            dd($fileName);
+            $song->$pathName = $file->storeAs('songFiles', $fileName, 'public');
         }
 
-        Song::create($attributes);
-        return back();
+        if ($request->has('public')) {
+            $song->public = 1;
+        } else {
+            $song->public = 0;
+        }
+
+        $song->save();
+
+////        todo: validation and security for songs
+//        $audiofiles = request()->file('audioFiles');
+//        $attributes = request()->all();
+//
+////        cover art
+//        $coverArt = request()->file('cover_art');
+//        $coverArtName = pathinfo($coverArt->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . ']';
+//        $attributes['cover_art'] = $coverArt->storeAs('cover_arts', $coverArtName, 'public');
+//
+////        loop through each audio file and store it with its original name
+//        foreach ($audiofiles as $i => $audio) {
+//            $audioName = pathinfo($audio->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . ']';
+//            $pathName = 'path_' . $i;
+//            $attributes[$pathName] = $audio->storeAs('mp3', $audioName, 'public');
+//        }
+//
+//        Song::create($attributes);
+        return back()->with('status', 'Nummer is Succesvol aangemaakt');
     }
 
     /**
