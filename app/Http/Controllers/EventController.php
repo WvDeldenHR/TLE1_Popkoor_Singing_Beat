@@ -42,7 +42,6 @@ class EventController extends Controller
 //        dd(request()->all());
         $attributes = request()->validate([
             'title' => 'required',
-            'excerpt' => 'required',
             'body' => 'required',
             'thumbnail' => 'required|image',
             'active' => 'required'

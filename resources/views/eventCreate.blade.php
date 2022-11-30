@@ -18,15 +18,6 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="excerpt">Excerpt</label>
-                    <input class="form-control" name="excerpt" id="excerpt" type="text" value="{{old('excerpt')}}"
-                           required>
-                    @error('excerpt')
-                    <p>{{$message}}</p>
-                    @enderror
-                </div>
-
-                <div class="mb-3">
                     <label class="form-label" for="body">Body</label>
                     <input class="form-control" name="body" id="body" type="text" value="{{old('body')}}" required>
                     @error('body')
