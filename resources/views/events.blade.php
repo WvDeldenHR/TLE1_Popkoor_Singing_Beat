@@ -15,7 +15,7 @@
                             <h2>{{$event->title}}</h2>
                         </div>
                         <div class="col-auto">
-                            <p>{{$event->created_at}}</p>
+                            <p>{{$event->created_at->format('D j F Y H:i:s')}}</p>
                         </div>
                         <p>{{$event->body}}</p>
                     </div>
