@@ -9,14 +9,17 @@
     <section class="section">
         <div class="container">
             @foreach($events as $event)
-                <div class="container card w-50 p-3 mb-3">
-                    <div class="grid">
-                        <div class="row">
+                <div class="container card w-50 p-3 mb-3 grid">
+                    <div class="row justify-content-between">
+                        <div class="col-auto">
                             <h2>{{$event->title}}</h2>
-                            <p>{{$event->body}}</p>
                         </div>
+                        <div class="col-auto">
+                            <p>{{$event->created_at}}</p>
+                        </div>
+                        <p>{{$event->body}}</p>
                     </div>
-                    <img class="card-img-bottom" src="{{asset('storage/' . $event->thumbnail)}}">
+                    <img class="card-img" src="{{asset('storage/' . $event->thumbnail)}}" alt="image for {{$event->title}}">
                 </div>
             @endforeach
         </div>
