@@ -31,15 +31,6 @@
                             <li class="nav-list-item"><a class="nav-list-link" href="/songs">Repertoire</a></li>
                             <li class="nav-list-item"><a class="nav-list-link" href="">Fotoalbum</a></li>
                             <li class="nav-list-item"><a class="nav-list-link" href="">Contact</a></li>
-                            <div><a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
                         </ul>
                     </div>
                 </nav>
@@ -69,7 +60,7 @@
         </main>
 
         <footer class="mt-5">
-            <div class="footer-content footer-container">
+            <div class="footer-content even-column-3 footer-container">
                 <a class="footer-logo" href="{{ route('home')}}">
                     <img src="img/popkoor_singing_beat_logo.svg" alt="Popkoor Singing Beat">
                 </a>
