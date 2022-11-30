@@ -4,27 +4,13 @@ let fileInputType = document.getElementById('inputField songFiles');
 let currentlySelected = [];
 
 //Select options
-<<<<<<< HEAD
-let selectOptionsText = {
-    'Liedtekst': 'path_song_text',
-    'LiedtekstNederlands': 'path_song_dutch',
-    'Bladmuziek': 'path_sheets',
-    'Koorregie': 'path_directions'
-}
-=======
-let selectOptionsText = [
-    'Liedtekst',
-    'Liedtekst Nederlands',
-    'Bladmuziek',
-    'Koorregie'
-];
 let selectOptionsValueText = [
     'path_song_text',
     'path_song_text_dutch',
     'path_sheets',
     'path_directions'
 ];
->>>>>>> origin/feature/story_36_createPost
+
 
 let selectOptionsSong = {
     'Nummer': 'path_track',
@@ -131,7 +117,6 @@ function addElementsToForm(event) {
 
 function removeOptionHandler(event) {
 
-<<<<<<< HEAD
     let optionElements = document.getElementsByClassName('option');
 
     for (let optionElement of optionElements) {
@@ -144,20 +129,6 @@ function removeOptionHandler(event) {
                 optionElement.setAttribute('hidden', '')
             } else {
                 optionElement.removeAttribute('hidden')
-=======
-        for (let selectDiv of selectArray) {
-            for (let elementsSelectDiv of selectDiv.children) {
-                if (elementsSelectDiv.tagName === 'SELECT') {
-                    for (let elementOption of elementsSelectDiv.children) {
-                        if (elementOption !== event.target && elementOption.value === event.target.value) {
-                            elementOption.setAttribute('hidden', '')
-                        }
-                        else if (elementOption.value !== event.target.value) {
-                            elementOption.removeAttribute('hidden')
-                        }
-                    }
-                }
->>>>>>> origin/feature/story_36_createPost
             }
         }
         // else if (elementOption.value !== event.target.value) {
