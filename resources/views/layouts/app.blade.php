@@ -46,6 +46,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/playlists/create">Create playlist</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/PhotoAlbums">Albums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/photos/create">Create albums</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/events">Events</a>
                     </li>
