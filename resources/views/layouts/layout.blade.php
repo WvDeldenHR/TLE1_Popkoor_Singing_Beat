@@ -15,7 +15,7 @@
     </head>
 
     <body>
-        <header class="primary-header nav-container">
+        <header class="primary-header container-lg">
             <div class="primary-header-content">
                 <a class="nav-logo" href="{{ route('home')}}">
                     <img src="img/popkoor_singing_beat_logo.svg" alt="Popkoor Singing Beat">
@@ -60,7 +60,7 @@
         </main>
 
         <footer class="mt-5">
-            <div class="footer-content even-column-3 footer-container">
+            <div class="footer-content even-column-3 container-lg">
                 <a class="footer-logo" href="{{ route('home')}}">
                     <img src="img/popkoor_singing_beat_logo.svg" alt="Popkoor Singing Beat">
                 </a>
