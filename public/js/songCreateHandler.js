@@ -12,7 +12,7 @@ let selectOptionsText = [
 ];
 let selectOptionsValueText = [
     'path_song_text',
-    'path_song_dutch',
+    'path_song_text_dutch',
     'path_sheets',
     'path_directions'
 ];
@@ -141,9 +141,9 @@ function removeOptionHandler(event) {
                         if (elementOption !== event.target && elementOption.value === event.target.value) {
                             elementOption.setAttribute('hidden', '')
                         }
-                        // else if (elementOption.value !== event.target.value) {
-                        //     elementOption.removeAttribute('hidden')
-                        // }
+                        else if (elementOption.value !== event.target.value) {
+                            elementOption.removeAttribute('hidden')
+                        }
                     }
                 }
             }

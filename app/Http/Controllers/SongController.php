@@ -41,7 +41,7 @@ class SongController extends Controller
 //        dd($request);
 
         $request->validate([
-            'title' => 'required|max:255|unique:song',
+            'title' => 'required|max:255|unique:songs',
             'artist' => 'required|max:255',
             'album' => 'required|max:255',
             'genre' => 'required|max:255',
@@ -55,19 +55,11 @@ class SongController extends Controller
         $song->album = $request->input('album');
         $song->genre = $request->input('genre');
 
-        // loop through each file and store it with its original name
-//        foreach ($request->file('files') as $file) {
-//            $photo = new Photo();
-//            //Hash picture name
-//            $photoName = $photoRequest->hashName();
-//            $photo->path = $photoRequest->storeAs('photos', $photoName, 'public');
-//            $photo->album_id = PhotoAlbum::where('title', $request->input('title'))->get()->value('id');
-//        }
-
         foreach ($request->file('files') as $i => $file) {
-            $fileName = pathinfo($audio->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . ']';
+            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . '].' . $file->getClientOriginalExtension();
             $pathName = $request->input('files_'. $i);
-            $song->$pathName = $audio->storeAs('songFiles', $fileName, 'public');
+//            dd($fileName);
+            $song->$pathName = $file->storeAs('songFiles', $fileName, 'public');
         }
 
         if ($request->has('public')) {

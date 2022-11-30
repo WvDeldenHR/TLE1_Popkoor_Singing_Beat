@@ -6,6 +6,11 @@
         </div>
     </section>
     <section class="section">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
         <div class="container w-50">
             <form method="post"
                   action="{{ route('songs.store') }}"
