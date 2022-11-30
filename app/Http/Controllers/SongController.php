@@ -22,17 +22,20 @@ class SongController extends Controller
     public function index()
     {
         $songs = Song::latest()->filter(request(['search']))->get();
+        $favourites = Favorite::all();
 
         //if there is a request 'sort' with value of 'Z-A'
         if (\request('sort') == 'Z-A') {
             return view('repertoire', [
-                'songs' => $songs->sortByDesc('name')
+                'songs' => $songs->sortByDesc('name'),
+                'favourites' => $favourites
             ]);
         } else {
             //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
             //this is the default sorting
             return view('repertoire', [
-                'songs' => $songs->sortBy('name')
+                'songs' => $songs->sortBy('name'),
+                'favourites' => $favourites
             ]);
         }
     }

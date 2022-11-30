@@ -45,7 +45,8 @@ class PlaylistController extends Controller
     public function create()
     {
         return view('playlistCreate', [
-            'songs' => Song::all()]);
+            'songs' => Song::all()
+        ]);
     }
 
     /**
@@ -57,7 +58,7 @@ class PlaylistController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255|unique:albums',
+            'title' => 'required|max:255|unique:title',
             'description' => 'required|max:1000',
         ]);
 
