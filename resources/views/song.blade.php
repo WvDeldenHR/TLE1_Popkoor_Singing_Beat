@@ -3,7 +3,7 @@
     <section class="section">
         <div class="container">
             <h1>{{$song->name}} - {{$song->artist}}</h1>
-            <h2>{{$song->album}}</h2>
+            <h2>{{$song->album}} - {{$song->genre}}</h2>
         </div>
     </section>
     <section class="section">

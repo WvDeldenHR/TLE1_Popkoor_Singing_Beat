@@ -10831,3 +10831,8 @@ textarea.form-control-lg {
   display: grid;
   width: 20rem;
 }
+
+.object-fit-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}

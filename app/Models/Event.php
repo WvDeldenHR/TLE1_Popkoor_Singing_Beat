@@ -9,5 +9,12 @@ class Event extends Model
 {
     protected $fillable = ['title', 'body', 'thumbnail', 'active'];
 
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%');
+        }
+    }
+
     use HasFactory;
 }

@@ -14,10 +14,20 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view("events",
-            [
-                'events' => Event::all()
+        $events = Event::latest()->filter(request(['search']))->get();
+
+        //if there is a request 'sort' with value of 'Z-A'
+        if (\request('sort') == 'Z-A') {
+            return view('events', [
+                'events' => $events->sortByDesc('title')->sortByDesc('id')
             ]);
+        } else {
+            //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
+            //this is the default sorting
+            return view('events', [
+                'events' => $events->sortBy('title')->sortByDesc('id')
+            ]);
+        }
     }
 
     /**

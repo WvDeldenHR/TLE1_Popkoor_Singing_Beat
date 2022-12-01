@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Playlist extends Model
 {
@@ -13,22 +15,17 @@ class Playlist extends Model
     protected $fillable = [
         'title',
         'description',
-        'public_private',
-        'user_id'
     ];
 
-    public function tracks(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function scopeFilter($query, array $filters)
     {
-        return $this->belongsToMany(Song::class, 'playlist_track', 'playlist_id', 'song_id');
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%');
+        }
     }
 
-    public static function sortAZ(): \Illuminate\Database\Eloquent\Collection|array
+    public function songs(): BelongsToMany
     {
-        return Playlist::All()->sortBy('title');
-    }
-
-    public static function sortZA(): \Illuminate\Database\Eloquent\Collection|array
-    {
-        return Playlist::All()->sortByDesc('title');
+        return $this->belongsToMany(Song::class, 'song_playlist', 'playlist_id', 'song_id');
     }
 }

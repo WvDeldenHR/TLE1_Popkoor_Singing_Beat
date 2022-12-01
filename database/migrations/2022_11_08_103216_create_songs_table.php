@@ -36,7 +36,7 @@ class CreateSongsTable extends Migration
             $table->text('path_track_tenor_2')->nullable();
             $table->text('path_track_bass_1')->nullable();
             $table->text('path_track_bass_2')->nullable();
-
+            
             $table->timestamps();
         });
     }
