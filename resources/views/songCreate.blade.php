@@ -78,6 +78,9 @@
                     @error('files')
                     <p>{{$message}}</p>
                     @enderror
+                    @error('files.*')
+                    <p>{{$message}}</p>
+                    @enderror
                 </div>
                 <div id="inputField songFiles">
                 </div>

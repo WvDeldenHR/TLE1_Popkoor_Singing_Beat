@@ -38,8 +38,6 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
-
         $request->validate([
             'title' => 'required|max:255|unique:songs',
             'artist' => 'required|max:255',
@@ -56,10 +54,15 @@ class SongController extends Controller
         $song->genre = $request->input('genre');
 
         foreach ($request->file('files') as $i => $file) {
-            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . '].' . $file->getClientOriginalExtension();
-            $pathName = $request->input('files_'. $i);
-//            dd($fileName);
-            $song->$pathName = $file->storeAs('songFiles', $fileName, 'public');
+            //Check if request has e.g. files_0 and it's not null, if this is not the case the file doesn't get stored
+            if ($request->has('files_' . $i)) {
+                if ($request->input('files_' . $i) !== null) {
+                    $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . '].' . $file->getClientOriginalExtension();
+                    $pathName = $request->input('files_' . $i);
+
+                    $song->$pathName = $file->storeAs('songFiles', $fileName, 'public');
+                }
+            }
         }
 
         if ($request->has('public')) {
@@ -70,23 +73,6 @@ class SongController extends Controller
 
         $song->save();
 
-////        todo: validation and security for songs
-//        $audiofiles = request()->file('audioFiles');
-//        $attributes = request()->all();
-//
-////        cover art
-//        $coverArt = request()->file('cover_art');
-//        $coverArtName = pathinfo($coverArt->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . ']';
-//        $attributes['cover_art'] = $coverArt->storeAs('cover_arts', $coverArtName, 'public');
-//
-////        loop through each audio file and store it with its original name
-//        foreach ($audiofiles as $i => $audio) {
-//            $audioName = pathinfo($audio->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . ']';
-//            $pathName = 'path_' . $i;
-//            $attributes[$pathName] = $audio->storeAs('mp3', $audioName, 'public');
-//        }
-//
-//        Song::create($attributes);
         return back()->with('status', 'Nummer is Succesvol aangemaakt');
     }
 
