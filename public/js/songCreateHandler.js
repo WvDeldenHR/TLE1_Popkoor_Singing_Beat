@@ -1,155 +1,157 @@
-//get file input field and section where the options are going to be placed
+//Get file input field and section where the options are going to be placed
 let input = document.getElementById('filesSongs');
-let fileInputType = document.getElementById('inputField songFiles');
-let currentlySelected = [];
+let parentOfSelectContainer = document.getElementById('inputField songFiles');
+
+//Set global class names for reused HTML elements
+//Classes that are needed for a function, such as 'selectFiles' or 'optionFIles', are added separately.
+let classesSelectContainer = 'mb-3';
+let classesSelectElement = 'form-control form-select';
+let classesFormLabel = 'form-label';
+let classesErrorFiletype = '';
 
 //Select options
-let selectOptionsValueText = [
-    'path_song_text',
-    'path_song_text_dutch',
-    'path_sheets',
-    'path_directions'
-];
-
-
-let selectOptionsSong = {
-    'Nummer': 'path_track',
-    'Nummer Instrumentaal': 'path_track_instrumental',
-    'Nummer Solo': 'path_track_solo',
-    'Nummer Hoog 1': 'path_track_soprano_1',
-    'Nummer Hoog 2': 'path_track_soprano_2',
-    'Nummer Hoog-Midden 1': 'path_track_contralto_1',
-    'Nummer Hoog-Midden 2': 'path_track_contralto_2',
-    'Nummer Laag-Midden 1': 'path_track_tenor_1',
-    'Nummer Laag-Midden 2': 'path_track_tenor_2',
-    'Nummer Laag 1': 'path_track_bass_1',
-    'Nummer Laag 2': 'path_track_bass_2'
-}
-
-let selectOptionsPicture = {
-    'Albumhoes': 'path_cover_art',
+const selectOptionsText = {
+    path_song_text: "Liedtekst",
+    path_song_text_dutch: "Liedtekst Nederlands",
+    path_sheets: "Bladmuziek",
+    path_directions: "Koorregie"
 };
 
-let hidden = false;
+const selectOptionsSong = {
+    path_track: "Nummer",
+    path_track_instrumental: "Nummer Instrumentaal",
+    path_track_solo: "Nummer Solo",
+    path_track_soprano_1: "Nummer Hoog 1",
+    path_track_soprano_2: "Nummer Hoog 2",
+    path_track_contralto_1: "Nummer Hoog-Midden 1",
+    path_track_contralto_2: "Nummer Hoog-Midden 2",
+    path_track_tenor_1: "Nummer Laag-Midden 1",
+    path_track_tenor_2: "Nummer Laag-Midden 2",
+    path_track_bass_1: "Nummer Laag 1",
+    path_track_bass_2: "Nummer Laag 2"
+};
+
+const selectOptionsPicture = {
+    path_cover_art: "Albumhoes"
+};
+
 
 //add event listener to the file input field
 input.addEventListener('change', addElementsToForm);
 
 function addElementsToForm(event) {
-    //Empty screen
-    fileInputType.innerHTML = '';
+    //Empty the container, before adding new elements
+    parentOfSelectContainer.innerHTML = '';
 
+    //Create array of uploaded files
     let filesArray = Array.from(event.target.files)
+
+    //Loop though each uploaded file, create a select element and add it to the container
     for (let i = 0; i < filesArray.length; i++) {
 
-        //Create base elements, these are the same across all form inputs
-        let baseFormDiv = document.createElement('div')
-        baseFormDiv.className = 'mb-3';
-        let baseSelectInput = document.createElement('select')
-        baseSelectInput.className = 'form-control form-select'
-        baseSelectInput.addEventListener('change', removeOptionHandler)
-        let label = document.createElement('label');
-        label.className = 'form-label';
+        //Create base HTML elements, these are the same across all form inputs
+        let selectContainer = document.createElement('div');
+        selectContainer.className = classesSelectContainer;
+        let selectElement = document.createElement('select');
+        selectElement.className = classesSelectElement;
 
-        //Create label from filename
-        label.innerHTML = filesArray[i].name
+        //This class is added separately, since it's part of a function
+        selectElement.classList.add('selectFiles');
+
+        //Add event listener: If the select input has changed, hide or unhide a option
+        selectElement.addEventListener('change', hiddenOptionHandler);
+
+        //Create label of filename
+        let formLabel = document.createElement('label');
+        formLabel.className = classesFormLabel;
+        formLabel.innerHTML = filesArray[i].name
 
         //Add name to select Field
-        baseSelectInput.name = 'files.' + i;
+        selectElement.name = 'files.' + i;
 
         //Add label to base form div
-        baseFormDiv.appendChild(label);
+        selectContainer.appendChild(formLabel);
 
         //Add empty option to elements
         let option = document.createElement("option");
         option.value = '';
         option.text = '';
-        baseSelectInput.appendChild(option);
+        selectElement.appendChild(option);
 
+        //Get the file's name and it's extension
         let fileName = filesArray[i].name
-        let extension = filesArray[i].name.substring(fileName.lastIndexOf('.') + 1);
+        let fileExtension = filesArray[i].name.substring(fileName.lastIndexOf('.') + 1);
 
-        if (extension === 'pdf') {
-            for (let i = 0; i < selectOptionsText.length; i++) {
-                let option = document.createElement("option");
-                option.value = selectOptionsValueText[i];
-                option.text = selectOptionsText[i];
-                option.className = 'option'
-                baseSelectInput.appendChild(option);
-
-                //Add select to base form div
-                baseFormDiv.appendChild(baseSelectInput);
-                //add id
+        //Check the file's extension and create add the correct options to select
+        //For example: img_20221103114533.jpg is an image, so only the options of selectOptionsPicture are added
+        if (fileExtension === 'pdf') {
+            for (let i = 0; i < Object.keys(selectOptionsText).length; i++) {
+                createOption(Object.keys(selectOptionsText)[i], selectOptionsText[Object.keys(selectOptionsText)[i]], selectElement, selectContainer)
             }
-        } else if (extension === 'jpg' || extension === 'jpeg' || extension === 'png' || extension === 'bmp' || extension === 'gif') {
-            for (let i = 0; i < selectOptionsPicture.length; i++) {
-                let option = document.createElement("option");
-                option.value = selectOptionsValuePicture[i];
-                option.text = selectOptionsPicture[i];
-                option.className = 'option'
-                baseSelectInput.appendChild(option);
-
-                //Add select to base form div
-                baseFormDiv.appendChild(baseSelectInput);
-                //add id
+        } else if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'bmp' || fileExtension === 'gif') {
+            for (let i = 0; i < Object.keys(selectOptionsPicture).length; i++) {
+                createOption(Object.keys(selectOptionsPicture)[i], selectOptionsPicture[Object.keys(selectOptionsPicture)[i]], selectElement, selectContainer)
             }
-        } else if (extension === 'mp3' || extension === 'wav' || extension === 'aac') {
-            for (let i = 0; i < selectOptionsSong.length; i++) {
-                let option = document.createElement("option");
-                option.value = selectOptionsValueSong[i];
-                option.text = selectOptionsSong[i];
-                option.className = 'option'
-                baseSelectInput.appendChild(option);
-
-
-                //Add select to base form div
-                baseFormDiv.appendChild(baseSelectInput);
-
+        } else if (fileExtension === 'mp3' || fileExtension === 'wav' || fileExtension === 'aac') {
+            for (let i = 0; i < Object.keys(selectOptionsSong).length; i++) {
+                createOption(Object.keys(selectOptionsSong)[i], selectOptionsSong[Object.keys(selectOptionsSong)[i]], selectElement, selectContainer)
             }
-        } else {
+        }
+        //If the file extension doesn't match any of the criteria, show an error message
+        else {
             let p = document.createElement("p");
             p.innerHTML = 'Het bestandtype van ' + filesArray[i].name + ' wordt niet ondersteund. Wij ondersteunen: pdf, jpg, png, bmp, gif. mp3, wav en aac bestanden.'
-            baseFormDiv.appendChild(p);
+            p.className = classesErrorFiletype;
+            selectContainer.appendChild(p);
         }
-        fileInputType.appendChild(baseFormDiv)
+
+        //Add the finished Select container to the form
+        parentOfSelectContainer.appendChild(selectContainer)
     }
 }
 
-function removeOptionHandler(event) {
+function hiddenOptionHandler(event) {
+    //Get all select and option element
+    let selectElements = document.getElementsByClassName('selectFiles');
+    let optionElements = document.getElementsByClassName('optionFIles');
 
-    let optionElements = document.getElementsByClassName('option');
+    //Create array for every option that's currently selected
+    let currentlySelected = [];
 
-    for (let optionElement of optionElements) {
-        //turn off all options except the one you just clicked
-        //first check: is the current option not the one you clicked
-        //second check: is the current option value the same as the one you clicked
-        if (optionElement !== event.target && optionElement.value === event.target.value) {
-            hidden = !hidden;
-            if (hidden) {
-                optionElement.setAttribute('hidden', '')
-            } else {
-                optionElement.removeAttribute('hidden')
-            }
+    //Loop though each select element and check their current value
+    //If it's not empty add them to the currentlySelected array
+    for (let selectElement of selectElements) {
+        if (selectElement.value !== '') {
+            currentlySelected.push(selectElement.value);
         }
-        // else if (elementOption.value !== event.target.value) {
-        //     elementOption.removeAttribute('hidden')
-        // }
     }
 
-    // let selectArray = Array.from(event.target.parentElement.parentElement.parentElement.children)
-    //
-    // for (let selectDiv of selectArray) {
-    //     for (let elementsSelectDiv of selectDiv.children) {
-    //         if (elementsSelectDiv.tagName === 'SELECT') {
-    //             for (let elementOption of elementsSelectDiv.children) {
-    //                 if (elementOption !== event.target && elementOption.value === event.target.value) {
-    //                     elementOption.setAttribute('hidden', '')
-    //                 }
-    //                 // else if (elementOption.value !== event.target.value) {
-    //                 //     elementOption.removeAttribute('hidden')
-    //                 // }
-    //             }
-    //         }
-    //     }
-    // }
+    //Loop through each option element to check whether it should be hidden or not
+    for (let optionElement of optionElements) {
+        //Check if current select element isn't the same as the changed select element
+        //Secondly check if another select element has this option selected
+        //Lastly make sure that the parent element of the option hasn't selected that option
+        //If all of this is true, hide option
+        //Else if this option is not selected by any element, then remove the hidden attribute
+        if (optionElement.parentElement !== event.target && currentlySelected.includes(optionElement.value) && optionElement.parentElement.value !== optionElement.value) {
+            optionElement.setAttribute('hidden', '')
+        } else if (!currentlySelected.includes(optionElement.value)) {
+            optionElement.removeAttribute('hidden')
+        }
+    }
+}
+
+//Function for creating options and adding them to select
+function createOption(value, text, selectElement, selectContainer) {
+    //Create option element and add the correct value and text
+    let option = document.createElement("option");
+    option.value = value;
+    option.text = text;
+    option.className = 'optionFIles'
+
+    //Add the option to the select field
+    selectElement.appendChild(option);
+
+    //Add updated select element to the container
+    selectContainer.appendChild(selectElement);
 }
