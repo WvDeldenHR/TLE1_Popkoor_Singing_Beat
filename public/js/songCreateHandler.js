@@ -36,6 +36,7 @@ const selectOptionsPicture = {
 };
 
 
+
 //add event listener to the file input field
 input.addEventListener('change', addElementsToForm);
 
@@ -87,7 +88,7 @@ function addElementsToForm(event) {
         });
 
 
-        //
+        // todo: correct for loops to foreach loops
         // for (const key in selectOptionsText) {
         //     let value = selectOptionsText[key]
         //     createOption(value, selectOptionsText[value], selectElement, selectContainer);
