@@ -82,6 +82,12 @@ function addElementsToForm(event) {
         let fileName = filesArray[i].name
         let fileExtension = filesArray[i].name.substring(fileName.lastIndexOf('.') + 1);
 
+
+            // Object.keys(selectOptionsText).forEach(selectOption => {
+            //     createOption(selectOption, selectOptionsText[selectOption], selectElement, selectContainer);
+            // })
+
+
         //Check the file's extension and create add the correct options to select
         //For example: img_20221103114533.jpg is an image, so only the options of selectOptionsPicture are added
         if (fileExtension === 'pdf') {
