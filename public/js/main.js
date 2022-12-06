@@ -34,3 +34,15 @@ navUser.addEventListener("click", () => {
     : navUser.setAttribute("aria-expanded", true);
   dropdownContent.toggleAttribute("data-visible");
 });
+
+//Song More Button Mobile
+const openSongMore = document.querySelector(".table-column-button");
+const closeSongMore = document.querySelector(".table-close");
+const tableMenu = document.querySelector(".table-menu");
+
+openSongMore.addEventListener("click", () => {
+  tableMenu.toggleAttribute("open");
+});
+closeSongMore.addEventListener("click", () => {
+  tableMenu.toggleAttribute("open");
+});
