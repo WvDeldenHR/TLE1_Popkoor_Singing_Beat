@@ -1,3 +1,4 @@
+
 //Get file input field and section where the options are going to be placed
 let input = document.getElementById('filesSongs');
 let parentOfSelectContainer = document.getElementById('inputField songFiles');
@@ -34,7 +35,6 @@ const selectOptionsSong = {
 const selectOptionsPicture = {
     path_cover_art: "Albumhoes"
 };
-
 
 
 //add event listener to the file input field
@@ -79,37 +79,26 @@ function addElementsToForm(event) {
         option.text = '';
         selectElement.appendChild(option);
 
-        //Get the file's name and it's extension
-        let fileName = filesArray[i].name
-        let fileExtension = filesArray[i].name.substring(fileName.lastIndexOf('.') + 1);
-
-
         Object.keys(selectOptionsText).forEach(function callback(value, index) {
         });
 
 
-        // todo: correct for loops to foreach loops
-        // for (const key in selectOptionsText) {
-        //     let value = selectOptionsText[key]
-        //     createOption(value, selectOptionsText[value], selectElement, selectContainer);
-        // }
-
-
-
-
         //Check the file's extension and create add the correct options to select
         //For example: img_20221103114533.jpg is an image, so only the options of selectOptionsPicture are added
-        if (fileExtension === 'pdf') {
-            for (let i = 0; i < Object.keys(selectOptionsText).length; i++) {
-                createOption(Object.keys(selectOptionsText)[i], selectOptionsText[Object.keys(selectOptionsText)[i]], selectElement, selectContainer)
+        if (isPdf(filesArray[i].name)) {
+            for (const key in selectOptionsText) {
+                let value = selectOptionsText[key]
+                createOption(key, value, selectElement, selectContainer);
             }
-        } else if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'bmp' || fileExtension === 'gif') {
-            for (let i = 0; i < Object.keys(selectOptionsPicture).length; i++) {
-                createOption(Object.keys(selectOptionsPicture)[i], selectOptionsPicture[Object.keys(selectOptionsPicture)[i]], selectElement, selectContainer)
+        } else if (isImage(filesArray[i].name)) {
+            for (const key in selectOptionsPicture) {
+                let value = selectOptionsPicture[key.toString()]
+                createOption(key, value, selectElement, selectContainer);
             }
-        } else if (fileExtension === 'mp3' || fileExtension === 'wav' || fileExtension === 'aac') {
-            for (let i = 0; i < Object.keys(selectOptionsSong).length; i++) {
-                createOption(Object.keys(selectOptionsSong)[i], selectOptionsSong[Object.keys(selectOptionsSong)[i]], selectElement, selectContainer)
+        } else if (isAudio(filesArray[i].name)) {
+            for (const key in selectOptionsSong) {
+                let value = selectOptionsSong[key]
+                createOption(key, value, selectElement, selectContainer);
             }
         }
         //If the file extension doesn't match any of the criteria, show an error message
