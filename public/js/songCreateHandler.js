@@ -83,9 +83,17 @@ function addElementsToForm(event) {
         let fileExtension = filesArray[i].name.substring(fileName.lastIndexOf('.') + 1);
 
 
-            // Object.keys(selectOptionsText).forEach(selectOption => {
-            //     createOption(selectOption, selectOptionsText[selectOption], selectElement, selectContainer);
-            // })
+        Object.keys(selectOptionsText).forEach(function callback(value, index) {
+        });
+
+
+        //
+        // for (const key in selectOptionsText) {
+        //     let value = selectOptionsText[key]
+        //     createOption(value, selectOptionsText[value], selectElement, selectContainer);
+        // }
+
+
 
 
         //Check the file's extension and create add the correct options to select
