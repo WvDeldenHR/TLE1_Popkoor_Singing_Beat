@@ -38,6 +38,15 @@ class Song extends Model
         'path_track_bass'
     ];
 
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['search'] ?? false) {
+            $query->where('name', 'like', '%' . request('search') . '%')
+                ->orWhere('artist', 'like', '%' . request('search') . '%')
+                ->orWhere('genre', 'like', '%' . request('search') . '%');
+        }
+    }
+
     public function playlists(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Playlist::class, 'playlist_song', 'song_id', 'playlist_id');
