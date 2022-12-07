@@ -16,7 +16,6 @@ Route::resource('songs', SongController::class);
 Route::post('songs/{song:id}/favourite', [SongController::class, 'favourite'])->name('song.favourite');
 Route::get('favourites', [SongController::class, 'showFavourites'])->name('favourites');
 
-
 Route::resource('playlists', PlaylistController::class);
 
 Route::resource('photos', PhotoController::class);
