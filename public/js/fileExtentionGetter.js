@@ -1,10 +1,10 @@
 function getExtension(filename) {
-    var parts = filename.split('.');
+    let parts = filename.split('.');
     return parts[parts.length - 1];
 }
 
 function isPdf(filename) {
-    var ext = getExtension(filename);
+    let ext = getExtension(filename);
     switch (ext.toLowerCase()) {
         case 'pdf':
             return true;
@@ -13,7 +13,7 @@ function isPdf(filename) {
 }
 
 function isImage(filename) {
-    var ext = getExtension(filename);
+    let ext = getExtension(filename);
     switch (ext.toLowerCase()) {
         case 'jpg':
         case 'gif':
@@ -25,7 +25,7 @@ function isImage(filename) {
 }
 
 function isAudio(filename) {
-    var ext = getExtension(filename);
+    let ext = getExtension(filename);
     switch (ext.toLowerCase()) {
         case 'wav':
         case 'mp3':
