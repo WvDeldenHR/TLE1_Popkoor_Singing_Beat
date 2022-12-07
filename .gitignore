@@ -1,8 +1,10 @@
 /node_modules
 /public/hot
 /public/storage
+/public/mp3
 /storage/*.key
 /vendor
+!/vendor/maize-tech
 .env
 .env.backup
 .phpunit.result.cache

@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/songCreateHandler.js') }}" defer></script>
+    <script src="{{ asset('js/fileExtentionGetter.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -43,16 +46,28 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="/playlists">Playlists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/playlists/create">Create playlist</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/PhotoAlbums">Albums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/photos/create">Create albums</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/events">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/event/create">Create event</a>
+                        <a class="nav-link" href="/events/create">Create event</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/repertoire">Repertoire</a>
+                        <a class="nav-link" href="/songs">Repertoire</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/song/create">Create song</a>
+                        <a class="nav-link" href="/songs/create">Create song</a>
                     </li>
                     <!-- Authentication Links -->
                     @guest

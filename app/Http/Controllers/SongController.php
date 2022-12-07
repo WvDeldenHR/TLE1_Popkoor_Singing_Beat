@@ -3,29 +3,48 @@
 namespace App\Http\Controllers;
 
 use App\Models\Song;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Maize\Markable\Models\Favorite;
 
 class SongController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
-    //http://127.0.0.1:8000/repertoire
     public function index()
     {
-        return view('repertoire', [Song::All()]);
+        $songs = Song::latest()->filter(request(['search']))->get();
+        $favourites = Favorite::all();
 
+        //if there is a request 'sort' with value of 'Z-A'
+        if (\request('sort') == 'Z-A') {
+            return view('repertoire', [
+                'songs' => $songs->sortByDesc('title'),
+                'favourites' => $favourites
+            ]);
+        } else {
+            //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
+            //this is the default sorting
+            return view('repertoire', [
+                'songs' => $songs->sortBy('title'),
+                'favourites' => $favourites
+            ]);
+        }
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
-//  http://127.0.0.1:8000/song/create
-//  only by admin
     public function create()
     {
         return view('songCreate');
@@ -34,52 +53,58 @@ class SongController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store()
+    public function store(Request $request)
     {
-        $all_files = request()->file('all_files');
+        $request->validate([
+            'title' => 'required|max:255|unique:songs',
+            'artist' => 'required|max:255',
+            'album' => 'required|max:255',
+            'genre' => 'required|max:255',
+            'files' => 'required',
+            'files.*' => 'required|mimes:png,jpg,jpeg,bmp,gif,pdf,mp3,aac,wav|max:20048',
+        ]);
 
-//        $attributes = request()->validate([
-//            'name' => 'required',
-//            'artist' => 'required',
-//            'album' => 'required',
-//            'song_text' => 'required',
-//            'song_text_dutch' => 'required',
-//            'cover_art' => 'required',
-//            'path_0' => 'required',
-//            'path_1' => 'required',
-//            'path_2' => 'required',
-//            'path_3' => 'required',
-//            'path_4' => 'required',
-//            'path_5' => 'required',
-//            'active' => 'required',
-//        ]);
+        $song = new Song();
+        $song->title = $request->input('title');
+        $song->artist = $request->input('artist');
+        $song->album = $request->input('album');
+        $song->genre = $request->input('genre');
 
-        $attributes = request()->all();
+        foreach ($request->file('files') as $i => $file) {
+            //Check if request has e.g. files_0 and it's not null, if this is not the case the file doesn't get stored
+            if ($request->has('files_' . $i)) {
+                if ($request->input('files_' . $i) !== null) {
+                    $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . '].' . $file->getClientOriginalExtension();
+                    $pathName = $request->input('files_' . $i);
 
-        $attributes['cover_art'] = request()->file('cover_art')->store('thumbnails', 'public');
-
-        foreach ($all_files as $i => $file) {
-            $path_name = 'path_' . $i;
-            $attributes[$path_name] = $file->store('mp3', 'public');
-            echo $path_name;
+                    $song->$pathName = $file->storeAs('songFiles', $fileName, 'public');
+                }
+            }
         }
-        Song::create($attributes);
-        return redirect('/repertoire');
+
+        if ($request->has('public')) {
+            $song->public = 1;
+        } else {
+            $song->public = 0;
+        }
+
+        $song->save();
+
+        return back()->with('status', 'Nummer is Succesvol aangemaakt');
     }
 
     /**
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
-    //http://127.0.0.1:8000/song/{id}
     public function show($id)
     {
-        $song = Song::with($id);
+        $song = Song::find($id);
         return view('song', compact('song'));
     }
 
@@ -87,7 +112,7 @@ class SongController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -99,7 +124,7 @@ class SongController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -110,10 +135,33 @@ class SongController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    public function favourite($id)
+    {
+        Favorite::toggle(Song::find($id), Auth::user());
+        return redirect()->back();
+    }
+
+    public function showFavourites()
+    {
+
+        //if there is a request 'sort' with value of 'Z-A'
+        if (\request('sort') == 'Z-A') {
+            return view('favourites', [
+                'songs' => Song::latest()->filter(request(['search']))->get()->sortByDesc('name')
+            ]);
+        } else {
+            //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
+            //this is the default sorting
+            return view('favourites', [
+                'songs' => Song::latest()->filter(request(['search']))->get()->sortBy('name')
+            ]);
+        }
     }
 }

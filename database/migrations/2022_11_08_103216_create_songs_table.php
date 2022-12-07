@@ -15,21 +15,29 @@ class CreateSongsTable extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->text('artist');
             $table->text('album');
-            $table->string('song_text');
-            $table->text('song_text_dutch');
-            $table->string('cover_art')->nullable();
-            $table->text('path');
-            $table->text('path_instrumental');
-            $table->text('path_contralto');
-            $table->text('path_soprano');
-            $table->text('path_tenor');
-            $table->text('path_bass');
-            $table->boolean('active');
+            $table->text('genre');
+            $table->boolean('public');
+            $table->text('path_song_text')->nullable();
+            $table->text('path_song_text_dutch')->nullable();
+            $table->text('path_sheets')->nullable();
+            $table->text('path_directions')->nullable();
+            $table->text('path_cover_art')->nullable();
+            $table->text('path_track')->nullable();
+            $table->text('path_track_solo')->nullable();
+            $table->text('path_track_instrumental')->nullable();
+            $table->text('path_track_soprano_1')->nullable();
+            $table->text('path_track_soprano_2')->nullable();
+            $table->text('path_track_contralto_1')->nullable();
+            $table->text('path_track_contralto_2')->nullable();
+            $table->text('path_track_tenor_1')->nullable();
+            $table->text('path_track_tenor_2')->nullable();
+            $table->text('path_track_bass_1')->nullable();
+            $table->text('path_track_bass_2')->nullable();
+            
             $table->timestamps();
-            $table->timestamp('published_at')->nullable();
         });
     }
 
@@ -40,6 +48,6 @@ class CreateSongsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
-    }  //
+        Schema::dropIfExists('songs');
+    }
 }
