@@ -3,7 +3,7 @@ const menuBtn = document.querySelector('.nav-hamburger-area');
 
 let menuOpen = false;
 menuBtn.addEventListener('click', () => {
-    if(!menuOpen) {
+    if (!menuOpen) {
         menuBtn.classList.add('open');
         menuOpen = true;
     } else {
@@ -17,11 +17,11 @@ const navHamburger = document.querySelector(".nav-hamburger");
 const primaryNav = document.querySelector(".nav");
 
 navHamburger.addEventListener("click", () => {
-  primaryNav.hasAttribute("open")
-    ? navHamburger.setAttribute("aria-expanded", false)
-    : navHamburger.setAttribute("aria-expanded", true);
-  primaryNav.toggleAttribute("open");
-  primaryHeader.toggleAttribute("open");
+    primaryNav.hasAttribute("open")
+        ? navHamburger.setAttribute("aria-expanded", false)
+        : navHamburger.setAttribute("aria-expanded", true);
+    primaryNav.toggleAttribute("open");
+    primaryHeader.toggleAttribute("open");
 });
 
 //Nav Dropdown Menu
@@ -29,28 +29,33 @@ const navUser = document.querySelector(".nav-user");
 const dropdownContent = document.querySelector(".nav-dropdown");
 
 navUser.addEventListener("click", () => {
-  dropdownContent.hasAttribute("data-visible")
-    ? navUser.setAttribute("aria-expanded", false)
-    : navUser.setAttribute("aria-expanded", true);
-  dropdownContent.toggleAttribute("data-visible");
+    dropdownContent.hasAttribute("data-visible")
+        ? navUser.setAttribute("aria-expanded", false)
+        : navUser.setAttribute("aria-expanded", true);
+    dropdownContent.toggleAttribute("data-visible");
 });
 
 //Song More Button Mobile
-const openSongMore = document.querySelectorAll(".table-column-button");
-const closeSongMore = document.querySelectorAll(".table-close");
-const tableMenu = document.querySelector(".table-menu");
+const tableSongs = document.querySelector("#table-songs");
+const tableMenu = document.querySelectorAll(".table-menu");
 
-openSongMore.forEach((songButton) =>	 {     
-  songButton.addEventListener("click", (e) => {
-    console.log(e.target);
-    tableMenu.toggleAttribute("open");
-  });
-})
-closeSongMore.forEach((songButton) =>	 {     
-  songButton.addEventListener("click", (e) => {
-    tableMenu.toggleAttribute("open");
-  });
-})
+//Add event listener to entire table, not (possibly) 500 buttons
+tableSongs.addEventListener("click", (e) => {
+    if (e.target.parentElement.classList.contains('table-column-button')) {
+        let arrayClassnames = Array.from(e.target.parentElement.parentElement.parentElement.classList)
+        arrayClassnames.shift()
+        let clickedSong = arrayClassnames[0];
+
+        tableMenu.forEach((tableMenuItem) => {
+            if (tableMenuItem.classList.contains(clickedSong)) {
+                tableMenuItem.toggleAttribute("open");
+            }
+        });
+
+    } else if (e.target.classList.contains('table-close')) {
+        e.target.parentElement.parentElement.toggleAttribute("open");
+    }
+});
 
 //Filter Down Buttons Mobile
 const genreBtn = document.querySelector(".rp-top-btn-genre");
@@ -61,7 +66,7 @@ const sortMenu = document.querySelector(".rp-top-menu-sort");
 let genreOpen = false;
 let sortOpen = false;
 genreBtn.addEventListener('click', () => {
-    if(!genreOpen) {
+    if (!genreOpen) {
         genreMenu.classList.add('open_m');
         genreOpen = true;
         sortMenu.classList.remove('open_m');
@@ -73,7 +78,7 @@ genreBtn.addEventListener('click', () => {
 });
 
 sortBtn.addEventListener('click', () => {
-    if(!sortOpen) {
+    if (!sortOpen) {
         sortMenu.classList.add('open_m');
         sortOpen = true;
         genreMenu.classList.remove('open_m');

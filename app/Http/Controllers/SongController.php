@@ -21,23 +21,46 @@ class SongController extends Controller
      */
     public function index()
     {
-        $songs = Song::latest()->filter(request(['search']))->get();
-        $favourites = Favorite::all();
+        $songs = Song::oldest()->filter(request(['search']))->get()->toArray();
+        $favourites = Favorite::all()->toArray();
+
+        foreach ($songs as $key => $song) {
+            $songs[$key]['isFavorite'] = false;
+            foreach ($favourites as $favourite) {
+                if ($favourite['markable_id'] === $song['id'] && $favourite['user_id'] == auth()->user()->id) {
+                    $songs[$key]['isFavorite'] = true;
+                }
+            }
+        }
 
         //if there is a request 'sort' with value of 'Z-A'
-        if (\request('sort') == 'Z-A') {
-            return view('repertoire', [
-                'songs' => $songs->sortByDesc('title'),
-                'favourites' => $favourites
-            ]);
+        if (\request('sort') == 'Z-A_Title') {
+            $key_values = array_column($songs, 'title');
+            array_multisort($key_values, SORT_DESC, $songs);
+
+        } else if (\request('sort') == 'Z-A_Artist') {
+            $key_values = array_column($songs, 'artist');
+            array_multisort($key_values, SORT_DESC, $songs);
+
+        } else if (\request('sort') == 'A-Z_Artist') {
+            $key_values = array_column($songs, 'artist');
+            array_multisort($key_values, SORT_ASC, $songs);
+
+        } else if (\request('sort') == 'Most_Recent') {
+            $key_values = array_column($songs, 'created_at');
+            array_multisort($key_values, SORT_DESC, $songs);
+
         } else {
             //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
             //this is the default sorting
-            return view('repertoire', [
-                'songs' => $songs->sortBy('title'),
-                'favourites' => $favourites
-            ]);
+            $key_values = array_column($songs, 'title');
+            array_multisort($key_values, SORT_ASC, $songs);
         }
+
+        return view('repertoire', [
+            'songs' => $songs,
+            'favourites' => $favourites
+        ]);
     }
 
     /**
