@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    protected $fillable = ['title', 'excerpt', 'body', 'thumbnail', 'active'];
+    protected $fillable = ['title', 'body', 'thumbnail', 'active'];
 
     public function scopeFilter($query, array $filters)
     {

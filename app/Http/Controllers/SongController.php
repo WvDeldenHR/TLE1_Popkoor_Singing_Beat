@@ -27,14 +27,14 @@ class SongController extends Controller
         //if there is a request 'sort' with value of 'Z-A'
         if (\request('sort') == 'Z-A') {
             return view('repertoire', [
-                'songs' => $songs->sortByDesc('name'),
+                'songs' => $songs->sortByDesc('title'),
                 'favourites' => $favourites
             ]);
         } else {
             //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
             //this is the default sorting
             return view('repertoire', [
-                'songs' => $songs->sortBy('name'),
+                'songs' => $songs->sortBy('title'),
                 'favourites' => $favourites
             ]);
         }
@@ -53,29 +53,47 @@ class SongController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     *
-     * @return RedirectResponse
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store()
+    public function store(Request $request)
     {
-//        todo: validation and security for songs
-        $audiofiles = request()->file('audioFiles');
-        $attributes = request()->all();
+        $request->validate([
+            'title' => 'required|max:255|unique:songs',
+            'artist' => 'required|max:255',
+            'album' => 'required|max:255',
+            'genre' => 'required|max:255',
+            'files' => 'required',
+            'files.*' => 'required|mimes:png,jpg,jpeg,bmp,gif,pdf,mp3,aac,wav|max:20048',
+        ]);
 
-//        cover art
-        $coverArt = request()->file('cover_art');
-        $coverArtName = pathinfo($coverArt->getClientOriginalName(), PATHINFO_FILENAME) . '[' . time() . ']';
-        $attributes['cover_art'] = $coverArt->storeAs('cover_arts', $coverArtName, 'public');
+        $song = new Song();
+        $song->title = $request->input('title');
+        $song->artist = $request->input('artist');
+        $song->album = $request->input('album');
+        $song->genre = $request->input('genre');
 
-//        loop through each audio file and store it with its original name
-        foreach ($audiofiles as $i => $audio) {
-            $audioName = pathinfo($audio->getClientOriginalName(), PATHINFO_FILENAME) . '[' . time() . ']';
-            $pathName = 'path_' . $i;
-            $attributes[$pathName] = $audio->storeAs('mp3', $audioName, 'public');
+        foreach ($request->file('files') as $i => $file) {
+            //Check if request has e.g. files_0 and it's not null, if this is not the case the file doesn't get stored
+            if ($request->has('files_' . $i)) {
+                if ($request->input('files_' . $i) !== null) {
+                    $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '_[' . time() . '].' . $file->getClientOriginalExtension();
+                    $pathName = $request->input('files_' . $i);
+
+                    $song->$pathName = $file->storeAs('songFiles', $fileName, 'public');
+                }
+            }
         }
 
-        Song::create($attributes);
-        return back();
+        if ($request->has('public')) {
+            $song->public = 1;
+        } else {
+            $song->public = 0;
+        }
+
+        $song->save();
+
+        return back()->with('status', 'Nummer is Succesvol aangemaakt');
     }
 
     /**

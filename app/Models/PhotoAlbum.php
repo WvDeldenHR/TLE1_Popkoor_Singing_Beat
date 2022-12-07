@@ -14,6 +14,7 @@ class PhotoAlbum extends Model
     protected $fillable = [
         'title',
         'description',
+        'public',
     ];
 
     public function photos(): HasMany

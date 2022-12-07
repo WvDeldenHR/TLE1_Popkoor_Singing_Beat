@@ -58,7 +58,7 @@ class PlaylistController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255|unique:title',
+            'title' => 'required|max:255|unique:playlists',
             'description' => 'required|max:1000',
         ]);
 
@@ -71,7 +71,8 @@ class PlaylistController extends Controller
         foreach ($request->songs as $song) {
             $playlist->songs()->attach($song);
         }
-        return redirect()->back();
+
+        return back()->with('status', 'Afspeellijst is Succesvol aangemaakt');
     }
 
     /**

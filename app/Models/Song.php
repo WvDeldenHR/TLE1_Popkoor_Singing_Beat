@@ -10,6 +10,9 @@ use Maize\Markable\Models\Favorite;
 
 class Song extends Model
 {
+    use HasFactory;
+
+    protected $table = 'songs';
     use markable;
 
     protected static array $marks = [
@@ -17,20 +20,22 @@ class Song extends Model
     ];
 
     protected $fillable = [
-        'name',
+        'title',
         'artist',
         'album',
-        'song_text',
-        'song_text_dutch',
-        'cover_art',
-        'path_0',
-        'path_1',
-        'path_2',
-        'path_3',
-        'path_4',
-        'path_5',
-        'active',
-        'genre'
+        'genre',
+        'public',
+        'path_song_text',
+        'path_song_text_dutch',
+        'path_sheets',
+        'path_directions',
+        'path_cover_art',
+        'path_track',
+        'path_track_instrumental',
+        'path_track_soprano',
+        'path_track_contralto',
+        'path_track_tenor',
+        'path_track_bass'
     ];
 
     public function scopeFilter($query, array $filters)
@@ -42,10 +47,18 @@ class Song extends Model
         }
     }
 
-    public function playlists(): BelongsToMany
+    public function playlists(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Playlist::class, 'playlist_track', 'track_id', 'playlist_id');
+        return $this->belongsToMany(Playlist::class, 'song_playlist', 'song_id', 'playlist_id');
     }
 
-    use HasFactory;
+    public static function sortAZ(): \Illuminate\Database\Eloquent\Collection|array
+    {
+        return Song::All()->sortBy('title');
+    }
+
+    public static function sortZA(): \Illuminate\Database\Eloquent\Collection|array
+    {
+        return Song::All()->sortByDesc('title');
+    }
 }
