@@ -7,6 +7,9 @@
     </section>
     <section class="section">
         <div class="container">
+            @if (session('status'))
+                <h6 class="alert alert-success">{{ session('status') }}</h6>
+            @endif
             <form class="form w-75" method="post" action="{{route('playlists.store')}}" enctype="multipart/form-data">
                 @csrf
                 {{--                    title--}}
