@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'nl',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -106,7 +106,7 @@ return [
     |
     */
 
-    'faker_locale' => 'nl_NL',
+    'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------
@@ -140,7 +140,6 @@ return [
          * Laravel Framework Service Providers...
          */
         Illuminate\Auth\AuthServiceProvider::class,
-        Jenssegers\Date\DateServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
@@ -202,7 +201,7 @@ return [
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
-        'Date' => Jenssegers\Date\Date::class,
+        'Date' => Illuminate\Support\Facades\Date::class,
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
