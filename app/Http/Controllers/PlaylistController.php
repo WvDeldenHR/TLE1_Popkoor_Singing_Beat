@@ -71,7 +71,8 @@ class PlaylistController extends Controller
         foreach ($request->songs as $song) {
             $playlist->songs()->attach($song);
         }
-        return redirect()->back();
+
+        return back()->with('status', 'Afspeellijst is Succesvol aangemaakt');
     }
 
     /**
