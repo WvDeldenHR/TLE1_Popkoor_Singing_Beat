@@ -58,7 +58,7 @@ class PlaylistController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255|unique:title',
+            'title' => 'required|max:255|unique:playlists',
             'description' => 'required|max:1000',
         ]);
 
