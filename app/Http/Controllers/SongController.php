@@ -35,24 +35,20 @@ class SongController extends Controller
 
         //if there is a request 'sort' with value of 'Z-A'
         if (\request('sort') == 'Z-A') {
-//            $key_values = array_column($songs, 'title');
-//            array_multisort($key_values, SORT_DESC, $songs);
+            $key_values = array_column($songs, 'title');
+            array_multisort($key_values, SORT_DESC, $songs);
 
-            return view('repertoire', [
-                'songs' => $songs,
-                'favourites' => $favourites
-            ]);
         } else {
             //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
             //this is the default sorting
-//            $key_values = array_column($songs, 'title');
-//            array_multisort($key_values, SORT_ASC, $songs);
-
-            return view('repertoire', [
-                'songs' => $songs,
-                'favourites' => $favourites
-            ]);
+            $key_values = array_column($songs, 'title');
+            array_multisort($key_values, SORT_ASC, $songs);
         }
+
+        return view('repertoire', [
+            'songs' => $songs,
+            'favourites' => $favourites
+        ]);
     }
 
     /**
