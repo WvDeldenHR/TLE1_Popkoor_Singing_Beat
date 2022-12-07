@@ -2,7 +2,7 @@
 @section('content')
     <section class="section">
         <div class="container">
-            <h1>{{$song->name}} - {{$song->artist}}</h1>
+            <h1>{{$song->title}} - {{$song->artist}}</h1>
             <h2>{{$song->album}} - {{$song->genre}}</h2>
         </div>
     </section>

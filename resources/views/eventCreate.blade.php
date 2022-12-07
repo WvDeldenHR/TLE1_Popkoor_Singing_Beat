@@ -17,7 +17,6 @@
                     <p>{{$message}}</p>
                     @enderror
                 </div>
-                {{--                    excerpt--}}
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="excerpt">Excerpt</label>
                     <input class="form-control" name="excerpt" id="excerpt" type="text" value="{{old('excerpt')}}"
