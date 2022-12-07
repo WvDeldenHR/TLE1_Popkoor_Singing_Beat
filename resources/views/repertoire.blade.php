@@ -1,6 +1,126 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @section('content')
-    <section class="section">
+<!-- <div class="loader"></div> -->
+
+    <section>
+        <div class="rp-content even-column-2-l-auto | d-grid">
+            <div class="rp-nav | px-4">
+                <div class="rp-header | px-3 pb-3">
+                    <h2 class="fs-800 fw-semi-bold">Repertoire</h2>
+                    <p class="fs-600 fw-medium">Alle Nummers</p>
+                </div>
+                <div>
+                    <ul class="rp-nav-list">
+                        <li class="rp-list-item">
+                            <a class="rp-list-link | fw-semi-bold" href=""><img src="img/icon/icon_playlist_001_212427_32x32.svg">Afspeellijsten</a>
+                        </li>
+                        <li class="rp-list-item">
+                            <a class="rp-list-link | fw-semi-bold" href="{{ route('favourites') }}"><img src="img/icon/icon_favorite_002_212427_32x32.svg">Favorieten</a>
+                        </li>
+                        <li class="rp-list-item">
+                            <a class="rp-list-link | fw-semi-bold" href="/songs/create"><img src="img/icon/icon_add_001_212427_32x32.svg">Toevoegen</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rp-list">
+                    <h3 class="fw-semi-bold">Recent Toegevoegde Afspeellijsten</h3>
+                    <div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="">
+                    <div class=""></div>
+                    <div class="rp-top-header-section | d-grid">
+                        <div class="rp-top-btn-genre | d-flex justify-content-center py-3"><h3 class="fw-semi-bold">Genre</h3><img src="img/icon/icon_arrow_down_001_212427_32x32.svg"></div>
+                        <div class="rp-top-btn-sort | d-flex justify-content-center rp-top-header-mid | py-3"><h3 class="fw-semi-bold">Sorteren</h3><img src="img/icon/icon_arrow_down_001_212427_32x32.svg"></div>
+                        <div class="d-flex justify-content-center py-3"><h3 class="fw-semi-bold">Favorieten</h3><img src="img/icon/icon_favorite_002_212427_32x32.svg"></div>
+                    </div>
+                    <div class="">
+                        <div class="rp-top-menu-genre">
+                            <button>Dance</button>
+                            <button>Pop</button>
+                        </div>
+                        <div class="rp-top-menu-sort">
+                            <form class="rp-top-menu-sort-form | d-grid" action="#" method="GET">
+                                <button type="submit" name="sort" value="A-Z">A-Z (Titel)</button>
+                                <button>A-Z (Artiest)</button>
+                                <button>Meest Recent</button>
+                                <button type="submit" name="sort" value="Z-A">Z-A (Titel)</button>
+                                <button>Z-A (Artiest)</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-content">
+                    <table class="w-100">
+                        <tr class="table-row-header">
+                            <th class="table-column-md | fw-semi-bold text-center">#</th>
+                            <th class="table-column-lg"></th>
+                            <th class="table-column-xxl | fw-semi-bold text-start">Titel</th>
+                            <th class="table-column-xxl | fw-semi-bold text-start">Artiest</th>
+                            <th class="table-column-xl | fw-semi-bold text-start">Genre</th>
+                            <th class="table-column-xl | fw-semi-bold">Datum Toegevoegd</th>
+                            <th class="table-column-sm"></th>
+                            <th class="table-column-sm"></th>
+                            <th class="table-column-lg"></th>
+                        </tr>
+                        @foreach($songs as $song)
+                        <tr class="table-row">
+                            <td class="table-column-md | fw-semi-bold text-center">1</td>
+                            <td class="table-column-lg">
+                                <img class="table-column-img" src="{{asset('storage/' . $song->path_cover_art)}}" alt="Albumhoes {{$song->title}}">
+                            </td>
+                            <td class="table-column-xxl-left | text-start">
+                                <div class="table-column-xxl-content-top">{{$song->title}}</div>
+                                <div class="table-column-xxl-content-bottom">{{$song->artist}}</div>
+                            </td>
+                            <td class="table-column-xxl-right | text-start">{{$song->artist}}</td>
+                            <td class="table-column-xl">{{$song->genre}}</td>
+                            <td class="table-column-xl | text-center">{{date("d-m-Y", strtotime($song->created_at))}}</td>
+                            <td class="table-column-sm">
+                                <img class="table-column-icon" src="img/icon/icon_favorite_002_212427_32x32.svg">
+                            </td>
+                            <td class="table-column-sm">
+                                <img class="table-column-icon" src="img/icon/icon_download_001_212427_32x32.svg">
+                            </td>
+                            <td class="table-column-lg">
+                                <a class="table-column-link" href="{{ route('songs.show', $song) }}"><img class="table-column-icon" src="img/icon/icon_more_001_212427_32x32.svg"></a>
+                                <button class="table-column-button" onclick="openNav()"><img class="table-column-icon" src="img/icon/icon_more_001_212427_32x32.svg"></button>
+                            </td>
+                            <div class="table-menu">
+                                <div class="table-menu-content | pt-7 px-3">
+                                    <img class="table-img" src="{{asset('storage/' . $song->path_cover_art)}}" alt="Albumhoes {{$song->title}}">
+                                    <div class="table-txt-content | pt-4 pb-5">
+                                        <p class="table-txt | fw-semi-bold text-center">{{$song->title}}</p>
+                                        <p class="table-txt | pb-2 text-center">{{$song->artist}}</p>
+                                        <p class="pt-2 text-center">{{$song->genre}}</p>
+                                        <p class="text-center">{{date("d-m-Y", strtotime($song->created_at))}}</p>
+                                    </div>
+                                </div>
+                                <ul class="table-list">
+                                    <li class="table-list-item"><a class="table-list-link | fs-500 fw-semi-bold" href="">
+                                            <img class="table-list-icon" src="img/icon/icon_favorite_002_212427_32x32.svg">Favoriet</a></li>
+                                    <li class="table-list-item"><a class="table-list-link | fs-500 fw-semi-bold" href="">
+                                            <img class="table-list-icon" src="img/icon/icon_download_001_212427_32x32.svg">Download</a></li>
+                                    <li class="table-list-item"><a class="table-list-link | fs-500 fw-semi-bold" href="{{ route('songs.show', $song) }}">
+                                            <img class="table-list-icon" src="img/icon/icon_more_001_212427_32x32.svg">Details</a></li>
+                                </ul>
+                                <div class="table-bottom | py-4 fw-bold text-center"><button class="table-close">Sluiten</button></div>
+                            </div>
+                        </tr>                        
+                        @endforeach
+                    </table>
+                </div>
+            </div>
+    </section>
+@endsection
+
+
+<!-- 
+<section class="section">
         <div class="container">
             <h1>Repertoire</h1>
         </div>
@@ -11,25 +131,12 @@
             <a class="link-primary" href="{{route('favourites')}}">Favourites</a>
             <table class="table w-25">
                 <tr>
-                    <th>Cover</th>
-                    <th>Name</th>
-                    <th>Artist</th>
                     <th>Album</th>
-                    <th>Genre</th>
-                    <th>Details</th>
                     <th></th>
                 </tr>
                 @foreach($songs as $song)
                     <tr>
-                        <td>
-                            <img class="img-thumbnail" src="{{asset('storage/' . $song->path_cover_art)}}"
-                                 alt="Albumhoes {{$song->title}}">
-                        </td>
-                        <td>{{$song->title}}</td>
-                        <td>{{$song->artist}}</td>
                         <td>{{$song->album}}</td>
-                        <td>{{$song->genre}}</td>
-                        <td><a href="{{ route('songs.show', $song) }}">Details</a></td>
                         <td>
                             <form action="{{ route('song.favourite', $song->id) }}" method="post">
                                 @csrf
@@ -61,6 +168,4 @@
             </table>
         </div>
     </section>
-@endsection
-
-
+ -->

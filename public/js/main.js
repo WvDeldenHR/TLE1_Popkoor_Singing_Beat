@@ -36,37 +36,27 @@ navUser.addEventListener("click", () => {
 });
 
 //Song More Button Mobile
-const openSongMore = document.querySelector(".table-column-button");
-const closeSongMore = document.querySelector(".table-close");
+const openSongMore = document.querySelectorAll(".table-column-button");
+const closeSongMore = document.querySelectorAll(".table-close");
 const tableMenu = document.querySelector(".table-menu");
 
-openSongMore.addEventListener("click", () => {
-  tableMenu.toggleAttribute("open");
-});
-closeSongMore.addEventListener("click", () => {
-  tableMenu.toggleAttribute("open");
-});
+openSongMore.forEach((songButton) =>	 {     
+  songButton.addEventListener("click", (e) => {
+    console.log(e.target);
+    tableMenu.toggleAttribute("open");
+  });
+})
+closeSongMore.forEach((songButton) =>	 {     
+  songButton.addEventListener("click", (e) => {
+    tableMenu.toggleAttribute("open");
+  });
+})
 
 //Filter Down Buttons Mobile
 const genreBtn = document.querySelector(".rp-top-btn-genre");
 const genreMenu = document.querySelector(".rp-top-menu-genre");
 const sortBtn = document.querySelector(".rp-top-btn-sort");
 const sortMenu = document.querySelector(".rp-top-menu-sort");
-
-// genreBtn.addEventListener("click", () => {
-//   genreMenu.toggleAttribute("open");
-//   if (sortMenu.hasAttribute("open")) {
-//   sortMenu.toggleAttribute("close");
-//   } else {
-//     sortMenu.toggleAttribute("open");
-//   }
-// });
-// sortBtn.addEventListener("click", () => {
-//   sortMenu.toggleAttribute("open");
-//   if (genreMenu.hasAttribute("open")) {
-//     genreMenu.toggleAttribute("close");
-//     }
-// });
 
 let genreOpen = false;
 let sortOpen = false;
