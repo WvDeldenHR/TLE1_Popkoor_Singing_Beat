@@ -974,12 +974,12 @@ footer {
 .rp-top-menu-sort, .rp-top-menu-genre {
   display: none;
 }
-.rp-top-menu-sort[open], .rp-top-menu-genre[open] {
+.open_m{
   display: grid;
 }
-.rp-top-menu-sort[close], .rp-top-menu-genre[close] {
+/* .rp-top-menu-sort[close], .rp-top-menu-genre[close] {
   display: none;
-}
+} */
 
 .rp-top-menu-sort button {
   margin: 0.25rem;
