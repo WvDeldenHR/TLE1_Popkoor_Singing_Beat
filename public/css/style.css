@@ -914,7 +914,6 @@ footer {
 .rp-nav-top {
   display: grid;
   /* grid-template-columns: repeat(3,1fr); */
-  margin-bottom: 1.5rem;
 }
 
 .rp-nav-top-s {
@@ -942,9 +941,6 @@ footer {
 }
 
 @media (max-width: 50em) {
-  .rp-nav-top {
-    border-bottom: 2px solid var(--clr-neutral-400);
-  }
   .rp-nav-top-s {
     margin-left: 0;
     padding-block: 0.5rem;
@@ -955,6 +951,48 @@ footer {
 
 
 
+
+
+
+
+
+.rp-top-header-section {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.rp-top-header-section img {
+  padding-left: 0.5rem;
+  width: 24px;
+  height: 24px;
+}
+
+.rp-top-header-mid {
+  border-left: 2px solid var(--clr-neutral-400);
+  border-right: 2px solid var(--clr-neutral-400);
+}
+
+.rp-top-menu-sort, .rp-top-menu-genre {
+  display: none;
+}
+.rp-top-menu-sort[open], .rp-top-menu-genre[open] {
+  display: grid;
+}
+.rp-top-menu-sort[close], .rp-top-menu-genre[close] {
+  display: none;
+}
+
+.rp-top-menu-sort button {
+  margin: 0.25rem;
+  border: 0;
+  padding: 0.1rem 0.35rem;
+  background-color: transparent;
+  font-weight: var(--fw-semi-bold);
+}
+
+.rp-top-menu-sort {
+  padding-block: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
 
 
 

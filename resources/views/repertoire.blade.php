@@ -29,8 +29,27 @@
             </div>
 
             <div>
-                <div class="rp-nav-top even-column-3">
-                    <div class="rp-nav-top-s">
+                <div class="">
+                    <div class=""></div>
+                    <div class="rp-top-header-section | d-grid">
+                        <div class="rp-top-btn-genre | d-flex justify-content-center py-3"><h3 class="fw-semi-bold">Genre</h3><img src="img/icon/icon_arrow_down_001_212427_32x32.svg"></div>
+                        <div class="rp-top-btn-sort | d-flex justify-content-center rp-top-header-mid | py-3"><h3 class="fw-semi-bold">Sorteren</h3><img src="img/icon/icon_arrow_down_001_212427_32x32.svg"></div>
+                        <div class="d-flex justify-content-center py-3"><h3 class="fw-semi-bold">Favorieten</h3><img src="img/icon/icon_favorite_002_212427_32x32.svg"></div>
+                    </div>
+                    <div class="">
+                        <div class="rp-top-menu-genre">
+                            <button>Dance</button>
+                            <button>Pop</button>
+                        </div>
+                        <div class="rp-top-menu-sort">
+                            <button>A-Z (Titel)</button>
+                            <button>A-Z (Artiest)</button>
+                            <button>Meest Recent</button>
+                            <button>Z-A (Titel)</button>
+                            <button>Z-A (Artiest)</button>
+                        </div>
+                    </div>
+                    <!-- <div class="rp-nav-top-s">
                         <h3 class="fw-semi-bold">Genre</h3>
                     </div>
                     <div class="rp-nav-top-center">
@@ -72,8 +91,8 @@
                             <button class="btn btn-primary mb-2" type="submit">Search</button>
                         </input>
                     </form>
-                </div>
-                </div>
+                </div>-->
+            </div>
 
 
                 <div class="table-content">

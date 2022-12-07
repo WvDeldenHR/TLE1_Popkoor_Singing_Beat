@@ -46,3 +46,18 @@ openSongMore.addEventListener("click", () => {
 closeSongMore.addEventListener("click", () => {
   tableMenu.toggleAttribute("open");
 });
+
+//Filter Down Buttons Mobile
+const genreBtn = document.querySelector(".rp-top-btn-genre");
+const genreMenu = document.querySelector(".rp-top-menu-genre");
+const sortBtn = document.querySelector(".rp-top-btn-sort");
+const sortMenu = document.querySelector(".rp-top-menu-sort");
+
+genreBtn.addEventListener("click", () => {
+  genreMenu.toggleAttribute("open");
+  sortMenu.toggleAttribute("close");
+});
+sortBtn.addEventListener("click", () => {
+  sortMenu.toggleAttribute("open");
+  genreMenu.toggleAttribute("close");
+});
