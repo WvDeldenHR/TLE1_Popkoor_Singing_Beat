@@ -8,6 +8,7 @@
     <x-search/>
     <section class="section">
         <div class="container">
+            <a class="link-primary" href="{{route('favourites')}}">Favourites</a>
             <table class="table w-25">
                 <tr>
                     <th>Cover</th>
