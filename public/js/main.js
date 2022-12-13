@@ -1,3 +1,15 @@
+//Loader
+window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader");
+  
+    loader.classList.add("loader--hidden");
+  
+    loader.addEventListener("transitionend", () => {
+        document.body.removeChild(loader);
+    });
+});
+
+
 //Hamburger Menu + Nav Drodown Menu
 const menuBtn = document.querySelector('.nav-hamburger-area');
 
@@ -24,6 +36,7 @@ navHamburger.addEventListener("click", () => {
     primaryHeader.toggleAttribute("open");
 });
 
+
 //Nav Dropdown Menu
 const navUser = document.querySelector(".nav-user");
 const dropdownContent = document.querySelector(".nav-dropdown");
@@ -33,6 +46,22 @@ navUser.addEventListener("click", () => {
         ? navUser.setAttribute("aria-expanded", false)
         : navUser.setAttribute("aria-expanded", true);
     dropdownContent.toggleAttribute("data-visible");
+});
+
+
+//Collapsable Content
+const collapsableBtn = document.querySelector(".genre-btn");
+const collapsableItem = document.querySelector(".rp-collapsable-content");
+
+let collapsableOpen = false;
+collapsableBtn.addEventListener('click', () => {
+    if (!collapsableOpen) {
+        collapsableItem.classList.add('d-none');
+        collapsableOpen = true;
+    } else {
+        collapsableItem.classList.remove('d-none');
+        collapsableOpen = false;
+    }
 });
 
 //Song More Button Mobile
@@ -57,34 +86,43 @@ tableSongs.addEventListener("click", (e) => {
     }
 });
 
-//Filter Down Buttons Mobile
-const genreBtn = document.querySelector(".rp-top-btn-genre");
-const genreMenu = document.querySelector(".rp-top-menu-genre");
-const sortBtn = document.querySelector(".rp-top-btn-sort");
-const sortMenu = document.querySelector(".rp-top-menu-sort");
+//Sidenav
+const filterBtn = document.querySelector(".filter-btn");
+const closeBtn = document.querySelector(".close-btn");
+const filterMenu = document.querySelector(".rp-sidenav");
 
-let genreOpen = false;
+filterBtn.addEventListener("click", () => {
+    filterMenu.toggleAttribute("sidenav-open");
+});
+closeBtn.addEventListener("click", () => {
+    filterMenu.toggleAttribute("sidenav-open");
+});
+
+//Filter Down Buttons Mobile
+const sortBtn = document.querySelector(".sort-btn");
+const sortMenu = document.querySelector(".rp-sort-sm");
+
 let sortOpen = false;
-genreBtn.addEventListener('click', () => {
-    if (!genreOpen) {
-        genreMenu.classList.add('open_m');
-        genreOpen = true;
-        sortMenu.classList.remove('open_m');
-        sortOpen = false;
+sortBtn.addEventListener('click', () => {
+    if (!sortOpen) {
+        sortMenu.classList.add('d-block');
+        sortOpen = true;
     } else {
-        genreMenu.classList.remove('open_m');
-        genreOpen = false;
+        sortMenu.classList.remove('d-block');
+        sortOpen = false;
     }
 });
 
-sortBtn.addEventListener('click', () => {
-    if (!sortOpen) {
-        sortMenu.classList.add('open_m');
-        sortOpen = true;
-        genreMenu.classList.remove('open_m');
-        genreOpen = false;
+const genreBtn = document.querySelector(".genre-btn-sm");
+const genreMenu = document.querySelector(".rp-genre-sm");
+
+let genreOpen = false;
+genreBtn.addEventListener('click', () => {
+    if (!genreOpen) {
+        genreMenu.classList.add('d-none');
+        genreOpen = true;
     } else {
-        sortMenu.classList.remove('open_m');
-        sortOpen = false;
+        genreMenu.classList.remove('d-none');
+        genreOpen = false;
     }
 });

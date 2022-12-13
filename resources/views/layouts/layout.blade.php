@@ -56,7 +56,8 @@
         </header>
 
         <main>
-        @yield('content')
+            <!-- @yield('loader') -->
+            @yield('content')
         </main>
 
         <footer class="mt-5">
