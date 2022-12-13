@@ -200,12 +200,12 @@ play_arrow
             // (A) PLAYER INIT
             // (A1) PLAYLIST - CHANGE TO YOUR OWN!
             let playlist = [
-                {name: "Alle Stempartijen", src: "{{asset('storage/songs/s1.mp3')}}"},
-                {name: "Alleen Bas", src: "{{asset('storage/songs/s2.mp3')}}"},
-                {name: "Alleen Tenor", src: "{{asset('storage/songs/s2.mp3')}}"},
-                {name: "Alleen Hoog", src: "{{asset('storage/songs/s2.mp3')}}"},
-                {name: "Alleen Midden hoog", src: "{{asset('storage/songs/s2.mp3')}}"},
-                {name: "Instrumental", src: "{{asset('storage/songs/s3.mp3')}}"}
+                {name: "Alle Stempartijen", src: "{{asset('storage/' .$song->path_track)}}"},
+                {name: "Instrumental", src: "{{asset('storage/' .$song->path_track_instrumental)}}"},
+                {name: "Alleen Hoog", src: "{{asset('storage/' .$song->path_track_soprano_1)}}"},
+                {name: "Alleen Midden hoog", src: "{{asset('storage/' .$song->path_track_contralto_1)}}"},
+                {name: "Alleen Tenor", src: "{{asset('storage/' .$song->path_track_tenor_1)}}"},
+                {name: "Alleen Bas", src: "{{asset('storage/' .$song->path_track_bass_1)}}"}
             ];
 
             // (A2) AUDIO PLAYER & GET HTML CONTROLS
