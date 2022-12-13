@@ -11,6 +11,7 @@
             <a class="link-primary" href="{{route('favourites')}}">Favourites</a>
             <table class="table w-25">
                 <tr>
+                    <th>#</th>
                     <th>Cover</th>
                     <th>Name</th>
                     <th>Artist</th>
@@ -19,22 +20,24 @@
                     <th>Details</th>
                     <th></th>
                 </tr>
-                @foreach($songs as $song)
+                @foreach($songs as $key => $song)
+                    {{--                    @dd(($favourites->has($song['id'], auth()->user()->id)));--}}
                     <tr>
+                        <td>{{$key + 1}}</td>
                         <td>
-                            <img class="img-thumbnail" src="{{asset('storage/' . $song->path_cover_art)}}"
-                                 alt="Albumhoes {{$song->title}}">
+                            <img class="img-thumbnail" src="{{asset('storage/' . $song['path_cover_art'])}}"
+                                 alt="Albumhoes {{$song['title']}}">
                         </td>
-                        <td>{{$song->title}}</td>
-                        <td>{{$song->artist}}</td>
-                        <td>{{$song->album}}</td>
-                        <td>{{$song->genre}}</td>
-                        <td><a href="{{ route('songs.show', $song) }}">Details</a></td>
+                        <td>{{$song['title']}}</td>
+                        <td>{{$song['artist']}}</td>
+                        <td>{{$song['album']}}</td>
+                        <td>{{$song['genre']}}</td>
+                        <td><a href="{{ route('songs.show', $song['id']) }}">Details</a></td>
                         <td>
-                            <form action="{{ route('song.favourite', $song->id) }}" method="post">
+                            <form action="{{ route('song.favourite', $song['id']) }}" method="post">
                                 @csrf
                                 <button class="btn
-                                @if(\Maize\Markable\Models\Favorite::has($song, auth()->user()))
+                                @if($song['isFavorite'])
                                     btn-warning
                                 @else
                                     btn-light
