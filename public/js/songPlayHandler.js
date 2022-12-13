@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
     // (A) PLAYER INIT
     // (A1) PLAYLIST - CHANGE TO YOUR OWN!
-
+    // gets loaded in song.blade.php because access to db and php variables is needed
 
     // (A2) AUDIO PLAYER & GET HTML CONTROLS
     const audio = new Audio(),
