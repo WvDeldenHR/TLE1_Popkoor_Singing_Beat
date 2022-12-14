@@ -12,16 +12,29 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('songs', SongController::class);
-Route::post('songs/{song:id}/favourite', [SongController::class, 'favourite'])->name('song.favourite');
-Route::get('favourites', [SongController::class, 'showFavourites'])->name('favourites');
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('songs', SongController::class);
+});
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('songs/{song:id}/favourite', [SongController::class, 'favourite'])->name('song.favourite');
+});
 
-Route::resource('playlists', PlaylistController::class);
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('favourites', [SongController::class, 'showFavourites'])->name('favourites');
+});
 
-Route::resource('photos', PhotoController::class);
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('playlists', PlaylistController::class);
+});
 
-Route::resource('PhotoAlbums', PhotoAlbumController::class);
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('photos', PhotoController::class);
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('PhotoAlbums', PhotoAlbumController::class);
+});
 
 Route::resource('events', EventController::class);
 
