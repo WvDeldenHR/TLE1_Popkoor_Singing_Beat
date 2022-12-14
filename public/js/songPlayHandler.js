@@ -2,6 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let autoPlayNextSong = 'false';
     let playlist = [];
 
+    //Pull all audio files from elements with audioFile class (located under downloads)
     for (let audioFile of document.querySelectorAll(".audioFile")) {
         playlist.push({name: audioFile.innerHTML, src: audioFile.href})
     }
