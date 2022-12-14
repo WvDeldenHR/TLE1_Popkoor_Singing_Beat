@@ -1,10 +1,16 @@
 window.addEventListener("DOMContentLoaded", () => {
+<<<<<<< HEAD
     let autoPlayNextSong = 'false';
     let playlist = [];
 
     for (let audioFile of document.querySelectorAll(".audioFile")) {
         playlist.push({name: audioFile.innerHTML, src: audioFile.href})
     }
+=======
+    // (A) PLAYER INIT
+    // (A1) PLAYLIST - CHANGE TO YOUR OWN!
+    // gets loaded in song.blade.php because access to db and php variables is needed
+>>>>>>> origin/feature/story_61_song_show
 
     // (A2) AUDIO PLAYER & GET HTML CONTROLS
     const audio = new Audio(),
@@ -31,7 +37,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // (B) PLAY MECHANISM
     // (B1) FLAGS
+<<<<<<< HEAD
     let audNow = 0, // current song
+=======
+    var audNow = 0, // current song
+>>>>>>> origin/feature/story_61_song_show
         audStart = false, // auto start next song
 
         // (B2) PLAY SELECTED SONG
@@ -57,6 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     // (B4) AUTOPLAY NEXT SONG IN THE PLAYLIST
+<<<<<<< HEAD
     if (autoPlayNextSong === 'true') {
         audio.addEventListener("ended", () => {
             audNow++;
@@ -64,6 +75,13 @@ window.addEventListener("DOMContentLoaded", () => {
             audPlay(audNow);
         });
     }
+=======
+    // audio.addEventListener("ended", () => {
+    //     audNow++;
+    //     if (audNow >= playlist.length) { audNow = 0; }
+    //     audPlay(audNow);
+    // });
+>>>>>>> origin/feature/story_61_song_show
 
     // (B5) INIT SET FIRST SONG
     audPlay(0, true);
@@ -88,7 +106,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // (D) TRACK PROGRESS
     // (D1) SUPPORT FUNCTION - FORMAT HH:MM:SS
+<<<<<<< HEAD
     let timeString = (secs) => {
+=======
+    var timeString = (secs) => {
+>>>>>>> origin/feature/story_61_song_show
         // HOURS, MINUTES, SECONDS
         let ss = Math.floor(secs),
             hh = Math.floor(ss / 3600),
@@ -120,7 +142,11 @@ window.addEventListener("DOMContentLoaded", () => {
         aSeek.max = Math.floor(audio.duration);
 
         // (E2) USER CHANGE SEEK BAR TIME
+<<<<<<< HEAD
         let aSeeking = false; // USER IS NOW CHANGING TIME
+=======
+        var aSeeking = false; // USER IS NOW CHANGING TIME
+>>>>>>> origin/feature/story_61_song_show
         aSeek.addEventListener("input", () => {
             aSeeking = true; // PREVENTS CLASH WITH (E3)
         });
@@ -158,3 +184,7 @@ window.addEventListener("DOMContentLoaded", () => {
         aSeek.disabled = true;
     });
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/feature/story_61_song_show
