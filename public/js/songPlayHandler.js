@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let playlist = [];
 
     for (let audioFile of document.querySelectorAll(".audioFile")) {
-        playlist.push({name: element.innerHTML, src: element.href})
+        playlist.push({name: audioFile.innerHTML, src: audioFile.href})
     }
 
     // (A2) AUDIO PLAYER & GET HTML CONTROLS
