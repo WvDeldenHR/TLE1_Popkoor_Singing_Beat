@@ -48,6 +48,7 @@
                 @if($song->path_track_bass_1 !== null)
                     <p class="songListItem" id="path_track_bass_1">{{asset('storage/' . $song->path_track_bass_1)}}</p>
                 @endif
+
                 @if($song->path_track_bass_2 !== null)
                     <p class="songListItem" id="path_track_bass_2">{{asset('storage/' . $song->path_track_bass_2)}}</p>
                 @endif
