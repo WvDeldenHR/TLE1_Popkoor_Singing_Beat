@@ -32,10 +32,14 @@ class Song extends Model
         'path_cover_art',
         'path_track',
         'path_track_instrumental',
-        'path_track_soprano',
-        'path_track_contralto',
-        'path_track_tenor',
-        'path_track_bass'
+        'path_track_soprano_1',
+        'path_track_contralto_1',
+        'path_track_tenor_1',
+        'path_track_bass_1',
+        'path_track_soprano_2',
+        'path_track_contralto_2',
+        'path_track_tenor_2',
+        'path_track_bass_2'
     ];
 
     public function scopeFilter($query, array $filters)
