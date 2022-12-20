@@ -64,7 +64,7 @@
                 <div class="mb-3">
                     <label for="public">Te vinden op openbare website?</label>
                     <input
-                        type="checkbox" id="public" name="public">
+                        type="checkbox" id="public" name="public" value="1" checked>
                     @error('public')
                     <p>{{$message}}</p>
                     @enderror
