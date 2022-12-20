@@ -1,26 +1,46 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+
 @section('content')
-    <section class="section">
-        <div class="container">
-            <h1>Playlists</h1>
-        </div>
-    </section>
-    <x-search/>
-    <section class="section">
-        <div class="container">
-            <table class="table w-25">
-                <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                </tr>
-                @foreach($playlists as $playlist)
-                    <tr>
-                        <td>{{$playlist->title}}</td>
-                        <td>{{$playlist->description}}</td>
-                        <td><a href="{{ route('playlists.show', $playlist) }}">Details</a></td>
-                    </tr>
-                @endforeach
-            </table>
+    <section>
+        <div class="container | pt-5 px-3">
+            <div class="even-column-r-auto | d-grid align-items-center">
+                <div class="pl-header">
+                    <h1 class="fs-700 fw-bold">Afspeellijsten</h1>
+                </div>
+                <x-search-sm/>
+            </div>
+
+            <div class="pl-content | pb-3">
+                <h2 class="pt-4 pb-3 fs-600 fw-semi-bold ">Afspeellijst Toevoegen</h2>
+                <div class="pl-box-content | d-grid">
+                    <a class="pl-box content-box pl-box-icon-add | p-3" href="/playlists/create">
+                        <div class="pl-box-img"></div>
+                        <div class="pl-box-header | pt-3 fw-semi-bold">Toevoegen</div>
+                    </a>
+                </div>
+            </div>
+            <div class="pl-content | pb-3">
+                <h2 class="pt-4 pb-3 fs-600 fw-semi-bold ">Meest Recent</h2>
+                <div class="pl-box-content | d-grid">
+                    @foreach($playlists as $playlist)
+                        <a class="pl-box content-box pl-box-icon-playlist | p-3" href="{{ route('playlists.show', $playlist) }}">
+                            <div class="pl-box-img"></div>
+                            <div class="pl-box-header | pt-3 fw-semi-bold">{{$playlist->title}}</div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+            <div class="pl-content | pb-3">
+                <h2 class="pt-4 pb-3 fs-600 fw-semi-bold ">Alle Afspeellijsten</h2>
+                <div class="pl-box-content | d-grid">
+                    @foreach($playlists as $playlist)
+                        <a class="pl-box content-box pl-box-icon-playlist | p-3" href="{{ route('playlists.show', $playlist) }}">
+                            <div class="pl-box-img"></div>
+                            <div class="pl-box-header | pt-3 fw-semi-bold">{{$playlist->title}}</div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </section>
 @endsection

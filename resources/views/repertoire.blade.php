@@ -1,13 +1,10 @@
 @extends('layouts.layout')
 
 @section('content')
-    <section>
-        <div class="loader"></div>
-    </section>
-
+    <x-loader/>
     <section>
         <div class="rp-content even-column-l-auto | d-grid px-3">
-            <div class="rp-side-content">
+            <div class="rp-side-content container-sm">
                 <div class="rp-header-sm | px-3 pb-3">
                     <h1 class="fs-800 fw-semi-bold">Repertoire</h1>
                     <p class="rp-sub-header | fs-600 fw-medium">Alle Nummers</p>
@@ -39,30 +36,25 @@
             </div>
 
             <div class="rp-main-content container-sm">
-                <div class="rp-header-content even-column-r-auto | d-grid align-items-center">
+                <div class="even-column-r-auto | d-grid align-items-center">
                     <div class="rp-header">
                         <h1 class="fs-700 fw-semi-bold">Repertoire</h1>
                         <p class="rp-sub-header | fs-400 fw-semi-bold">Alle Nummers</p>
                     </div>
-                    <div class="rp-search">
-                        <form class="rp-search-form" action="#" method="GET">
-                            <input class="rp-search-bar | fs-500 w-100" type="text" placeholder="Zoeken..." name="search" value="{{request('search')}}">
-                            <button class="rp-search-btn" type="submit"></button>
-                        </form>
-                    </div>
+                    <x-search-sm/>
                 </div>
                 <div class="rp-collapsable-sm">
-                    <div class="rp-collasapble-sm-btn filter-btn | d-flex justify-content-center px-4">
+                    <div class="rp-collapsable-btn-sm | d-flex justify-content-center px-4">
                         <p class="fs-500 fw-semi-bold">Filteren</p>
-                        <img class="rp-collapsable-sm-img | ps-2" src="img/icon/icon_filter_001_212427_32x32.svg">
+                        <img class="rp-collapsable-sm-img | ps-2" src="img/icon/icon_filter_001_FFFFFF_32x32.svg">
                     </div>
                 </div>
-                <div class="">
-                    <div id="mySidenav" class="rp-sidenav">
+                <div>
+                    <div class="rp-sidenav">
                         <div class="rp-sidenav-header | d-grid align-items-center py-3 px-4 w-100">
                             <h2 class="fs-700 fw-semi-bold">Filteren</h2>
                             <div class="close-btn | d-flex justify-content-end fs-700 fw-semi-bold">
-                                <img class="rp-sidenav-cross" src="img/icon/icon_cross_001_212427_32x32.svg"></div>
+                                <img class="rp-sidenav-close" src="img/icon/icon_cross_001_212427_32x32.svg"></div>
                         </div>
                         <div class="rp-collapsable-btn sort-btn even-column-r-auto-sm | d-grid px-4">
                             <p class="fs-500 fw-semi-bold">Sorteren Op</p>
@@ -70,27 +62,16 @@
                         </div>
                         <div class="rp-collapsable-content-sm rp-sort-sm | py-2">
                             <form class="rp-sort-form" action="#" method="GET">
-                                <button class="rp-sort-btn rp-sort-azt | m-1 
-                                @if($currentSort == 'A-Z_Title')
-                                rp-sort-btn-active
-                                @endif
-                                " type="submit" name="sort" value="A-Z_Title">A-Z (Titel)</button>
-                                <button class="rp-sort-btn rp-sort-zat | m-1
-                                 @if($currentSort == 'Z-A_Title')
-                                rp-sort-btn-active
-                                @endif" type="submit" name="sort" value="Z-A_Title">Z-A (Titel)</button>
-                                <button class="rp-sort-btn rp-sort-aza | m-1
-                                 @if($currentSort == 'A-Z_Artist')
-                                rp-sort-btn-active
-                                @endif" type="submit" name="sort" value="A-Z_Artist">A-Z (Artiest)</button>
-                                <button class="rp-sort-btn rp-sort-zaa | m-1 
-                                @if($currentSort == 'Z-A_Artist')
-                                rp-sort-btn-active
-                                @endif" type="submit" name="sort" value="Z-A_Artist">Z-A (Artiest)</button>
-                                <button class="rp-sort-btn rp-sort-mr | m-1 
-                                @if($currentSort == 'Most_Recent')
-                                rp-sort-btn-active
-                                @endif" type="submit" name="sort" value="Most_Recent">Meest Recent</button>
+                                <button class="rp-sort-btn @if($currentSort == 'A-Z_Title') rp-sort-btn-active @endif | m-1" 
+                                        type="submit" name="sort" value="A-Z_Title">A-Z (Titel)</button>
+                                <button class="rp-sort-btn @if($currentSort == 'Z-A_Title') rp-sort-btn-active @endif | m-1" 
+                                        type="submit" name="sort" value="Z-A_Title">Z-A (Titel)</button>
+                                <button class="rp-sort-btn @if($currentSort == 'A-Z_Artist') rp-sort-btn-active @endif | m-1" 
+                                        type="submit" name="sort" value="A-Z_Artist">A-Z (Artiest)</button>
+                                <button class="rp-sort-btn @if($currentSort == 'Z-A_Artist') rp-sort-btn-active @endif | m-1" 
+                                        type="submit" name="sort" value="Z-A_Artist">Z-A (Artiest)</button>
+                                <button class="rp-sort-btn @if($currentSort == 'Most_Recent') rp-sort-btn-active @endif | m-1" 
+                                        type="submit" name="sort" value="Most_Recent">Meest Recent</button>
                             </form>
                         </div>
                         <div class="rp-collapsable-sm">
@@ -110,26 +91,17 @@
                     </div>
                 </div>
                 <div class="rp-sort | py-2">
-                    <form class="rp-sort-form" action="#" method="GET">
-                        <button class="rp-sort-btn rp-sort-azt | m-1 @if($currentSort == 'A-Z_Title')
-                                rp-sort-btn-active
-                                @endif" type="submit" name="sort" value="A-Z_Title">A-Z (Titel)</button>
-                        <button class="rp-sort-btn rp-sort-zat | m-1 
-                        @if($currentSort == 'Z-A_Title')
-                                rp-sort-btn-active
-                                @endif" type="submit" name="sort" value="Z-A_Title">Z-A (Titel)</button>
-                        <button class="rp-sort-btn rp-sort-aza | m-1 
-                        @if($currentSort == 'A-Z_Artist')
-                                rp-sort-btn-active
-                                @endif" type="submit" name="sort" value="A-Z_Artist">A-Z (Artiest)</button>
-                        <button class="rp-sort-btn rp-sort-zaa | m-1 
-                        @if($currentSort == 'Z-A_Artist')
-                                rp-sort-btn-active
-                                @endif" type="submit" name="sort" value="Z-A_Artist">Z-A (Artiest)</button>
-                        <button class="rp-sort-btn rp-sort-mr | m-1 
-                        @if($currentSort == 'Most_Recent')
-                                rp-sort-btn-active
-                                @endif" type="submit" name="sort" value="Most_Recent">Meest Recent</button>
+                    <form action="#" method="GET">
+                        <button class="rp-sort-btn @if($currentSort == 'A-Z_Title') rp-sort-btn-active @endif | m-1" 
+                                type="submit" name="sort" value="A-Z_Title">A-Z (Titel)</button>
+                        <button class="rp-sort-btn @if($currentSort == 'Z-A_Title') rp-sort-btn-active @endif | m-1" 
+                                type="submit" name="sort" value="Z-A_Title">Z-A (Titel)</button>
+                        <button class="rp-sort-btn @if($currentSort == 'A-Z_Artist') rp-sort-btn-active @endif | m-1" 
+                                type="submit" name="sort" value="A-Z_Artist">A-Z (Artiest)</button>
+                        <button class="rp-sort-btn @if($currentSort == 'Z-A_Artist') rp-sort-btn-active @endif | m-1" 
+                                type="submit" name="sort" value="Z-A_Artist">Z-A (Artiest)</button>
+                        <button class="rp-sort-btn @if($currentSort == 'Most_Recent') rp-sort-btn-active @endif | m-1" 
+                                type="submit" name="sort" value="Most_Recent">Meest Recent</button>
                     </form>
                 </div>
 
@@ -181,10 +153,10 @@
                                     </button>
                                 </td>
                                 <div class="table-menu song_{{$song['id']}}">
-                                    <div class="table-menu-content | pt-7 px-3">
+                                    <div class="table-menu-content | px-3">
                                         <img class="table-img" src="{{asset('storage/' . $song['path_cover_art'])}}"
                                              alt="Albumhoes {{$song['title']}}">
-                                        <div class="table-txt-content | pt-4 pb-5">
+                                        <div class="table-txt-content | pt-4">
                                             <p class="table-txt | fw-semi-bold text-center">{{$song['title']}}</p>
                                             <p class="table-txt | pb-2 text-center">{{$song['artist']}}</p>
                                             <p class="pt-2 text-center">{{$song['genre']}}</p>
@@ -202,14 +174,10 @@
                                             <div class="table-list-link | fs-500 fw-semi-bold">Favorieten</div>
                                         </button>
                                     </form>
-                                        <li class="table-list-item"><a class="table-list-link | fs-500 fw-semi-bold"
-                                                                       href="">
-                                                <img class="table-list-icon"
-                                                     src="img/icon/icon_download_001_212427_32x32.svg">Download</a></li>
-                                        <li class="table-list-item"><a class="table-list-link | fs-500 fw-semi-bold"
-                                                                       href="{{ route('songs.show', $song['id']) }}">
-                                                <img class="table-list-icon"
-                                                     src="img/icon/icon_more_001_212427_32x32.svg">Details</a></li>
+                                        <li class="table-list-item"><a class="table-list-link | fs-500 fw-semi-bold" href="">
+                                            <img class="table-list-icon" src="img/icon/icon_download_001_212427_32x32.svg">Download</a></li>
+                                        <li class="table-list-item"><a class="table-list-link | fs-500 fw-semi-bold" href="{{ route('songs.show', $song['id']) }}">
+                                            <img class="table-list-icon" src="img/icon/icon_more_001_212427_32x32.svg">Details</a></li>
                                     </ul>
                                     <div class="table-bottom | py-4 fw-bold text-center">
                                         <button class="table-close">Sluiten</button>

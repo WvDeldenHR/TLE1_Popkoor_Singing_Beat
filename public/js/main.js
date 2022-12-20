@@ -37,7 +37,7 @@ navHamburger.addEventListener("click", () => {
 });
 
 
-//Nav Dropdown Menu
+//Nav Dropdown
 const navUser = document.querySelector(".nav-user");
 const dropdownContent = document.querySelector(".nav-dropdown");
 
@@ -49,7 +49,21 @@ navUser.addEventListener("click", () => {
 });
 
 
+//Sidenav
+const filterBtn = document.querySelector(".rp-collapsable-btn-sm");
+const closeBtn = document.querySelector(".close-btn");
+const filterMenu = document.querySelector(".rp-sidenav");
+
+filterBtn.addEventListener("click", () => {
+    filterMenu.toggleAttribute("sidenav-open");
+});
+closeBtn.addEventListener("click", () => {
+    filterMenu.toggleAttribute("sidenav-open");
+});
+
+
 //Collapsable Content
+//Collapsable Content - Filter Desktop
 const collapsableBtn = document.querySelector(".genre-btn");
 const collapsableItem = document.querySelector(".rp-collapsable-content");
 
@@ -64,41 +78,8 @@ collapsableBtn.addEventListener('click', () => {
     }
 });
 
-//Song More Button Mobile
-const tableSongs = document.querySelector("#table-songs");
-const tableMenu = document.querySelectorAll(".table-menu");
 
-//Add event listener to entire table, not (possibly) 500 buttons
-tableSongs.addEventListener("click", (e) => {
-    if (e.target.parentElement.classList.contains('table-column-button')) {
-        let arrayClassnames = Array.from(e.target.parentElement.parentElement.parentElement.classList)
-        arrayClassnames.shift()
-        let clickedSong = arrayClassnames[0];
-
-        tableMenu.forEach((tableMenuItem) => {
-            if (tableMenuItem.classList.contains(clickedSong)) {
-                tableMenuItem.toggleAttribute("open");
-            }
-        });
-
-    } else if (e.target.classList.contains('table-close')) {
-        e.target.parentElement.parentElement.toggleAttribute("open");
-    }
-});
-
-//Sidenav
-const filterBtn = document.querySelector(".filter-btn");
-const closeBtn = document.querySelector(".close-btn");
-const filterMenu = document.querySelector(".rp-sidenav");
-
-filterBtn.addEventListener("click", () => {
-    filterMenu.toggleAttribute("sidenav-open");
-});
-closeBtn.addEventListener("click", () => {
-    filterMenu.toggleAttribute("sidenav-open");
-});
-
-//Filter Down Buttons Mobile
+//Collapsable Content - Filter Mobile
 const sortBtn = document.querySelector(".sort-btn");
 const sortMenu = document.querySelector(".rp-sort-sm");
 
@@ -124,5 +105,27 @@ genreBtn.addEventListener('click', () => {
     } else {
         genreMenu.classList.remove('d-none');
         genreOpen = false;
+    }
+});
+
+//Song More Button Mobile
+const tableSongs = document.querySelector("#table-songs");
+const tableMenu = document.querySelectorAll(".table-menu");
+
+//Add event listener to entire table, not (possibly) 500 buttons
+tableSongs.addEventListener("click", (e) => {
+    if (e.target.parentElement.classList.contains('table-column-button')) {
+        let arrayClassnames = Array.from(e.target.parentElement.parentElement.parentElement.classList)
+        arrayClassnames.shift()
+        let clickedSong = arrayClassnames[0];
+
+        tableMenu.forEach((tableMenuItem) => {
+            if (tableMenuItem.classList.contains(clickedSong)) {
+                tableMenuItem.toggleAttribute("open");
+            }
+        });
+
+    } else if (e.target.classList.contains('table-close')) {
+        e.target.parentElement.parentElement.toggleAttribute("open");
     }
 });

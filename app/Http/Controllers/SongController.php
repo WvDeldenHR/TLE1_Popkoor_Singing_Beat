@@ -47,7 +47,7 @@ class SongController extends Controller
         } else if (\request('sort') == 'A-Z_Artist') {
             $key_values = array_column($songs, 'artist');
             array_multisort($key_values, SORT_ASC, $songs);
-            $currentSort = 'Z-A_Artist';
+            $currentSort = 'A-Z_Artist';
 
         } else if (\request('sort') == 'Most_Recent') {
             $key_values = array_column($songs, 'created_at');
