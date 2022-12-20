@@ -5,7 +5,7 @@
 }
 
 /* (B) WRAPPER */
-#aWrap {
+#audioPlayerContainer {
     font-family: arial, sans-serif;
     display: flex;
     flex-wrap: wrap;
@@ -18,7 +18,7 @@
 }
 
 /* (C) PLAY/PAUSE BUTTON */
-#aPlay {
+#playButton {
     padding: 0;
     margin: 0;
     background: 0;
@@ -27,7 +27,7 @@
 }
 
 /* (D) TIME */
-#aCron {
+#playTime {
     font-size: 14px;
     color: #cbcbcb;
     margin: 0 10px;
@@ -35,7 +35,7 @@
 
 /* (E) RANGE SLIDERS */
 /* (E1) HIDE DEFAULT */
-#aWrap input[type="range"] {
+#audioPlayerContainer input[type="range"] {
     box-sizing: border-box;
     appearance: none;
     border: none;
@@ -47,21 +47,21 @@
     background: 0;
 }
 
-#aWrap input[type="range"]::-webkit-slider-thumb {
+#audioPlayerContainer input[type="range"]::-webkit-slider-thumb {
     appearance: none;
 }
 
 /* (E2) CUSTOM SLIDER TRACK */
-#aWrap input[type=range]::-webkit-slider-runnable-track {
+#audioPlayerContainer input[type=range]::-webkit-slider-runnable-track {
     background: #626262;
 }
 
-#aWrap input[type=range]::-moz-range-track {
+#audioPlayerContainer input[type=range]::-moz-range-track {
     background: #626262;
 }
 
 /* (E3) CUSTOM SLIDER BUTTON */
-#aWrap input[type=range]::-webkit-slider-thumb {
+#audioPlayerContainer input[type=range]::-webkit-slider-thumb {
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -69,7 +69,7 @@
     background: #fff;
 }
 
-#aWrap input[type=range]::-moz-range-thumb {
+#audioPlayerContainer input[type=range]::-moz-range-thumb {
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -78,12 +78,12 @@
 }
 
 /* (F) VOLUME */
-#aVolIco {
+#volumeIcon {
     margin: 0 10px;
 }
 
 /* (G) PLAYLIST */
-#aList {
+#playerPlaylist {
     width: 100%;
     padding: 10px;
     margin: 10px;
@@ -91,11 +91,11 @@
     background: #323232;
 }
 
-.aRow {
+.playerSong {
     cursor: pointer;
     padding: 10px 0;
 }
 
-.aRow.now {
+.playerSong.now {
     color: #fea;
 }

@@ -11,31 +11,31 @@
             @endif
             <div>
                 <h2>Afspelen</h2>
-                <div id="aWrap">
-                    <!-- Hidden variable for auto play-->
+                <div id="audioPlayerContainer">
+                    <!-- Hidden variable for autoplay-->
                     <div style="display: none" id="autoPlayNextSong">false</div>
 
                     <!-- (A) PLAY/PAUSE BUTTON -->
-                    <button id="aPlay" disabled>
-                        <span id="aPlayIco" class="material-icons">
+                    <button id="playButton" disabled>
+                        <span id="playButtonIcon" class="material-icons">
                             play_arrow
                         </span>
                     </button>
 
                     <!-- (B) TIME -->
-                    <div id="aCron">
-                        <span id="aNow"></span> / <span id="aTime"></span>
+                    <div id="playTime">
+                        <span id="currentTime"></span> / <span id="totalTime"></span>
                     </div>
 
                     <!-- (C) SEEK BAR -->
-                    <input id="aSeek" type="range" min="0" value="0" step="1" disabled/>
+                    <input id="progressBar" type="range" min="0" value="0" step="1" disabled/>
 
                     <!-- (D) VOLUME SLIDE -->
-                    <span id="aVolIco" class="material-icons">volume_up</span>
-                    <input id="aVolume" type="range" min="0" max="1" value="1" step="0.1" disabled/>
+                    <span id="volumeIcon" class="material-icons">volume_up</span>
+                    <input id="volumeControl" type="range" min="0" max="1" value="1" step="0.1" disabled/>
 
                     <!-- (E) PLAYLIST -->
-                    <div id="aList"></div>
+                    <div id="playerPlaylist"></div>
                 </div>
             </div>
 
