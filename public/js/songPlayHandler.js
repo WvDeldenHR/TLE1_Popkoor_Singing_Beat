@@ -20,24 +20,20 @@ window.addEventListener("DOMContentLoaded", () => {
         volumeIcon = document.getElementById("volumeIcon"),
         playerPlaylist = document.getElementById("playerPlaylist");
 
-    // Build playlist using the map function
-    const playlistRows = playlist.map((song, index) => {
+    // Build playlist
+    for (let i in playlist) {
         // Create a new div element for each song in the playlist
         let playerSong = document.createElement("div");
         playerSong.className = "playerSong";
-        playerSong.innerHTML = song["title"];
+        playerSong.innerHTML = playlist[i]["title"];
 
         // Add a click event listener to play the corresponding song when clicked
         playerSong.addEventListener("click", () => {
-            playAudio(index);
+            playAudio(i);
         });
-        return playerSong;
-    });
-
-    // Append the playlist rows to the playlist container
-    playlistRows.forEach((row) => {
-        playerPlaylist.appendChild(row);
-    });
+        playlist[i]["row"] = playerSong;
+        playerPlaylist.appendChild(playerSong);
+    }
 
 
     // Flag to determine if the current song should start playing
