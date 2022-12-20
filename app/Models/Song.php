@@ -41,7 +41,7 @@ class Song extends Model
     public function scopeFilter($query, array $filters)
     {
         if ($filters['search'] ?? false) {
-            $query->where('name', 'like', '%' . request('search') . '%')
+            $query->where('title', 'like', '%' . request('search') . '%')
                 ->orWhere('artist', 'like', '%' . request('search') . '%')
                 ->orWhere('genre', 'like', '%' . request('search') . '%');
         }

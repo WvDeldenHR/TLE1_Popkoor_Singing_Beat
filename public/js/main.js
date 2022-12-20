@@ -50,63 +50,72 @@ navUser.addEventListener("click", () => {
 
 
 //Sidenav
-const filterBtn = document.querySelector(".rp-collapsable-btn-sm");
-const closeBtn = document.querySelector(".close-btn");
-const filterMenu = document.querySelector(".rp-sidenav");
-
-filterBtn.addEventListener("click", () => {
-    filterMenu.toggleAttribute("sidenav-open");
-});
-closeBtn.addEventListener("click", () => {
-    filterMenu.toggleAttribute("sidenav-open");
-});
+if (document.querySelector(".rp-collapsable-btn-sm")) {
+    const filterBtn = document.querySelector(".rp-collapsable-btn-sm");
+    const closeBtn = document.querySelector(".close-btn");
+    const filterMenu = document.querySelector(".rp-sidenav");
+    
+    filterBtn.addEventListener("click", () => {
+        filterMenu.toggleAttribute("sidenav-open");
+    });
+    closeBtn.addEventListener("click", () => {
+        filterMenu.toggleAttribute("sidenav-open");
+    });
+}
 
 
 //Collapsable Content
 //Collapsable Content - Filter Desktop
-const collapsableBtn = document.querySelector(".genre-btn");
-const collapsableItem = document.querySelector(".rp-collapsable-content");
+if (document.querySelector(".genre-btn")) {
+    const collapsableBtn = document.querySelector(".genre-btn");
+    const collapsableItem = document.querySelector(".rp-collapsable-content");
 
-let collapsableOpen = false;
-collapsableBtn.addEventListener('click', () => {
-    if (!collapsableOpen) {
-        collapsableItem.classList.add('d-none');
-        collapsableOpen = true;
-    } else {
-        collapsableItem.classList.remove('d-none');
-        collapsableOpen = false;
-    }
-});
+    let collapsableOpen = false;
+    collapsableBtn.addEventListener('click', () => {
+        if (!collapsableOpen) {
+            collapsableItem.classList.add('d-none');
+            collapsableOpen = true;
+        } else {
+            collapsableItem.classList.remove('d-none');
+            collapsableOpen = false;
+        }
+    });
+}
 
 
 //Collapsable Content - Filter Mobile
-const sortBtn = document.querySelector(".sort-btn");
-const sortMenu = document.querySelector(".rp-sort-sm");
+if (document.querySelector(".sort-btn")) {
+    const sortBtn = document.querySelector(".sort-btn");
+    const sortMenu = document.querySelector(".rp-sort-sm");
 
-let sortOpen = false;
-sortBtn.addEventListener('click', () => {
-    if (!sortOpen) {
-        sortMenu.classList.add('d-block');
-        sortOpen = true;
-    } else {
-        sortMenu.classList.remove('d-block');
-        sortOpen = false;
-    }
-});
+    let sortOpen = false;
+    sortBtn.addEventListener('click', () => {
+        if (!sortOpen) {
+            sortMenu.classList.add('d-block');
+            sortOpen = true;
+        } else {
+            sortMenu.classList.remove('d-block');
+            sortOpen = false;
+        }
+    });
+}
 
-const genreBtn = document.querySelector(".genre-btn-sm");
-const genreMenu = document.querySelector(".rp-genre-sm");
+if(document.querySelector(".genre-btn-sm")){
+    const genreBtn = document.querySelector(".genre-btn-sm");
+    const genreMenu = document.querySelector(".rp-genre-sm");
+    
+    let genreOpen = false;
+    genreBtn.addEventListener('click', () => {
+        if (!genreOpen) {
+            genreMenu.classList.add('d-none');
+            genreOpen = true;
+        } else {
+            genreMenu.classList.remove('d-none');
+            genreOpen = false;
+        }
+    });
+}
 
-let genreOpen = false;
-genreBtn.addEventListener('click', () => {
-    if (!genreOpen) {
-        genreMenu.classList.add('d-none');
-        genreOpen = true;
-    } else {
-        genreMenu.classList.remove('d-none');
-        genreOpen = false;
-    }
-});
 
 //Song More Button Mobile
 const tableSongs = document.querySelector("#table-songs");

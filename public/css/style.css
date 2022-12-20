@@ -1469,6 +1469,12 @@ footer {
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 1rem;
 }
+.pl-box-content-lg {
+  display: grid;
+}
+.pl-box-content-sm {
+  display: none;
+}
 
 .pl-box {
   max-width: 14vw;
@@ -1497,6 +1503,10 @@ footer {
 }
 
 .pl-box-header {
+  width: 30vw;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   color: var(--clr-font-light);
 }
 
@@ -1511,6 +1521,12 @@ footer {
   }
   .pl-box-content {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .pl-box-content-lg {
+    display: none;
+  }
+  .pl-box-content-sm {
+    display: grid;
   }
   .pl-box-img {
     height: 8vh;
