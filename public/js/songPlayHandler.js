@@ -1,7 +1,11 @@
 window.addEventListener("DOMContentLoaded", () => {
-    // (A) PLAYER INIT
-    // (A1) PLAYLIST - CHANGE TO YOUR OWN!
-    // gets loaded in song.blade.php because access to db and php variables is needed
+    let autoPlayNextSong = 'false';
+    let playlist = [];
+
+    //Pull all audio files from elements with audioFile class (located under downloads)
+    for (let audioFile of document.querySelectorAll(".audioFile")) {
+        playlist.push({name: audioFile.innerHTML, src: audioFile.href})
+    }
 
     // (A2) AUDIO PLAYER & GET HTML CONTROLS
     const audio = new Audio(),
@@ -28,7 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // (B) PLAY MECHANISM
     // (B1) FLAGS
-    var audNow = 0, // current song
+    let audNow = 0, // current song
         audStart = false, // auto start next song
 
         // (B2) PLAY SELECTED SONG
@@ -54,11 +58,13 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     // (B4) AUTOPLAY NEXT SONG IN THE PLAYLIST
-    // audio.addEventListener("ended", () => {
-    //     audNow++;
-    //     if (audNow >= playlist.length) { audNow = 0; }
-    //     audPlay(audNow);
-    // });
+    if (autoPlayNextSong === 'true') {
+        audio.addEventListener("ended", () => {
+            audNow++;
+            if (audNow >= playlist.length) { audNow = 0; }
+            audPlay(audNow);
+        });
+    }
 
     // (B5) INIT SET FIRST SONG
     audPlay(0, true);
@@ -83,7 +89,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // (D) TRACK PROGRESS
     // (D1) SUPPORT FUNCTION - FORMAT HH:MM:SS
-    var timeString = (secs) => {
+    let timeString = (secs) => {
         // HOURS, MINUTES, SECONDS
         let ss = Math.floor(secs),
             hh = Math.floor(ss / 3600),
@@ -115,7 +121,7 @@ window.addEventListener("DOMContentLoaded", () => {
         aSeek.max = Math.floor(audio.duration);
 
         // (E2) USER CHANGE SEEK BAR TIME
-        var aSeeking = false; // USER IS NOW CHANGING TIME
+        let aSeeking = false; // USER IS NOW CHANGING TIME
         aSeek.addEventListener("input", () => {
             aSeeking = true; // PREVENTS CLASH WITH (E3)
         });
@@ -153,4 +159,3 @@ window.addEventListener("DOMContentLoaded", () => {
         aSeek.disabled = true;
     });
 });
-
