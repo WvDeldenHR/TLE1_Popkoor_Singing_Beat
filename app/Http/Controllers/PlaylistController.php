@@ -17,6 +17,7 @@ class PlaylistController extends Controller
     {
         $this->middleware('admin', ['only' => ['create', 'store', 'destroy']]);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,8 +25,12 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-
         $playlists = Playlist::latest()->filter(request(['search']))->get();
+        return view('playlists', [
+            'playlists' => $playlists->sortByDesc('id'),
+            'playlistsRecent' => Playlist::all()->sortByDesc('id')->skip(0)->take(4),
+            'playlistsAlphabetical' => $playlists->sortBy('title')
+        ]);
 
         // //if there is a request 'sort' with value of 'Z-A'
         // if (\request('sort') == 'Z-A') {
@@ -33,12 +38,8 @@ class PlaylistController extends Controller
         //         'playlists' => $playlists->sortByDesc('title')
         //     ]);
         // } else {
-            //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
-            //this is the default sorting
-            return view('playlists', [
-                'playlists' => $playlists->sortByDesc('id'),
-                'playlistAlfabetical' => $playlists->sortBy('title')
-            ]);
+        //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
+        //this is the default sorting
         // }
     }
 
