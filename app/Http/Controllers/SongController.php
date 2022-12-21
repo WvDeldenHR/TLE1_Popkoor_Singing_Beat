@@ -14,6 +14,10 @@ use Maize\Markable\Models\Favorite;
 
 class SongController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin', ['only' => ['create', 'store', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -53,7 +57,6 @@ class SongController extends Controller
             $key_values = array_column($songs, 'created_at');
             array_multisort($key_values, SORT_DESC, $songs);
             $currentSort = 'Most_Recent';
-
         } else {
             //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
             //this is the default sorting
