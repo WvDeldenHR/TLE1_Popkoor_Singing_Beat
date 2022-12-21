@@ -1,4 +1,5 @@
-<div class="container">
+<section class="section">
+    <div class="container">
         <form action="#" method="GET">
             <input class="form-control mb-4 w-25" type="text" name="search" placeholder="Search"
                    value="{{request('search')}}">
@@ -31,4 +32,6 @@
                 </svg>
             </button>
         </form>
-</div>
+    </div>
+</section>
+

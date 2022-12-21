@@ -27,19 +27,18 @@ class PlaylistController extends Controller
 
         $playlists = Playlist::latest()->filter(request(['search']))->get();
 
-        // //if there is a request 'sort' with value of 'Z-A'
-        // if (\request('sort') == 'Z-A') {
-        //     return view('playlists', [
-        //         'playlists' => $playlists->sortByDesc('title')
-        //     ]);
-        // } else {
+        //if there is a request 'sort' with value of 'Z-A'
+        if (\request('sort') == 'Z-A') {
+            return view('playlists', [
+                'playlists' => $playlists->sortByDesc('title')
+            ]);
+        } else {
             //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
             //this is the default sorting
             return view('playlists', [
-                'playlists' => $playlists->sortByDesc('id'),
-                'playlistAlfabetical' => $playlists->sortBy('title')
+                'playlists' => $playlists->sortBy('title')
             ]);
-        // }
+        }
     }
 
     /**
