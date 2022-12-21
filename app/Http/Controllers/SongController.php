@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\File;
 use Maize\Markable\Models\Favorite;
 
 class SongController extends Controller
@@ -18,6 +19,7 @@ class SongController extends Controller
     {
         $this->middleware('admin', ['only' => ['create', 'store', 'destroy']]);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -96,7 +98,8 @@ class SongController extends Controller
             'album' => 'required|max:255',
             'genre' => 'required|max:255',
             'files' => 'required',
-            'files.*' => 'required|mimes:png,jpg,jpeg,bmp,gif,pdf,mp3,aac,wav|max:20048',
+//              'files.*' => 'required|mimes:png,jpg,jpeg,bmp,gif,pdf,mp3,aac,wav|max:20048',
+            'file.*' => ['required', File::types(['png', 'jpg', 'jpeg', 'bmp', 'gif', 'pdf', 'mp3', 'aac', 'wav'])->max(20048)]
         ]);
 
         $song = new Song();
@@ -125,7 +128,7 @@ class SongController extends Controller
 
         $song->save();
 
-        return back()->with('status', 'Nummer is Succesvol aangemaakt');
+        return back()->with('status', 'Nummer is succesvol aangemaakt');
     }
 
     /**

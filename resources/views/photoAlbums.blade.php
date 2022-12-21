@@ -21,7 +21,8 @@
             <h2>Recente foto's</h2>
             <div class="grid">
                 @foreach($photos as $photo)
-                    <img class="object-fit-contain w-25 col-md" src="/storage/{{$photo->path}}" alt="">
+                    <img class="object-fit-contain w-25 col-md" style="object-fit: cover; width: 230px; height: 230px"
+                         src="/storage/{{$photo->path}}" alt="">
                 @endforeach
             </div>
         </div>
