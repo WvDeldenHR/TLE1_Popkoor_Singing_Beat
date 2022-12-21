@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="py-7">
-        <div class="hm-content-1 even-column-2-r-auto container | d-grid align-items-center w-100">
+        <div class="hm-content-1 even-column-r-auto container | d-grid align-items-center w-100">
             <div class="m-auto">
                 <img class="hm-img" src="img/popkoor_singing_beat_001.jpg">
              </div>
@@ -84,7 +84,7 @@
 
     <section class="py-6">
         <div class="hm-content-3 even-column-2 container | d-grid">
-            <div class="hm-box content-box even-column-2-l-auto | d-grid">
+            <div class="hm-box content-box even-column-l-auto | d-grid">
                 <div>
                     <span class="hm-circle"></span>
                 </div>
@@ -98,7 +98,7 @@
                     </p>
                 </div>
             </div>
-            <div class="hm-box content-box even-column-2-l-auto | d-grid">
+            <div class="hm-box content-box even-column-l-auto | d-grid">
                 <div>
                     <span class="hm-circle"></span>
                 </div>

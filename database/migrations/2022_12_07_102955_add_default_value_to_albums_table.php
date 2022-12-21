@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGenreToSongsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddGenreToSongsTable extends Migration
      */
     public function up()
     {
-        Schema::table('songs', function (Blueprint $table) {
-            $table->text('genre');
-            $table->boolean('active')->default(1)->change();
+        Schema::table('albums', function (Blueprint $table) {
+            $table->boolean('public')->default(1)->change();
         });
     }
 
@@ -26,8 +25,8 @@ class AddGenreToSongsTable extends Migration
      */
     public function down()
     {
-        Schema::table('songs', function (Blueprint $table) {
-            $table->dropColumn('genre');
+        Schema::table('albums', function (Blueprint $table) {
+            //
         });
     }
-}
+};
