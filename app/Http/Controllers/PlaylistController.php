@@ -13,6 +13,10 @@ use Illuminate\Http\Response;
 
 class PlaylistController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin', ['only' => ['create', 'store', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
