@@ -1,4 +1,50 @@
-@extends('layouts.layout')
+@section('content')
+    <section class="section">
+        <div class="container">
+            <h1>Repertoire</h1>
+        </div>
+    </section>
+    <x-search/>
+    <section class="section">
+        <div class="container">
+            <a class="link-primary" href="{{route('favourites')}}">Favourites</a>
+            <table class="table w-25">
+                <tr>
+                    <th>#</th>
+                    <th>Cover</th>
+                    <th>Name</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Genre</th>
+                    <th>Details</th>
+                    <th></th>
+                </tr>
+                @foreach($songs as $key => $song)
+                    {{--                    @dd(($favourites->has($song['id'], auth()->user()->id)));--}}
+                    <tr>
+                        <td>{{$key + 1}}</td>
+                        <td>
+                            <img class="img-thumbnail" src="{{asset('storage/' . $song['path_cover_art'])}}"
+                                 alt="Albumhoes {{$song['title']}}">
+                        </td>
+                        <td>{{$song['title']}}</td>
+                        <td>{{$song['artist']}}</td>
+                        <td>{{$song['album']}}</td>
+                        <td>{{$song['genre']}}</td>
+                        <td><a href="{{ route('songs.show', $song['id']) }}">Details</a></td>
+                        <td>
+                            <form action="{{ route('song.favourite', $song['id']) }}" method="post">
+                                @csrf
+                                <button class="btn
+                                @if($song['isFavorite'])
+                                    btn-warning
+                                @else
+                                    btn-light
+                                @endif
+                                    mb-2" type="submit">
+                                    <svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'
+                                         xmlns:xlink='http://www.w3.org/1999/xlink'>
+                                        <rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
 
 @section('content')
     <x-loader/>
