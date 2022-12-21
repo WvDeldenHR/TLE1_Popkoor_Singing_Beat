@@ -16,8 +16,10 @@
     <script src="{{ asset('js/fileExtensionGetter.js') }}" defer></script>
 
     <!-- Imports PDF-viewer -->
-    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf_viewer.min.css" rel="stylesheet" type="text/css" />
+    <script defer type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf_viewer.min.css" rel="stylesheet"
+          type="text/css"/>
     <script src="{{ asset('js/pdfViewer.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -74,21 +76,21 @@
                         <a class="nav-link" href="/events">Events</a>
                     </li>
                     @auth()
-                            @if(auth()->user()->role == 1)
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/events/create">Create event</a>
-                                </li>
-                            @endif
+                        @if(auth()->user()->role == 1)
+                            <li class="nav-item">
+                                <a class="nav-link" href="/events/create">Create event</a>
+                            </li>
+                        @endif
                     @endauth
                     @auth()
                         <li class="nav-item">
                             <a class="nav-link" href="/songs">Repertoire</a>
                         </li>
-                            @if(auth()->user()->role == 1)
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/songs/create">Create song</a>
-                                </li>
-                            @endif
+                        @if(auth()->user()->role == 1)
+                            <li class="nav-item">
+                                <a class="nav-link" href="/songs/create">Create song</a>
+                            </li>
+                        @endif
                     @endauth
                 <!-- Authentication Links -->
                     @guest
