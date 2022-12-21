@@ -10,7 +10,7 @@
         <div class="container">
             <div class="grid">
                 @foreach($photos as $photo)
-                    <img class="w-25 col-md" src="/storage/{{$photo->path}}" alt="">
+                    <img class="w-25 col-md" src="/storage/{{$photo->path}}" alt="Foto in {{$photoAlbum->title}}">
                 @endforeach
             </div>
         </div>
