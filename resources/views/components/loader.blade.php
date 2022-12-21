@@ -1,3 +1,0 @@
-<section>
-    <div class="loader"></div>
-</section>
