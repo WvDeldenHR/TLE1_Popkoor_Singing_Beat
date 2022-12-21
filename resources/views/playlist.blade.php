@@ -21,7 +21,7 @@
                     <tr>
                         <td>
                             <img class="img-thumbnail"
-                                 src="{{asset('storage/' . $song->cover_art)}}"
+                                 src="{{asset('storage/' . $song->path_cover_art)}}"
                                  alt="cover art {{$song->name}}">
                         </td>
                         <td>{{$song->name}}</td>
