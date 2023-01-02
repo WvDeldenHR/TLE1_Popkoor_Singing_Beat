@@ -4,12 +4,12 @@
     <x-loader/>
     <section>
         <div class="rp-content even-column-l-auto | d-grid px-3">
-            <div class="rp-side-content container-sm">
-                <div class="rp-header-sm | px-3 pb-3">
+            <div class="rp-side-content container-sm | border-end-2-lg">
+                <div class="rp-header-sm | border-bottom-2 px-3 pb-3">
                     <h1 class="fs-800 fw-semi-bold">Repertoire</h1>
                     <p class="rp-sub-header | fs-600 fw-medium">Alle Nummers</p>
                 </div>
-                <div class="rp-nav-list">
+                <div class="rp-nav-list | border-bottom-2">
                     <div class="rp-list-item-sm">
                         <a class="rp-list-link | d-flex align-items-center px-3 fs-500 fw-semi-bold" href="/playlists">
                             <img class="rp-list-img | py-2" src="img/icon/icon_playlist_001_212427_32x32.svg">Afspeellijsten</a>
@@ -19,16 +19,16 @@
                             <img class="rp-list-img | py-2" src="img/icon/icon_add_001_212427_32x32.svg">Toevoegen</a>
                     </div>
                 </div>
-                <div class="rp-collapsable | d-grid">
-                        <a class="rp-collapsable-btn | px-4 fs-500 fw-semi-bold" href="{{route('favourites')}}">Favorieten</a>
-                    <div class="rp-collapsable-btn genre-btn even-column-r-auto | d-grid px-4">
+                <div class="collapsable | d-grid">
+                        <a class="collapsable-btn | px-4 fs-500 fw-semi-bold" href="{{route('favourites')}}">Favorieten</a>
+                    <div class="collapsable-btn genre-btn even-column-r-auto | d-grid px-4">
                         <p class="fs-500 fw-semi-bold">Genre</p>
-                        <img class="rp-collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
+                        <img class="collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
                     </div>
                 </div>
-                <div class="rp-collapsable-content | py-2">
+                <div class="collapsable-content | py-2">
                     <div class="py-1 px-3">
-                        <label class="rp-collapsable-item">Dance
+                        <label class="collapsable-item">Dance
                             <input type="checkbox" /><span></span>
                         </label>
                     </div>
@@ -43,10 +43,10 @@
                     </div>
                     <x-search-sm/>
                 </div>
-                <div class="rp-collapsable-sm">
-                    <div class="rp-collapsable-btn-sm | d-flex justify-content-center px-4">
+                <div class="collapsable-sm">
+                    <div class="collapsable-btn-sm | d-flex justify-content-center px-4">
                         <p class="fs-500 fw-semi-bold">Filteren</p>
-                        <img class="rp-collapsable-sm-img | ps-2" src="img/icon/icon_filter_001_FFFFFF_32x32.svg">
+                        <img class="collapsable-sm-img | ps-2" src="img/icon/icon_filter_001_FFFFFF_32x32.svg">
                     </div>
                 </div>
                 <div>
@@ -56,11 +56,11 @@
                             <div class="close-btn | d-flex justify-content-end fs-700 fw-semi-bold">
                                 <img class="rp-sidenav-close" src="img/icon/icon_cross_001_212427_32x32.svg"></div>
                         </div>
-                        <div class="rp-collapsable-btn sort-btn even-column-r-auto-sm | d-grid px-4">
+                        <div class="collapsable-btn sort-btn even-column-r-auto-sm | d-grid px-4">
                             <p class="fs-500 fw-semi-bold">Sorteren Op</p>
-                            <img class="rp-collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
+                            <img class="collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
                         </div>
-                        <div class="rp-collapsable-content-sm rp-sort-sm | py-2">
+                        <div class="collapsable-content-sm rp-sort-sm | py-2">
                             <form class="rp-sort-form" action="#" method="GET">
                                 <button class="rp-sort-btn @if($currentSort == 'A-Z_Title') rp-sort-btn-active @endif | m-1" 
                                         type="submit" name="sort" value="A-Z_Title">A-Z (Titel)</button>
@@ -74,11 +74,11 @@
                                         type="submit" name="sort" value="Most_Recent">Meest Recent</button>
                             </form>
                         </div>
-                        <div class="rp-collapsable-sm">
-                                <a class="rp-collapsable-btn | px-4 fs-500 fw-semi-bold" href="{{route('favourites')}}">Favorieten</a>
-                            <div class="rp-collapsable-btn genre-btn-sm even-column-r-auto-sm | d-grid px-4">
+                        <div class="collapsable-sm">
+                                <a class="collapsable-btn | px-4 fs-500 fw-semi-bold" href="{{route('favourites')}}">Favorieten</a>
+                            <div class="collapsable-btn genre-btn-sm even-column-r-auto-sm | d-grid px-4">
                                 <p class="fs-500 fw-semi-bold">Genre</p>
-                                <img class="rp-collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
+                                <img class="collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
                             </div>
                         </div>
                         <div class="rp-collapsable-content-sm rp-genre-sm | py-2">
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="rp-sort | py-2">
+                <div class="rp-sort | border-top-2 py-2">
                     <form action="#" method="GET">
                         <button class="rp-sort-btn @if($currentSort == 'A-Z_Title') rp-sort-btn-active @endif | m-1" 
                                 type="submit" name="sort" value="A-Z_Title">A-Z (Titel)</button>

@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<section class="py-7">
+    <section class="py-7">
         <div class="hm-content-1 even-column-r-auto container | d-grid align-items-center w-100">
             <div class="m-auto">
                 <img class="hm-img" src="img/popkoor_singing_beat_001.jpg">
