@@ -68,7 +68,6 @@
         </header>
 
         <main>
-            <!-- @yield('loader') -->
             @yield('content')
         </main>
 
