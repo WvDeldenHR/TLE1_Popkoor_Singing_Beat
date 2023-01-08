@@ -14,10 +14,12 @@
                         <a class="rp-list-link | d-flex align-items-center px-3 fs-500 fw-semi-bold" href="/playlists">
                             <img class="rp-list-img | py-2" src="img/icon/icon_playlist_001_212427_32x32.svg">Afspeellijsten</a>
                     </div>
+                    @if(Auth::user()->role == 1)
                     <div class="rp-list-item">
-                        <a class="rp-list-link | d-flex align-items-center px-3 fs-500 fw-semi-bold" href="/songs/create">
+                        <a class="rp-list-link | d-flex align-items-center px-3 fs-500 fw-semi-bold" href="{{route('songs.create')}}">
                             <img class="rp-list-img | py-2" src="img/icon/icon_add_001_212427_32x32.svg">Toevoegen</a>
                     </div>
+                    @endif
                 </div>
                 <div class="collapsable | d-grid">
                         <a class="collapsable-btn | px-4 fs-500 fw-semi-bold" href="{{route('favourites')}}">Favorieten</a>

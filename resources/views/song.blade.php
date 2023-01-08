@@ -3,7 +3,7 @@
 @section('content')
     <section>
         <div class="player even-column-3 | d-grid py-3 px-4">
-            <div class="d-flex align-items-center">
+            <div class="player-start | d-flex align-items-center">
                 <div class="player-img">
                     @if($song->path_cover_art !== null)
                         <img class="img-thumbnail" src="{{asset('storage/' . $song->path_cover_art)}}" alt="Albumhoes {{$song->title}}">
@@ -30,10 +30,10 @@
                     </button>
 
                     <button class="player-button player-button-disabled | mx-3">
-                        <img class="player-icon-sm " src="/img/icon/icon_next_001_FFFFFF_32x32.svg">
+                        <img class="player-icon-sm" src="/img/icon/icon_next_001_FFFFFF_32x32.svg">
                     </button>
-                    <button class="player-button player-button-disabled">
-                        <img class="player-icon-sm" src="/img/icon/icon_repeat_001_FFFFFF_32x32.svg">
+                    <button class="player-button player-button-repeat player-button-disabled" id="repeatButton">
+                        <img class="player-icon-sm" id="repeatButtonIcon" src="/img/icon/icon_repeat_001_FFFFFF_32x32.svg">
                     </button>
                 </div>
 
@@ -41,14 +41,14 @@
                     <span class="player-time | fs-300" id="currentTimeTxt">0:00</span>
                     <div class="player-content | mt-2 mb-1 mx-2">
                         <div class="player-slider-track"></div>
-                        <input class="player-input" id="playerSlider" type="range" value="0" />
+                        <input class="player-input" id="playerToggle" type="range" value="0" />
                     </div>
                     <span class="player-time | fs-300" id="totalTimeTxt">0:00</span>
                 </div>
 
                 <div class="d-none" id="playerPlaylist"></div>
             </div>
-            <div class="d-flex align-items-center justify-content-end">
+            <div class="player-end | d-flex align-items-center justify-content-end">
                 <button class="player-button" id="muteButton">
                     <img class="player-icon-sm" id="muteButtonIcon" src="/img/icon/icon_sound_001_FFFFFF_32x32.svg">
                 </button>
@@ -60,12 +60,11 @@
         </div>
     </section>
 
-    <section class="section">
-        <div class="sg-box container even-column-l-auto | d-grid">
-            <!-- <div class="">
-                <a class="sg-btn | fs-400" href="/songs">< Terug naar Repertoire</a>
-            </div> -->
-
+    <section>
+        <div class="container | pt-5">
+            <a class="btn-size button-primary | fs-400" href="/songs">< Terug naar Repertoire</a>
+        </div>
+        <div class="sg-box container even-column-r-auto | d-grid pt-4">
             <div class="">
                 <div class="d-flex">
                     <div class="">
@@ -81,6 +80,12 @@
                     </div>
                 </div>
             </div>
+
+            @if(Auth::user()->role == 1)
+            <div>
+                <button class="btn-size button-primary-alt">Aanpassen</button>
+            </div>
+            @endif
         </div>
 
         <div >
