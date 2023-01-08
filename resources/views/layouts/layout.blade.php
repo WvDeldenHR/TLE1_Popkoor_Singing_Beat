@@ -51,16 +51,16 @@
                         @if (Route::has('login'))
                         <a class="nav-btn button-primary" href="{{ route('login') }}">Inloggen</a>
                         <a class="nav-user-icon-btn" href="{{ route('login') }}">
-                            <img class="nav-user-icon" src="/img/icon/icon_user_001_212427_32x32.svg">
+                            <img aria-hidden="true" alt="Profielfoto" class="nav-user-icon" src="/img/icon/icon_user_001_212427_32x32.svg">
                         </a>
                         @endif
                     @else
                         <div class="nav-user-btn button-primary" href="{{ route('login') }}">
                             <span>{{ Auth::user()->name }}</span>
-                            <img class="nav-user-avatar"src="/img/popkoor_singing_beat_001.jpg">
+                            <img aria-hidden="true" alt="Profielfoto" class="nav-user-avatar"src="/img/popkoor_singing_beat_001.jpg">
                         </div>
                         <button class="nav-user-icon-btn">
-                            <img class="nav-user-icon" src="/img/icon/icon_user_001_212427_32x32.svg">
+                            <img aria-hidden="true" alt="Profielfoto" class="nav-user-icon" src="/img/icon/icon_user_001_212427_32x32.svg">
                         </button>
                     @endguest
                 </div>
@@ -83,12 +83,12 @@
                 <ul class="footer-contact">
                     <li class="footer-list-item">contact@popkoorsingingbeat.nl</li>
                     <li class="footer-list-item">+31 018 163 9892</li>
-                    <li class="footer-list-item">Spijknisse, Nederland</li>
+                    <li class="footer-list-item">Spijkenisse, Nederland</li>
                 </ul>
                 <ul class="footer-socials | d-flex" role="list" aria-label="Social links">
-                    <li class="footer-socials-item | px-1"><a href="" aria-label="facebook"><img src="/img/icon/icon_socials_facebook_001_212427_32x32.svg"></a></li>
-                    <li class="footer-socials-item | px-1"><a href="" aria-label="instagram"><img src="/img/icon/icon_socials_instagram_001_212427_32x32.svg"></a></li>
-                    <li class="footer-socials-item | px-1"><a href="" aria-label="youtube"><img src="/img/icon/icon_socials_youtube_001_212427_32x32.svg"></a></li>
+                    <li class="footer-socials-item | px-1"><a href="" aria-label="facebook"><img aria-hidden="true" alt="" src="/img/icon/icon_socials_facebook_001_212427_32x32.svg"></a></li>
+                    <li class="footer-socials-item | px-1"><a href="" aria-label="instagram"><img aria-hidden="true" alt="" src="/img/icon/icon_socials_instagram_001_212427_32x32.svg"></a></li>
+                    <li class="footer-socials-item | px-1"><a href="" aria-label="youtube"><img aria-hidden="true" alt="" src="/img/icon/icon_socials_youtube_001_212427_32x32.svg"></a></li>
                 </ul>
                 <p class="footer-copyright | pt-3 fs-300 fw-light">© Popkoor Singing Beat 2001 - 2022</p>
             </div>

@@ -4,7 +4,7 @@
     <section class="py-7">
         <div class="hm-content-1 even-column-r-auto container | d-grid align-items-center w-100">
             <div class="m-auto">
-                <img class="hm-img" src="img/popkoor_singing_beat_001.jpg">
+                <img alt="Leden van het koor in de duinen op een trap" class="hm-img" src="img/popkoor_singing_beat_001.jpg">
              </div>
             <div class="hm-header-content">
                 <h1 class="hm-header">Zingen maakt blij</h1>
@@ -16,8 +16,8 @@
                     zingen is gewoon leuk, dat vinden wij nou ook!
                 </p>
                 <div class="d-flex justify-content-end">
-                    <a href="" aria-label="facebook"><img class="hm-icon | px-1" src="img/icon/icon_socials_facebook_001_5F3F6D_32x32.svg"></a>
-                    <a href="" aria-label="instagram"><img class="hm-icon | px-1" src="img/icon/icon_socials_instagram_001_5F3F6D_32x32.svg"></a>
+                    <a href="" aria-label="facebook"><img aria-hidden="true" alt="" class="hm-icon | px-1" src="img/icon/icon_socials_facebook_001_5F3F6D_32x32.svg"></a>
+                    <a href="" aria-label="instagram"><img aria-hidden="true" alt="" class="hm-icon | px-1" src="img/icon/icon_socials_instagram_001_5F3F6D_32x32.svg"></a>
                 </div>
             </div>
         </div>
