@@ -1,67 +1,78 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+
 @section('content')
-    <section class="section">
-        <div class="container">
-            <h1>Maak een nieuw nummer aan</h1>
+    <section>
+        <div class="container | pt-5">
+            <a class="btn-size button-primary-alt | fs-400" href="/songs">< Terug naar Repertoire</a>
         </div>
-    </section>
-    <section class="section">
-        <div class="container w-50">
-            <form method="post"
-                  action="{{ route('songs.store') }}"
-                  enctype="multipart/form-data">
+
+        <div class="container | pt-4">
+            <h1 class="fs-700 fw-semi-bold">Nummer Aanmaken</h1>
+            <form method="post" action="{{ route('songs.store') }}" enctype="multipart/form-data">
                 @csrf
-                {{-- title --}}
-                <div class="mb-3">
-                    <label class="form-label" for="title">Titel</label>
-                    <input class="form-control" name="title" id="title" type="text" value="{{old('title')}}">
+                <div class="sgc-box even-column-l-auto | d-grid px-4 py-4">
+                    <div>
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <div>
+                                <input class="form-control-file form-control sgc-input-btm" name="files[]" id="filesSongs" type="file" accept="" value="{{old('files')}}" multiple>
+                                
+                            </div>
+                            
+                            <div class="d-grid">
+                                <label class="fs-500 fw-semi-bold" for="files">Kies Alle Bestanden</label>
+                                    <sub>(denk aan: Audiobestanden, Albumhoes, Bladmuziek, Koorregie etc.)</sub>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid align-self-center">
+                        <div class="even-column-2 | d-grid">
+                            <div class="mx-2">
+                                <label class="pt-3 pb-2 fs-500 fw-semi-bold" for="title">Titel</label>
+                                    <input class="sg-input" name="title" id="title" type="text" value="{{old('title')}}">
+                            </div>
+                            <div class="mx-2">
+                                <label class="pt-3 pb-2 fs-500 fw-semi-bold" for="artist">Artist</label>
+                                    <input class="sg-input" name="artist" id="artist" type="text" value="{{old('artist')}}">
+                            </div>
+                        </div>
+                        <div class="d-grid even-column-2">
+                            <div class="mx-2">
+                                <label class="pt-3 pb-2 fs-500 fw-semi-bold" for="album">Album</label>
+                                    <input class="sg-input" name="album" id="album" type="text" value="{{old('album')}}">
+                            </div>
+                            <div class="mx-2">
+                                <label class="pt-3 pb-2 fs-500 fw-semi-bold" for="genre">Genre</label>
+                                <select class="form-control sg-select" id="genre" name="genre">
+                                    <option value=""></option>
+                                    <option value="Ballad">Ballad</option>
+                                    <option value="Blues">Blues</option>
+                                    <option value="Dance">Dance</option>
+                                    <option value="Disco">Disco</option>
+                                    <option value="Funk">Funk</option>
+                                    <option value="Pop">Pop</option>
+                                    <option value="RnB">RnB</option>
+                                    <option value="Rock">Rock</option>
+                                    <option value="RockAndRoll">Rock & Roll</option>
+                                    <option value="Soul">Soul</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                {{-- artist --}}
-                <div class="mb-3">
-                    <label class="form-label" for="artist">Artist</label>
-                    <input class="form-control" name="artist" id="artist" type="text" value="{{old('artist')}}">
+
+                <div id="inputField songFiles"></div>
+                <div class="d-flex justify-content-end">
+                    <button class="button-primary btn-size | mt-3" type="submit">Aanmaken</button>
                 </div>
-                {{-- album --}}
-                <div class="mb-3">
-                    <label class="form-label" for="album">Album</label>
-                    <input class="form-control" name="album" id="album" type="text" value="{{old('album')}}">
-                </div>
-                {{-- genre--}}
-                <div class="mb-3">
-                    <label class="form-label" for="genre">Genre</label>
-                    <select class="form-control form-select" id="genre" name="genre">
-                        <option value=""></option>
-                        <option value="Ballad">Ballad</option>
-                        <option value="Blues">Blues</option>
-                        <option value="Dance">Dance</option>
-                        <option value="Disco">Disco</option>
-                        <option value="Funk">Funk</option>
-                        <option value="Pop">Pop</option>
-                        <option value="RnB">RnB</option>
-                        <option value="Rock">Rock</option>
-                        <option value="RockAndRoll">Rock & Roll</option>
-                        <option value="Soul">Soul</option>
-                    </select>
-                </div>
-                {{-- Public or private --}}
-                <div class="mb-3">
-                    <label for="public">Te vinden op openbare website?</label>
-                    <input
-                        type="checkbox" id="public" name="public" value="1" checked>
-                </div>
-                {{-- all files --}}
-                <div class="mb-3">
-                    <label class="form-label" for="files">Kies Alle Bestanden</label>
-                    <sub>(denk aan: Audiobestanden, Albumhoes, Bladmuziek, Koorregie etc.)</sub>
-                    <input class="form-control-file form-control" name="files[]" id="filesSongs" type="file"
-                           accept="" value="{{old('files')}}" multiple>
-                </div>
-                <div id="inputField songFiles">
-                </div>
-                <button class="btn btn-primary mb-2" type="submit">Versturen</button>
             </form>
         </div>
+
+
+
+
     </section>
+
+
     {{--    succes message--}}
     @if (session('status'))
         <div class="alert alert-success text-center" role="alert">
