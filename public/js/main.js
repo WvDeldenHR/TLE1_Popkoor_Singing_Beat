@@ -50,8 +50,8 @@ navUser.addEventListener("click", () => {
 
 
 //Sidenav
-if (document.querySelector(".rp-collapsable-btn-sm")) {
-    const filterBtn = document.querySelector(".rp-collapsable-btn-sm");
+if (document.querySelector(".collapsable-btn-sm")) {
+    const filterBtn = document.querySelector(".collapsable-btn-sm");
     const closeBtn = document.querySelector(".close-btn");
     const filterMenu = document.querySelector(".rp-sidenav");
     
@@ -68,7 +68,7 @@ if (document.querySelector(".rp-collapsable-btn-sm")) {
 //Collapsable Content - Filter Desktop
 if (document.querySelector(".genre-btn")) {
     const collapsableBtn = document.querySelector(".genre-btn");
-    const collapsableItem = document.querySelector(".rp-collapsable-content");
+    const collapsableItem = document.querySelector(".collapsable-content");
 
     let collapsableOpen = false;
     collapsableBtn.addEventListener('click', () => {

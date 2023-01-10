@@ -10,6 +10,7 @@
                 <x-search-sm/>
             </div>
 
+            @if(Auth::user()->role == 1)
             <div class="pl-content | pb-3">
                 <h2 class="pt-4 pb-3 fs-600 fw-semi-bold ">Afspeellijst Toevoegen</h2>
                 <div class="pl-box-content | d-grid">
@@ -19,6 +20,7 @@
                     </a>
                 </div>
             </div>
+            @endif
             <div class="pl-content | pb-3">
                 <h2 class="pt-4 pb-3 fs-600 fw-semi-bold ">Meest Recent</h2>
                 <div class="pl-box-content pl-box-content-lg">
