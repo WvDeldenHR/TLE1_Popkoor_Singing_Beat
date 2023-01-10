@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-{{--    <x-loader/>--}}
+    <x-loader/>
     <section>
         <div class="rp-content even-column-l-auto | d-grid px-3">
             <div class="rp-side-content container-sm">
@@ -19,15 +19,15 @@
                             <img class="rp-list-img | py-2" src="img/icon/icon_add_001_212427_32x32.svg">Toevoegen</a>
                     </div>
                 </div>
-                <div class="rp-collapsable | d-grid">
-                    <div class="rp-collapsable-btn genre-btn even-column-r-auto | d-grid px-4">
+                <div class="collapsable | d-grid">
+                    <div class="collapsable-btn genre-btn even-column-r-auto | d-grid px-4">
                         <p class="fs-500 fw-semi-bold">Genre</p>
-                        <img class="rp-collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
+                        <img class="collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
                     </div>
                 </div>
-                <div class="rp-collapsable-content | py-2">
+                <div class="collapsable-content | py-2">
                     <div class="py-1 px-3">
-                        <label class="rp-collapsable-item">Dance
+                        <label class="collapsable-item">Dance
                             <input type="checkbox" /><span></span>
                         </label>
                     </div>
@@ -55,24 +55,24 @@
                             <div class="close-btn | d-flex justify-content-end fs-700 fw-semi-bold">
                                 <img class="rp-sidenav-close" src="img/icon/icon_cross_001_212427_32x32.svg"></div>
                         </div>
-                        <div class="rp-collapsable-btn sort-btn even-column-r-auto-sm | d-grid px-4">
+                        <div class="collapsable-btn sort-btn even-column-r-auto-sm | d-grid px-4">
                             <p class="fs-500 fw-semi-bold">Sorteren Op</p>
-                            <img class="rp-collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
+                            <img class="collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
                         </div>
-                        <div class="rp-collapsable-content-sm rp-sort-sm | py-2">
+                        <div class="collapsable-content-sm rp-sort-sm | py-2">
                             <form class="rp-sort-form" action="#" method="GET">
 
                             </form>
                         </div>
-                        <div class="rp-collapsable-sm">
-                            <div class="rp-collapsable-btn genre-btn-sm even-column-r-auto-sm | d-grid px-4">
+                        <div class="collapsable-sm">
+                            <div class="collapsable-btn genre-btn-sm even-column-r-auto-sm | d-grid px-4">
                                 <p class="fs-500 fw-semi-bold">Genre</p>
-                                <img class="rp-collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
+                                <img class="collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
                             </div>
                         </div>
-                        <div class="rp-collapsable-content-sm rp-genre-sm | py-2">
+                        <div class="collapsable-content-sm rp-genre-sm | py-2">
                             <div class="py-1 px-3">
-                                <label class="rp-collapsable-item">Dance
+                                <label class="collapsable-item">Dance
                                     <input type="checkbox" /><span></span>
                                 </label>
                             </div>
