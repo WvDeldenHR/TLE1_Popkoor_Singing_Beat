@@ -12,6 +12,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\File;
 use Maize\Markable\Models\Favorite;
+use Throwable;
 
 class SongController extends Controller
 {
@@ -127,9 +128,9 @@ class SongController extends Controller
         }
 
         $song->save();
-
         return back()->with('status', 'Nummer is succesvol aangemaakt');
     }
+
 
     /**
      * Display the specified resource.
@@ -137,7 +138,8 @@ class SongController extends Controller
      * @param int $id
      * @return Application|Factory|View
      */
-    public function show($id)
+    public
+    function show($id)
     {
         $song = Song::find($id);
         return view('song', compact('song'));
@@ -149,7 +151,8 @@ class SongController extends Controller
      * @param int $id
      * @return Response
      */
-    public function edit($id)
+    public
+    function edit($id)
     {
         //
     }
@@ -161,7 +164,8 @@ class SongController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public
+    function update(Request $request, $id)
     {
         //
     }
@@ -172,18 +176,21 @@ class SongController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         //
     }
 
-    public function favourite($id)
+    public
+    function favourite($id)
     {
         Favorite::toggle(Song::find($id), Auth::user());
         return redirect()->back();
     }
 
-    public function showFavourites()
+    public
+    function showFavourites()
     {
 
         //if there is a request 'sort' with value of 'Z-A'
