@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <x-loader/>
+{{--    <x-loader/>--}}
     <section>
         <div class="rp-content even-column-l-auto | d-grid px-3">
             <div class="rp-side-content container-sm">

@@ -23,6 +23,7 @@
         <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <link href="{{ asset('css/songPlayer.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/songPlayerPlaylist.css') }}" rel="stylesheet">
         <link href="{{ asset('css/pdfViewer.css') }}" rel="stylesheet">
     </head>
 

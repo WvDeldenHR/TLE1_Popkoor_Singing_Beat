@@ -2,7 +2,7 @@
 @section('content')
     <section class="section">
         <div class="container">
-            <h1>Maak een nieuwe playlist</h1>
+            <h1>Maak een nieuwe afspeellijst</h1>
         </div>
     </section>
     <section class="section">
@@ -35,13 +35,13 @@
                 <div class="col-md-4 mb-3">
                     <fieldset class="form-check">
                         @foreach($songs as $song)
-                            <input class="form-check-input" type="checkbox" name="songs[]" id="song-{{$song->name}}"
+                            <input class="form-check-input" type="checkbox" name="songs[]" id="song-{{$song->title}}"
                                    value="{{$song->id}}">
-                            <label class="form-check-label" for="song-{{$song->name}}">
-                                {{$song->name}} - {{$song->artist}}
+                            <label class="form-check-label" for="song-{{$song->title}}">
+                                {{$song->title}} - {{$song->artist}}
                             </label>
                             <br>
-                            @error('song-' . $song->name)
+                            @error('song-' . $song->title)
                             <span>{{$message}}</span>
                             @enderror
                         @endforeach

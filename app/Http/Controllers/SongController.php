@@ -99,7 +99,7 @@ class SongController extends Controller
             'genre' => 'required|max:255',
             'files' => 'required',
 //              'files.*' => 'required|mimes:png,jpg,jpeg,bmp,gif,pdf,mp3,aac,wav|max:20048',
-            'file.*' => ['required', File::types(['png', 'jpg', 'jpeg', 'bmp', 'gif', 'pdf', 'mp3', 'aac', 'wav'])->max(20048)]
+            'files.*' => ['required', File::types(['png', 'jpg', 'jpeg', 'bmp', 'gif', 'pdf', 'mp3', 'aac', 'wav'])->max(20048)]
         ]);
 
         $song = new Song();
