@@ -3,12 +3,12 @@ if (document.getElementById('filesSongs')) {
     let input = document.getElementById('filesSongs');
     let parentOfSelectContainer = document.getElementById('inputField songFiles');
 
-    //Set global class names for reused HTML elements
-    //Classes that are needed for a function, such as 'selectFiles' or 'optionFIles', are added separately.
-    let classesSelectContainer = 'mb-3';
-    let classesSelectElement = 'form-control form-select';
-    let classesFormLabel = 'form-label';
-    let classesErrorFiletype = '';
+//Set global class names for reused HTML elements
+//Classes that are needed for a function, such as 'selectFiles' or 'optionFIles', are added separately.
+let classesSelectContainer = 'd-grid py-3 px-4 my-2 sgc-content' ;
+let classesSelectElement = 'form-control form-select sgc-content-input';
+let classesFormLabel = 'form-label fw-semi-bold fs-500 pb-2';
+let classesErrorFiletype = '';
 
     //Select options
     const selectOptionsText = {
