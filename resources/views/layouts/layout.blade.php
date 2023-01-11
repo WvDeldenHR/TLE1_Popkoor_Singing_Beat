@@ -31,7 +31,7 @@
         <header class="primary-header container-lg">
             <div class="primary-header-content">
                 <a class="nav-logo" href="{{ route('home')}}">
-                    <img src="/img/popkoor_singing_beat_logo.svg" alt="Popkoor Singing Beat">
+                    <img  style="width: 5rem; height: 5rem" src="/img/popkoor_singing_beat_logo.svg" alt="Popkoor Singing Beat">
                 </a>
                 <div class="nav-hamburger-area" aria-controls="nav-hamburger">
                     <div class="nav-hamburger" aria-expanded="false"></div>
@@ -75,7 +75,7 @@
         <footer class="mt-5">
             <div class="footer-content even-column-3 container-lg">
                 <a class="footer-logo" href="{{ route('home')}}">
-                    <img src="/img/popkoor_singing_beat_logo.svg" alt="Popkoor Singing Beat">
+                    <img style="width: 10rem; height: 10rem" src="/img/popkoor_singing_beat_logo.svg" alt="Popkoor Singing Beat">
                 </a>
                 <ul class="footer-list" role="list" aria-label="Footer">
                     <li class="footer-list-item"><a class="footer-list-link" href="">Contact</a></li>
