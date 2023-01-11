@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('currentPage', 'Favorieten Repertoire')
 @section('content')
 {{--    <x-loader/>--}}
     <section>

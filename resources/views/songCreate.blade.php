@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('currentPage', 'Nieuw Nummer Aanmaken')
 @section('content')
     <section>
         <div class="container | pt-5">
@@ -15,9 +15,9 @@
                         <div class="d-flex flex-column align-items-center justify-content-center">
                             <div>
                                 <input class="form-control-file form-control sgc-input-btm" name="files[]" id="filesSongs" type="file" accept="" value="{{old('files')}}" multiple>
-                                
+
                             </div>
-                            
+
                             <div class="d-grid">
                                 <label class="fs-500 fw-semi-bold" for="files">Kies Alle Bestanden</label>
                                     <sub>(denk aan: Audiobestanden, Albumhoes, Bladmuziek, Koorregie etc.)</sub>

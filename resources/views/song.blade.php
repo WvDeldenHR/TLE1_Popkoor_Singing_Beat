@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('currentPage', 'Nummer ' . $song->title)
 @section('content')
     <section id="sectionSongPlayer">
         <div class="player even-column-3 | d-grid py-3 px-4">

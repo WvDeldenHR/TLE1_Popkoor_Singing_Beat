@@ -2,7 +2,7 @@
 @section('content')
     <section class="section">
         <div class="container">
-            <h1>Events</h1>
+            <h1>Evenementen</h1>
         </div>
     </section>
     <x-search/>
