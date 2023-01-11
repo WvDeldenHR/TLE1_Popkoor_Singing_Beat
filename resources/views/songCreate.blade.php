@@ -14,13 +14,14 @@
                     <div>
                         <div class="d-flex flex-column align-items-center justify-content-center">
                             <div>
-                                <input class="form-control-file form-control sgc-input-btm" name="files[]" id="filesSongs" type="file" accept="" value="{{old('files')}}" multiple>
+                                <input class="form-control-file form-control sgc-input-btm" name="files[]"
+                                       id="filesSongs" type="file" accept="" value="{{old('files')}}" multiple>
 
                             </div>
 
                             <div class="d-grid">
                                 <label class="fs-500 fw-semi-bold" for="files">Kies Alle Bestanden</label>
-                                    <sub>(denk aan: Audiobestanden, Albumhoes, Bladmuziek, Koorregie etc.)</sub>
+                                <sub>(denk aan: Audiobestanden, Albumhoes, Bladmuziek, Koorregie etc.)</sub>
                             </div>
                         </div>
                     </div>
@@ -28,17 +29,17 @@
                         <div class="even-column-2 | d-grid">
                             <div class="mx-2">
                                 <label class="pt-3 pb-2 fs-500 fw-semi-bold" for="title">Titel</label>
-                                    <input class="sg-input" name="title" id="title" type="text" value="{{old('title')}}">
+                                <input class="sg-input" name="title" id="title" type="text" value="{{old('title')}}">
                             </div>
                             <div class="mx-2">
                                 <label class="pt-3 pb-2 fs-500 fw-semi-bold" for="artist">Artist</label>
-                                    <input class="sg-input" name="artist" id="artist" type="text" value="{{old('artist')}}">
+                                <input class="sg-input" name="artist" id="artist" type="text" value="{{old('artist')}}">
                             </div>
                         </div>
                         <div class="d-grid even-column-2">
                             <div class="mx-2">
                                 <label class="pt-3 pb-2 fs-500 fw-semi-bold" for="album">Album</label>
-                                    <input class="sg-input" name="album" id="album" type="text" value="{{old('album')}}">
+                                <input class="sg-input" name="album" id="album" type="text" value="{{old('album')}}">
                             </div>
                             <div class="mx-2">
                                 <label class="pt-3 pb-2 fs-500 fw-semi-bold" for="genre">Genre</label>
@@ -66,13 +67,7 @@
                 </div>
             </form>
         </div>
-
-
-
-
     </section>
-
-
     {{--    succes message--}}
     @if (session('status'))
         <div class="alert alert-success text-center" role="alert">
