@@ -159,7 +159,7 @@
                                     @else
                                         {{--                                        ToDo: placeholder image--}}
                                         <img class="table-column-img"
-                                             src="{{asset('storage/' . $song['path_cover_art'])}}" alt="">
+                                             src="img/icon_default_album_cover_001.png" alt="">
                                     @endif
                                 </td>
                                 <td class="table-column-xxl-left | text-start">
