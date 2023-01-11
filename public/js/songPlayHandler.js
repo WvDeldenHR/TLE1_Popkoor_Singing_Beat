@@ -8,6 +8,12 @@ let playlist = [];
 let playState = 'play';
 let duration;
 
+window.addEventListener('keydown', function(e) {
+    if(e.code == "Space" && e.target == document.body) {
+        e.preventDefault();
+    }
+});
+
 //Check if either song player is present
 if (document.getElementById("sectionSongPlayerPlaylist") || document.getElementById("sectionSongPlayer")) {
 
@@ -195,7 +201,6 @@ if (document.getElementById("sectionSongPlayerPlaylist") || document.getElementB
         playButton.addEventListener('click', changePlayState);
         // Play/Pause Toggle on Spacebar
         document.body.onkeyup = function (e) {
-
             if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
                 changePlayState();
             }
