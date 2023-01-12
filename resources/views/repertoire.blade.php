@@ -12,7 +12,7 @@
                 <div class="rp-nav-list | border-bottom-2">
                     <div class="rp-list-item-sm">
                         <a class="rp-list-link | d-flex align-items-center px-3 fs-500 fw-semi-bold" href="/playlists">
-                            <img alt="" aria-hidden="true" class="rp-list-img | py-2" src="img/icon/icon_playlist_001_212427_32x32.svg">Afspeellijsten</a>
+                            <img class="rp-list-img | py-2" alt="" aria-hidden="true" src="img/icon/icon_playlist_001_212427_32x32.svg">Afspeellijsten</a>
                     </div>
                     @if(Auth::user()->role == 1)
                     <div class="rp-list-item">
@@ -22,7 +22,8 @@
                     @endif
                 </div>
                 <div class="collapsable | d-grid">
-                        <a class="collapsable-btn | px-4 fs-500 fw-semi-bold" href="{{route('favourites')}}">Favorieten</a>
+                        <a class="collapsable-btn | px-4 fs-500 fw-semi-bold" href="{{route('favourites')}}">
+                            <img alt="" aria-hidden="true" class="rp-list-img | py-2" src="img/icon/icon_add_001_212427_32x32.svg">Favorieten</a>
                     <div class="collapsable-btn genre-btn even-column-r-auto | d-grid px-4">
                         <p class="fs-500 fw-semi-bold">Genre</p>
                         <img alt="" aria-hidden="true" class="collapsable-img" src="img/icon/icon_arrow_down_001_212427_32x32.svg">
