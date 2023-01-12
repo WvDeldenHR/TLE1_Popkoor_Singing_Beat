@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('currentPage', 'Repertoire')
 @section('content')
     <x-loader/>
     <section>
@@ -12,8 +12,7 @@
                 <div class="rp-nav-list | border-bottom-2">
                     <div class="rp-list-item-sm">
                         <a class="rp-list-link | d-flex align-items-center px-3 fs-500 fw-semi-bold" href="/playlists">
-                            <img alt="" aria-hidden="true" class="rp-list-img | py-2"
-                                 src="img/icon/icon_playlist_001_212427_32x32.svg">Afspeellijsten</a>
+                            <img class="rp-list-img | py-2" alt="" aria-hidden="true" src="img/icon/icon_playlist_001_212427_32x32.svg">Afspeellijsten</a>
                     </div>
                     @if(Auth::user()->role == 1)
                         <div class="rp-list-item">
@@ -25,13 +24,8 @@
                     @endif
                 </div>
                 <div class="collapsable | d-grid">
-                    <a class="collapsable-btn | px-4 fs-500 fw-semi-bold" href="{{route('favourites')}}">
-                        <svg width="32.099998" height="30.637501" viewBox="0 0 32.1 30.6" version="1.1"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <polygon class="favorite"
-                                     points="16,1.5 20.6,10.7 31,12.2 23.5,19.4 25.3,29.5 16,24.7 6.7,29.5 8.5,19.4 1,12.2 11.4,10.7 "></polygon>
-                        </svg>
-                        Favorieten</a>
+                        <a class="collapsable-btn | px-4 fs-500 fw-semi-bold" href="{{route('favourites')}}">
+                            <img alt="" aria-hidden="true" class="rp-list-img | py-2" src="img/icon/icon_add_001_212427_32x32.svg">Favorieten</a>
                     <div class="collapsable-btn genre-btn even-column-r-auto | d-grid px-4">
                         <p class="fs-500 fw-semi-bold">Genre</p>
                         <img alt="" aria-hidden="true" class="collapsable-img"
@@ -159,7 +153,7 @@
                                     @else
                                         {{--                                        ToDo: placeholder image--}}
                                         <img class="table-column-img"
-                                             src="{{asset('storage/' . $song['path_cover_art'])}}" alt="">
+                                             src="img/icon_default_album_cover_001.png" alt="">
                                     @endif
                                 </td>
                                 <td class="table-column-xxl-left | text-start">

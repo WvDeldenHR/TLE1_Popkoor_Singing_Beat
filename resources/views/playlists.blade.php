@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('currentPage', 'Afspeellijsten')
 @section('content')
     <section>
         <div class="container | pt-5 px-3">

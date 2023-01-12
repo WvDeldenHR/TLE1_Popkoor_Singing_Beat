@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('currentPage', 'Afspeellijst ' . $playlist->title)
 @section('content')
     <x-loader/>
     <section id="sectionSongPlayerPlaylist">
@@ -148,7 +148,12 @@
                                                     <polygon class="favorite"
                                                              points="16,1.5 20.6,10.7 31,12.2 23.5,19.4 25.3,29.5 16,24.7 6.7,29.5 8.5,19.4 1,12.2 11.4,10.7 "/>
                                                 </svg>
-                                                <div class="table-list-link | fs-500 fw-semi-bold">Favorieten</div>
+                                                <div class="table-list-link | fs-500 fw-semi-bold">
+                                                    @if($song['isFavorite'])
+                                                        Verwijder van Favorieten
+                                                    @else
+                                                        Voeg toe aan Favorieten
+                                                    @endif</div>
                                             </button>
                                         </form>
                                     <li class="table-list-item"><a class="table-list-link | fs-500 fw-semi-bold"
