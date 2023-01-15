@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('currentPage', 'Homepagina')
+
 @section('content')
     <section class="py-7">
         <div class="hm-content-1 even-column-r-auto container | d-grid align-items-center w-100">
@@ -16,8 +16,10 @@
                     zingen is gewoon leuk, dat vinden wij nou ook!
                 </p>
                 <div class="d-flex justify-content-end">
-                    <a href="https://www.facebook.com/popkoorsingingbeat" aria-label="facebook"><img aria-hidden="true" alt="" class="hm-icon | px-1" src="img/icon/icon_socials_facebook_001_5F3F6D_32x32.svg"></a>
-                    <a href="https://www.instagram.com/explore/tags/popkoorsingingbeat/" aria-label="instagram"><img aria-hidden="true" alt="" class="hm-icon | px-1" src="img/icon/icon_socials_instagram_001_5F3F6D_32x32.svg"></a>
+                    <a href="https://www.facebook.com/popkoorsingingbeat" target="_blank" aria-label="facebook">
+                        <img class="hm-icon | px-1" aria-hidden="true" src="img/icon/icon_socials_facebook_001_5F3F6D_32x32.svg" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/explore/tags/popkoorsingingbeat/" target="_blank" aria-label="instagram">
+                        <img class="hm-icon | px-1" aria-hidden="true" src="img/icon/icon_socials_instagram_001_5F3F6D_32x32.svg" alt="Instagram"></a>
                 </div>
             </div>
         </div>

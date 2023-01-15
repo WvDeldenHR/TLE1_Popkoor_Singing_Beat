@@ -60,10 +60,11 @@
     </section>
 
     <section>
-        <div class="container | pt-5">
-            <div>
-                <a href="/playlists">Terug naar Afspeellijsten</a>
-            </div>
+        <div class="button-box container">
+            <a class="button-size button-primary | d-flex align-items-center fs-400" href="/playlists">
+                <img class="image-w-16 | me-1 py-1 pe-2" src="/img/icon/icon_arrow_left_001_FFFFFF_32x32.svg">Terug naar Afspeellijsten</a>
+        </div>
+        <div class="container | pt-3">
             <div>
                 <h1 class="fw-semi-bold">{{$playlist->title}}</h1>
             </div>

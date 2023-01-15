@@ -204,6 +204,13 @@ input:-webkit-autofill:active{
   margin-left: 1.5rem !important;
 }
 
+.me-1 {
+  margin-right: 0.25rem !important;
+}
+.me-2 {
+  margin-right: 0.5rem !important;
+}
+
 .my-2 {
   margin-top: 0.5rem !important;
   margin-bottom: 0.5rem !important;
@@ -290,6 +297,9 @@ input:-webkit-autofill:active{
   padding-left: 0.5rem !important;
 }
 
+.pe-2 {
+  padding-right: 0.5rem !important;
+}
 .pe-3 {
   padding-right: 1rem !important;
 }
@@ -480,9 +490,17 @@ input:-webkit-autofill:active{
   font-weight: var(--fw-extra-bold);
 }
 
-.image-invert {
+.image-invert-y {
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+}
+.image-invert-x {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+}
+
+.image-w-16 {
+  width: 16px;
 }
 
 /*  HTML Elements */
@@ -538,6 +556,21 @@ ul {
 .button-primary:hover, .button-primary-alt:hover, .button-primary:focus-visible, .button-primary-alt:focus-visible {
   color: var(--clr-font-light);
   background-color: var(--clr-primary-hover);
+}
+
+.button-box {
+  padding-top: 3rem;
+}
+@media screen and (max-width: 720px) {
+  .button-box {
+    padding-top: 1.5rem;
+  }
+}
+
+.button-size {
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  width: -moz-fit-content;
 }
 
 .content-box {
@@ -1112,7 +1145,7 @@ footer {
   opacity: 0.7;
 }
 
-.favorite-fill polygon.favorite {
+.favorite-fill polygon.favorite, .favorite-fill {
   fill: var(--clr-primary);
   stroke: var(--clr-primary);
 }
@@ -1484,6 +1517,10 @@ footer {
   width: 30vw;
 }
 
+.login-img img {
+  width: 15rem;
+}
+
 .login-input {
   border: var(--w-border-width-thin) solid var(--clr-border);
   border-radius: 0.5rem;
@@ -1704,6 +1741,9 @@ footer {
   height: 2rem;
   width: 2rem;
 }
+.rp-list-svg {
+  margin-top: -2px;
+}
 
 .rp-main-content {
   padding-inline: 3rem;
@@ -1842,12 +1882,10 @@ footer {
 .pl-box-icon-add {
   background: var(--clr-primary) url("/img/icon/icon_add_001_FFFFFF_32x32.svg") no-repeat center;
   background-size: 48px;
-  /* opacity: 0.7; */
 }
 .pl-box-icon-playlist {
   background: var(--clr-primary) url("/img/icon/icon_playlist_001_FFFFFF_32x32.svg") no-repeat center;
   background-size: 48px;
-  /* opacity: 0.7; */
 }
 
 .pl-box-header {
@@ -1925,10 +1963,6 @@ footer {
   border-top: 2px solid var(--clr-border);
 }
 
-.btn-size {
-  padding: 0.5rem 1rem;
-}
-
 .sg-input, .sg-select {
   border: var(--w-border-width-thin) solid var(--clr-border);
   border-radius: 0.5rem;
@@ -1998,4 +2032,8 @@ width: 100%;
 .sgc-content-input {
   border-radius: 0.5rem;
   border: 1px solid var(--clr-border);
+}
+
+.tb-test {
+  background-color: red;
 }

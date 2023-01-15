@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('currentPage', 'Nummer ' . $song->title)
+@section('currentPage', $song->title)
 @section('content')
     <section id="sectionSongPlayer">
         <div class="player even-column-3 | d-grid py-3 px-4">
@@ -21,7 +21,7 @@
                         <img class="player-icon-sm" src="/img/icon/icon_shuffle_001_FFFFFF_32x32.svg">
                     </button>
                     <button class="player-button | mx-3" id="backButton">
-                        <img class="player-icon-sm image-invert" src="/img/icon/icon_next_001_FFFFFF_32x32.svg">
+                        <img class="player-icon-sm image-invert-x" src="/img/icon/icon_next_001_FFFFFF_32x32.svg">
                     </button>
 
                     <button class="player-button | mx-2" id="playButton">
@@ -60,8 +60,9 @@
     </section>
 
     <section>
-        <div class="container | pt-5">
-            <a class="btn-size button-primary | fs-400" href="/songs">< Terug naar Repertoire</a>
+        <div class="button-box container">
+            <a class="button-size button-primary | d-flex align-items-center fs-400" href="/songs">
+                <img class="image-w-16 | me-1 py-1 pe-2" src="/img/icon/icon_arrow_left_001_FFFFFF_32x32.svg">Terug naar Repertoire</a>
         </div>
         <div class="sg-box container even-column-r-auto | d-grid pt-4">
             <div class="">
@@ -82,7 +83,7 @@
 
             @if(Auth::user()->role == 1)
             <div>
-                <button class="btn-size button-primary-alt">Aanpassen</button>
+                <button class="button-size button-primary-alt">Aanpassen</button>
             </div>
             @endif
         </div>
