@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('currentPage', 'Afspeellijst ' . $playlist->title)
+@section('currentPage', '- Afspeellijst ' . $playlist->title)
 @section('content')
     <x-loader/>
     <section id="sectionSongPlayerPlaylist">

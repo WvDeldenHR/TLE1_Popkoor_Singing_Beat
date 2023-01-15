@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('currentPage', '- Fotoalbums')
 @section('content')
     <section class="section">
         <div class="container">
