@@ -64,7 +64,7 @@
 
                 <div id="inputField songFiles"></div>
                 <div class="d-flex justify-content-end">
-                    <button class="button-primary btn-size | mt-3" type="submit">Aanmaken</button>
+                    <button class="button-primary button-size | mt-3" type="submit">Aanmaken</button>
                 </div>
             </form>
         </div>
