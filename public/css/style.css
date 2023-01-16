@@ -1666,18 +1666,19 @@ footer {
 /* Carousel */
 
 .slider-wrapper {
-    margin: 1rem;
+
     position: relative;
     overflow: hidden;
 }
 
-.hm-slides-container::-webkit-scrollbar{ /* Webkit based browsers */
-    display: none;
+.hm-slides-container {
+    scrollbar-width: none;
 }
+
 
 .hm-slides-container {
     /* height: calc(70vh - 1rem); */
-    max-width: 90rem;
+    max-width: 85rem;
     display: flex;
     overflow: scroll;
     scroll-behavior: smooth;
@@ -1721,10 +1722,11 @@ footer {
     /* flex: 1 0 100%; */
     flex-shrink: 0;
     flex-basis: auto;
-    max-width: 31.5vw;
+    max-width: 30.5vw;
+    margin-left: 0.75rem;
 }
 .hm-slide:nth-child(1) {
-    margin-left: -0.3rem;
+    margin-left: 0;
 }
 /*
 
