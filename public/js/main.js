@@ -11,6 +11,18 @@ window.addEventListener("load", () => {
 
 
 //Hamburger Menu + Nav Drodown Menu
+const primaryHeader = document.querySelector(".primary-header");
+const navHamburger = document.querySelector(".nav-hamburger-area");
+const primaryNav = document.querySelector(".nav");
+
+navHamburger.addEventListener("click", () => {
+    primaryNav.hasAttribute("open")
+        ? navHamburger.setAttribute("aria-expanded", false)
+        : navHamburger.setAttribute("aria-expanded", true);
+    primaryNav.toggleAttribute("open");
+    primaryHeader.toggleAttribute("open");
+});
+
 const menuBtn = document.querySelector('.nav-hamburger-area');
 
 let menuOpen = false;
@@ -22,18 +34,6 @@ menuBtn.addEventListener('click', () => {
         menuBtn.classList.remove('open');
         menuOpen = false;
     }
-});
-
-const primaryHeader = document.querySelector(".primary-header");
-const navHamburger = document.querySelector(".nav-hamburger");
-const primaryNav = document.querySelector(".nav");
-
-navHamburger.addEventListener("click", () => {
-    primaryNav.hasAttribute("open")
-        ? navHamburger.setAttribute("aria-expanded", false)
-        : navHamburger.setAttribute("aria-expanded", true);
-    primaryNav.toggleAttribute("open");
-    primaryHeader.toggleAttribute("open");
 });
 
 
