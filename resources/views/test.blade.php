@@ -154,6 +154,21 @@
                 </p>
                 <button class="button-primary">Lees Verder</button>
             </div>
+            <!--Carousel HTML https://webdesign.tutsplus.com/tutorials/how-to-build-a-simple-carousel-with-vanilla-javascript--cms-41734 -->           
+                            <section class="slider-wrapper">
+                <button class="slide-arrow" id="slide-arrow-prev">
+                    &#8249;
+                </button>
+                <button class="slide-arrow" id="slide-arrow-next">
+                    &#8250;
+                </button>
+                <ul class="slides-container" id="slides-container">
+                    <li class="slide"></li>
+                    <li class="slide"></li>
+                    <li class="slide"></li>
+                    <li class="slide"></li>
+                </ul>
+                </section>
             <!-- Content for the carousel -->
             <!--
             <div class="psb-carousel-column | d-flex flex-column align-items-center justify-content-center pt-5 pb-4 px-4">
