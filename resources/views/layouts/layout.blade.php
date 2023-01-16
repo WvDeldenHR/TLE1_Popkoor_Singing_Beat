@@ -86,11 +86,11 @@
                                 <li class="nav-dropdown-list-item | py-1 ps-2 pe-3">
                                     <a class="nav-dropdown-list-link | d-flex align-items-center fs-400 fw-semi-bold" href="">
                                         <img class="nav-user-icon" src="/img/icon/icon_user_001_212427_32x32.svg">Account</a></li>
-                                <li class="nav-dropdown-list-item nav-border-bottom | py-1 ps-2 pe-3">
+                                <li class="nav-dropdown-list-item border-bottom-1 | py-1 ps-2 pe-3">
                                     <a class="nav-dropdown-list-link | d-flex align-items-center fs-400 fw-semi-bold" href="{{ route('favourites') }}">
                                         <img class="nav-user-icon" src="/img/icon/icon_favorite_003_212427_32x32.svg">Favorieten</a></li>
                                 @if(Auth::user()->role == 1)
-                                <li class="nav-dropdown-list-item nav-border-bottom | py-1 ps-2 pe-3">
+                                <li class="nav-dropdown-list-item border-bottom-1 | py-1 ps-2 pe-3">
                                     <a class="nav-dropdown-list-link | d-flex align-items-center fs-400 fw-semi-bold" href="">
                                         <img class="nav-user-icon" src="/img/icon/icon_users_001_212427_32x32.svg">Leden Overzicht</a></li>
                                 @endif

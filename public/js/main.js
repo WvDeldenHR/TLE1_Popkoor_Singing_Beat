@@ -42,10 +42,11 @@ const navUser = document.querySelector(".nav-user");
 const dropdownContent = document.querySelector(".nav-dropdown");
 
 navUser.addEventListener("click", () => {
-    dropdownContent.hasAttribute("data-visible")
+    console.log("test")
+    dropdownContent.hasAttribute("dropdown-open")
         ? navUser.setAttribute("aria-expanded", false)
         : navUser.setAttribute("aria-expanded", true);
-    dropdownContent.toggleAttribute("data-visible");
+    dropdownContent.toggleAttribute("dropdown-open");
 });
 
 
