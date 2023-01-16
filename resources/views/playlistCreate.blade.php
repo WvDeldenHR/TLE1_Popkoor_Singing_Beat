@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('currentPage', 'Afspeellijst Aanmaken')
+@section('currentPage', '- Afspeellijst Aanmaken')
 @section('content')
     <section class="section">
         <div class="container">

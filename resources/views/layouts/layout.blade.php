@@ -59,7 +59,7 @@
                             <li class="nav-list-item"><a class="nav-list-link" href="">Over Ons</a></li>
                             <li class="nav-list-item"><a class="nav-list-link" href="/events">Evenementen</a></li>
                             <li class="nav-list-item"><a class="nav-list-link" href="/songs">Repertoire</a></li>
-                            <li class="nav-list-item"><a class="nav-list-link" href="/photos">Fotoalbums</a></li>
+                            <li class="nav-list-item"><a class="nav-list-link" href="/PhotoAlbums">Fotoalbums</a></li>
                             <li class="nav-list-item"><a class="nav-list-link" href="">Contact</a></li>
                         </ul>
                     </div>

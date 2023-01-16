@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Popkoor Singing Beat @yield('currentPage')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -54,31 +54,13 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
-                    @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="/playlists">Playlists</a>
-                        </li>
-                        @if(auth()->user()->role == 1)
-                            <li class="nav-item">
-                                <a class="nav-link" href="/playlists/create">Create playlist</a>
-                            </li>
-                        @endif
-                        <li class="nav-item">
-                            <a class="nav-link" href="/PhotoAlbums">Albums</a>
-                        </li>
-                        @if(auth()->user()->role == 1)
-                            <li class="nav-item">
-                                <a class="nav-link" href="/photos/create">Create albums</a>
-                            </li>
-                        @endif
-                    @endauth
                     <li class="nav-item">
-                        <a class="nav-link" href="/events">Events</a>
+                        <a class="nav-link" href="/events">Evenementen</a>
                     </li>
                     @auth()
                         @if(auth()->user()->role == 1)
                             <li class="nav-item">
-                                <a class="nav-link" href="/events/create">Create event</a>
+                                <a class="nav-link" href="/events/create">Nieuw Evenement</a>
                             </li>
                         @endif
                     @endauth
@@ -86,13 +68,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/songs">Repertoire</a>
                         </li>
-                        @if(auth()->user()->role == 1)
-                            <li class="nav-item">
-                                <a class="nav-link" href="/songs/create">Create song</a>
-                            </li>
-                        @endif
                     @endauth
-                <!-- Authentication Links -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/PhotoAlbums">Fotoalbums</a>
+                    </li>
+                    @if(auth()->user()->role == 1)
+                        <li class="nav-item">
+                            <a class="nav-link" href="/photos/create">Nieuw Fotoalbum</a>
+                        </li>
+                    @endif
+                    <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">

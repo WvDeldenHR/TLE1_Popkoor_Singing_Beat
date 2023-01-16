@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('currentPage', 'Nummer Aanmaken')
+@section('currentPage', '- Nummer Aanmaken')
 @section('content')
     <section>
         <div class="button-box container">
