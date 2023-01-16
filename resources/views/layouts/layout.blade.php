@@ -50,8 +50,8 @@
                 <a class="nav-logo" href="{{ route('home')}}">
                     <img src="/img/popkoor_singing_beat_logo.svg" alt="Popkoor Singing Beat">
                 </a>
-                <div class="nav-hamburger-area" aria-controls="nav-hamburger">
-                    <div class="nav-hamburger" aria-expanded="false"></div>
+                <div class="nav-hamburger-area" aria-controls="nav-hamburger" aria-expanded="false">
+                    <div class="nav-hamburger"></div>
                 </div>
                 <nav class="nav">
                     <div class="nav-content">
@@ -80,6 +80,30 @@
                         <button class="nav-user-icon-btn">
                             <img class="nav-user-icon" src="/img/icon/icon_user_001_212427_32x32.svg" aria-hidden="true" alt="Gebruiker">
                         </button>
+
+                        <div class="nav-dropdown content-box | flex-column">
+                            <ul class="py-2">
+                                <li class="nav-dropdown-list-item | py-1 ps-2 pe-3">
+                                    <a class="nav-dropdown-list-link | d-flex align-items-center fs-400 fw-semi-bold" href="">
+                                        <img class="nav-user-icon" src="/img/icon/icon_user_001_212427_32x32.svg">Account</a></li>
+                                <li class="nav-dropdown-list-item border-bottom-1 | py-1 ps-2 pe-3">
+                                    <a class="nav-dropdown-list-link | d-flex align-items-center fs-400 fw-semi-bold" href="{{ route('favourites') }}">
+                                        <img class="nav-user-icon" src="/img/icon/icon_favorite_003_212427_32x32.svg">Favorieten</a></li>
+                                @if(Auth::user()->role == 1)
+                                <li class="nav-dropdown-list-item border-bottom-1 | py-1 ps-2 pe-3">
+                                    <a class="nav-dropdown-list-link | d-flex align-items-center fs-400 fw-semi-bold" href="">
+                                        <img class="nav-user-icon" src="/img/icon/icon_users_001_212427_32x32.svg">Leden Overzicht</a></li>
+                                @endif
+                                <li class="nav-dropdown-list-item | py-1 ps-2 pe-3">
+                                    <a class="nav-dropdown-list-link | d-flex align-items-center fs-400 fw-semi-bold" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <img class="nav-user-icon" src="/img/icon/icon_logout_001_212427_32x32.svg">Uitloggen</a></li>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form> 
+                            </ul>
+                        </div>
                     @endguest
                 </div>
             </div>

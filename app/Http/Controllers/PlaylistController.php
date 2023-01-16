@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\playlist;
+use App\Models\Playlist;
 use App\Models\Song;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
