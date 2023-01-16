@@ -1,15 +1,18 @@
 @extends('layouts.layout')
-@section('currentPage', 'Afspeellijsten')
+@section('currentPage', '- Afspeellijsten')
 @section('content')
     <section>
-        <div class="container | pt-5 px-3">
+        <div class="button-box container">
+            <a class="button-size button-primary | d-flex align-items-center fs-400" href="/songs">
+                <img class="image-w-16 | me-1 py-1 pe-2" src="/img/icon/icon_arrow_left_001_FFFFFF_32x32.svg">Terug naar Repertoire</a>
+        </div>
+        <div class="container | pt-3 px-3">
             <div class="even-column-r-auto | d-grid align-items-center">
                 <div class="pl-header">
                     <h1 class="fs-700 fw-bold">Afspeellijsten</h1>
                 </div>
                 <x-search-sm/>
             </div>
-
             @if(Auth::user()->role == 1)
             <div class="pl-content | pb-3">
                 <h2 class="pt-4 pb-3 fs-600 fw-semi-bold ">Afspeellijst Toevoegen</h2>
@@ -23,7 +26,7 @@
             @endif
             <div class="pl-content | pb-3">
                 <h2 class="pt-4 pb-3 fs-600 fw-semi-bold ">Meest Recent</h2>
-                <div class="pl-box-content pl-box-content-lg">
+                <div class="pl-box-content | d-grid">
                     @foreach($playlistsRecent as $playlistRecent)
                         <a class="pl-box content-box pl-box-icon-playlist | p-3" href="{{ route('playlists.show', $playlistRecent) }}">
                             <div class="pl-box-img"></div>
@@ -31,14 +34,6 @@
                         </a>
                     @endforeach
                 </div>
-{{--                <div class="pl-box-content pl-box-content-sm">--}}
-{{--                    @for($i = 0; $i < 2; $i++)--}}
-{{--                        <a class="pl-box content-box pl-box-icon-playlist | p-3" href="{{ route('playlists.show', $playlists[$i]) }}">--}}
-{{--                            <div class="pl-box-img"></div>--}}
-{{--                            <div class="pl-box-header | pt-3 fw-semi-bold">{{$playlists[$i]->title}}</div>--}}
-{{--                        </a>--}}
-{{--                    @endfor--}}
-{{--                </div>--}}
             </div>
             <div class="pl-content | pb-3">
                 <h2 class="pt-4 pb-3 fs-600 fw-semi-bold ">Alle Afspeellijsten</h2>
@@ -54,4 +49,3 @@
         </div>
     </section>
 @endsection
-

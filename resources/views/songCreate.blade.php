@@ -1,9 +1,10 @@
 @extends('layouts.layout')
-@section('currentPage', 'Nieuw Nummer Aanmaken')
+@section('currentPage', '- Nummer Aanmaken')
 @section('content')
     <section>
-        <div class="container | pt-5">
-            <a class="btn-size button-primary-alt | fs-400" href="/songs">< Terug naar Repertoire</a>
+        <div class="button-box container">
+            <a class="button-size button-primary | d-flex align-items-center fs-400" href="/songs">
+                <img class="image-w-16 | me-1 py-1 pe-2" src="/img/icon/icon_arrow_left_001_FFFFFF_32x32.svg">Terug naar Repertoire</a>
         </div>
 
         <div class="container | pt-4">
@@ -63,7 +64,7 @@
 
                 <div id="inputField songFiles"></div>
                 <div class="d-flex justify-content-end">
-                    <button class="button-primary btn-size | mt-3" type="submit">Aanmaken</button>
+                    <button class="button-primary button-size | mt-3" type="submit">Aanmaken</button>
                 </div>
             </form>
         </div>
