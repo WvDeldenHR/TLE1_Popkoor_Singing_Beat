@@ -15,10 +15,10 @@
                             <img class="rp-list-img | py-2" aria-hidden="true" src="img/icon/icon_playlist_001_212427_32x32.svg" alt="">Afspeellijsten</a>
                     </div>
                     @if(Auth::user()->role == 1)
-                        <div class="rp-list-item">
-                            <a class="rp-list-link | d-flex align-items-center px-3 fs-500 fw-semi-bold" href="/songs/create">
-                                <img class="rp-list-img | py-2" aria-hidden="true" src="img/icon/icon_add_001_212427_32x32.svg" alt="">Toevoegen</a>
-                        </div>
+                    <div class="rp-list-item">
+                        <a class="rp-list-link | d-flex align-items-center px-3 fs-500 fw-semi-bold" href="/songs/create">
+                            <img class="rp-list-img | py-2" aria-hidden="true" src="img/icon/icon_add_001_212427_32x32.svg" alt="">Toevoegen</a>
+                    </div>
                     @endif
                 </div>
                 <div class="collapsable | d-grid">
@@ -79,7 +79,7 @@
                                         type="submit" name="sort" value="Most_Recent">Meest Recent</button>
                             </form>
                         </div>
-                        <div class="collapsable-sm">
+                        <div class="collapsable-sm border-top-1">
                             <a class="collapsable-btn | px-4 fs-500 fw-semi-bold" href="{{route('favourites')}}">Favorieten</a>
                             <div class="collapsable-btn genre-btn-sm even-column-r-auto-sm | d-grid px-4">
                                 <p class="fs-500 fw-semi-bold">Genre</p>
@@ -125,7 +125,7 @@
                         </tr>
                         @foreach($songs as $key => $song) 
                         <tr class="table-row song_{{$song['id']}}">
-                            <td class="table-column-md | fw-semi-bold text-center">{{$key + 1}}</td>
+                            <td class="table-column-md table-column-start | fw-semi-bold text-center">{{$key + 1}}</td>
                             <td class="table-column-lg">
                                 @if($song['path_cover_art'])
                                     <img class="table-column-img" src="{{asset('storage/' . $song['path_cover_art'])}}" alt="">
@@ -157,7 +157,7 @@
                             <td class="table-column-sm">
                                 <img class="table-column-icon" src="img/icon/icon_download_001_212427_32x32.svg" alt="Download {{ $song['title'] }}">
                             </td>
-                            <td class="table-column-lg">
+                            <td class="table-column-lg table-column-end">
                                 <a class="table-column-link" href="{{ route('songs.show', $song['id']) }}">
                                     <img class="table-column-icon" src="img/icon/icon_more_001_212427_32x32.svg" alt="Details"></a>
                                 <button class="table-column-button" data-toggle="modal" data-target="#modal_song_{{$song['id']}}">

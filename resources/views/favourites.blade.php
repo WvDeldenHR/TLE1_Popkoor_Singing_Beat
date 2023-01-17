@@ -9,7 +9,7 @@
                     <h1 class="fs-800 fw-semi-bold">Repertoire</h1>
                     <p class="rp-sub-header | fs-600 fw-medium">Favorieten</p>
                 </div>
-                <div class="d-flex d-none-sm justify-content-center">
+                <div class="d-flex d-none-lg justify-content-center">
                     <a class="button-size button-primary | d-flex align-items-center fs-400" href="/songs">
                         <img class="image-w-16 | me-1 py-1 pe-2" src="/img/icon/icon_arrow_left_001_FFFFFF_32x32.svg">Terug naar Repertoire</a>
                 </div>
