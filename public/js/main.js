@@ -1,9 +1,9 @@
 //Loader
 window.addEventListener("load", () => {
     const loader = document.querySelector(".loader");
-  
+
     loader.classList.add("loader--hidden");
-  
+
     loader.addEventListener("transitionend", () => {
         document.body.removeChild(loader);
     });
@@ -49,13 +49,24 @@ navUser.addEventListener("click", () => {
     dropdownContent.toggleAttribute("dropdown-open");
 });
 
+//Add event listener to Body
+document.body.addEventListener('click', (e) => {
+        console.log(e.target.classList);
+//If clicked item isn't dropdown content, hide content
+        if (!e.target.classList.contains('nav-dropdown') && !e.target.classList.contains('nav-nav-user') && !e.target.classList.contains('nav-user-icon')) {
+            navUser.setAttribute("aria-expanded", false)
+            dropdownContent.removeAttribute("dropdown-open");
+        }
+    }
+)
+
 
 //Sidenav
 if (document.querySelector(".collapsable-btn-sm")) {
     const filterBtn = document.querySelector(".collapsable-btn-sm");
     const closeBtn = document.querySelector(".close-btn");
     const filterMenu = document.querySelector(".rp-sidenav");
-    
+
     filterBtn.addEventListener("click", () => {
         filterMenu.toggleAttribute("sidenav-open");
     });
@@ -101,10 +112,10 @@ if (document.querySelector(".sort-btn")) {
     });
 }
 
-if(document.querySelector(".genre-btn-sm")){
+if (document.querySelector(".genre-btn-sm")) {
     const genreBtn = document.querySelector(".genre-btn-sm");
     const genreMenu = document.querySelector(".rp-genre-sm");
-    
+
     let genreOpen = false;
     genreBtn.addEventListener('click', () => {
         if (!genreOpen) {
