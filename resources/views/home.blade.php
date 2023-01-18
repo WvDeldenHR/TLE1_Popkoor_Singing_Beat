@@ -207,78 +207,7 @@
         </ul>
     </section>
     <!-- End Carousel -->
-{{--    <section class="py-6">--}}
-{{--        <div class="d-flex justify-content-center pb-4">--}}
-{{--            <h3 class="fs-800 fw-extra-bold">Even Voorstellen</h3>--}}
-{{--        </div>--}}
-{{--        <div class="psb-carousel hm-content-4 even-column-3 container | d-grid gap-5">--}}
-{{--            <div class="content-box | d-flex flex-column align-items-center justify-content-center pt-5 pb-4 px-4">--}}
-{{--                <h4 class="mb-3 fs-500 fw-semi-bold">Suzanne</h4>--}}
-{{--                <p class="mb-3 fs-500 fw-regular text-center">--}}
-{{--                    Mijn naam is Suzanne de Jonge en ik ben geboren op--}}
-{{--                    30 november 1987 te Rotterdam en vanaf augustus 2017--}}
-{{--                    mag ik mijzelf de songcoach van Singing Beat noemen,--}}
-{{--                    waar ik met enorm veel plezier mee aan de slag ga!--}}
-{{--                </p>--}}
-{{--                <button class="hm-btn button-primary">Lees Verder</button>--}}
-{{--            </div>--}}
-{{--            <div class="content-box | d-flex flex-column align-items-center justify-content-center pt-5 pb-4 px-4">--}}
-{{--                <h4 class="mb-3 fs-500 fw-semi-bold">Diny</h4>--}}
-{{--                <p class="mb-3 fs-500 fw-regular text-center">--}}
-{{--                    Een groot aantal jaren geleden riep ik nog "Ik kan niet zingen".--}}
-{{--                    En nu zing ik al een groot aantal jaren bij het leukste koor--}}
-{{--                    van Spijkenisse. Ik kan hier wel zingen, we zingen vanuit--}}
-{{--                    plezier en de liedjes zijn de liedjes die je hoort op de radio.--}}
-{{--                </p>--}}
-{{--                <button class="hm-btn button-primary">Lees Verder</button>--}}
-{{--            </div>--}}
-{{--            <div class="content-box | d-flex flex-column align-items-center justify-content-center pt-5 pb-4 px-4">--}}
-{{--                <h4 class="mb-3 fs-500 fw-semi-bold">Nathalie</h4>--}}
-{{--                <p class="mb-3 fs-500 fw-regular text-center">--}}
-{{--                    Ik ben Nathalie Bos. Naast mijn functie als secretaris ben ik--}}
-{{--                    de oprichtster van Singing Beat. Samen met Corina Versloot--}}
-{{--                    heb ik Singing Beat in 2001 opgericht. Inmiddels bestaat--}}
-{{--                    het koor uit ca. 70 leden waar ik natuurlijk erg trots op ben.--}}
-{{--                    't is en blijft iedere week weer een feestje om te mogen zingen!--}}
-{{--                </p>--}}
-{{--                <button class="hm-btn button-primary">Lees Verder</button>--}}
-{{--            </div>--}}
-            <!-- Content for the carousel -->
-            <!--
-            <div class="content-box | d-flex flex-column align-items-center justify-content-center pt-5 pb-4 px-4">
-                <h3 class="mb-3 fs-500 fw-semi-bold">Jacques</h3>
-                <p class="mb-3 fs-500 fw-regular text-center">
-                    Sinds 2007 ben ik lid van het koor en had het eigenlijk veel
-                    eerder moeten doen. Wat is er leuker dan zingen en dan nog met
-                    elkaar. Dus als u dit leest en als u van zingen houdt, meldt
-                    u aan! Oh, ja, mijn naam is Jacques de Jonge en ben tevens
-                    penningmeester van ons koor.
-                </p>
-                <button class="hm-btn button-primary">Lees Verder</button>
-            </div>
-            <div class="content-box | d-flex flex-column align-items-center justify-content-center pt-5 pb-4 px-4">
-                <h3 class="mb-3 fs-500 fw-semi-bold">Sheila</h3>
-                <p class="mb-3 fs-500 fw-regular text-center">
-                    Hallo Allemaal, Mijn naam is Sheila Schols. Ik ben mama van
-                    Yenna en Nova, vrouw van Patrick, dochter, schoondochter,
-                    vriendin en juf op een basisschool.
-                </p>
-                <button class="hm-btn button-primary">Lees Verder</button>
-            </div>
-            <div class="content-box | d-flex flex-column align-items-center justify-content-center pt-5 pb-4 px-4">
-                <h3 class="mb-3 fs-500 fw-semi-bold">Gerda</h3>
-                <p class="mb-3 fs-500 fw-regular">
-                    Hallo iedereen, mijn naam is Gerda en met veel plezier zing ik
-                    alweer enkele jaren in het aller gezelligste koor van Spijkenisse!
-                    Elke dinsdagavond is het weer een feest. Met veel enthousiasme
-                    ben ik sinds kort algemeen bestuurslid en draag ik graag mijn
-                    steentje bij aan Singing Beat!
-                </p>
-                <button class="hm-btn button-primary">Lees Verder</button>
-            </div>
-             -->
-{{--        </div>--}}
-    </section>
+
 
     <section>
         <div class="container">

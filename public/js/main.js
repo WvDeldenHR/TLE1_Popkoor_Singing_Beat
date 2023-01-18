@@ -42,7 +42,6 @@ const navUser = document.querySelector(".nav-user");
 const dropdownContent = document.querySelector(".nav-dropdown");
 
 navUser.addEventListener("click", () => {
-    console.log("test")
     dropdownContent.hasAttribute("dropdown-open")
         ? navUser.setAttribute("aria-expanded", false)
         : navUser.setAttribute("aria-expanded", true);
@@ -52,7 +51,7 @@ navUser.addEventListener("click", () => {
 //Add event listener to Body
 document.body.addEventListener('click', (e) => {
         console.log(e.target.classList);
-//If clicked item isn't dropdown content, hide content
+        //If clicked item isn't dropdown content, hide content
         if (!e.target.classList.contains('nav-dropdown') && !e.target.classList.contains('nav-nav-user') && !e.target.classList.contains('nav-user-icon')) {
             navUser.setAttribute("aria-expanded", false)
             dropdownContent.removeAttribute("dropdown-open");
