@@ -1,8 +1,9 @@
 @extends('layouts.app')
+@section('currentPage', '- Nieuw Bericht')
 @section('content')
     <section class="section">
         <div class="container">
-            <h1>Publish new post</h1>
+            <h1>Plaats nieuw bericht</h1>
         </div>
     </section>
     <section class="section">

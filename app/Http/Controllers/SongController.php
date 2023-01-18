@@ -12,6 +12,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\File;
 use Maize\Markable\Models\Favorite;
+use Throwable;
 
 class SongController extends Controller
 {
@@ -40,19 +41,36 @@ class SongController extends Controller
         }
 
         //if there is a request 'sort' with value of 'Z-A'
-        if (\request('sort') == 'Z-A') {
+        if (\request('sort') == 'Z-A_Title') {
             $key_values = array_column($songs, 'title');
             array_multisort($key_values, SORT_DESC, $songs);
+            $currentSort = 'Z-A_Title';
 
+        } else if (\request('sort') == 'Z-A_Artist') {
+            $key_values = array_column($songs, 'artist');
+            array_multisort($key_values, SORT_DESC, $songs);
+            $currentSort = 'Z-A_Artist';
+
+        } else if (\request('sort') == 'A-Z_Artist') {
+            $key_values = array_column($songs, 'artist');
+            array_multisort($key_values, SORT_ASC, $songs);
+            $currentSort = 'A-Z_Artist';
+
+        } else if (\request('sort') == 'Most_Recent') {
+            $key_values = array_column($songs, 'created_at');
+            array_multisort($key_values, SORT_DESC, $songs);
+            $currentSort = 'Most_Recent';
         } else {
             //if there is a request 'sort' with value of 'A-Z' OR there is no request with 'sort'
             //this is the default sorting
             $key_values = array_column($songs, 'title');
             array_multisort($key_values, SORT_ASC, $songs);
+            $currentSort = 'A-Z_Title';
         }
 
         return view('repertoire', [
             'songs' => $songs,
+            'currentSort' => $currentSort,
             'favourites' => $favourites
         ]);
     }
@@ -82,7 +100,7 @@ class SongController extends Controller
             'genre' => 'required|max:255',
             'files' => 'required',
 //              'files.*' => 'required|mimes:png,jpg,jpeg,bmp,gif,pdf,mp3,aac,wav|max:20048',
-            'file.*' => ['required', File::types(['png', 'jpg', 'jpeg', 'bmp', 'gif', 'pdf', 'mp3', 'aac', 'wav'])->max(20048)]
+            'files.*' => ['required', File::types(['png', 'jpg', 'jpeg', 'bmp', 'gif', 'pdf', 'mp3', 'aac', 'wav'])->max(20048)]
         ]);
 
         $song = new Song();
@@ -110,9 +128,9 @@ class SongController extends Controller
         }
 
         $song->save();
-
         return back()->with('status', 'Nummer is succesvol aangemaakt');
     }
+
 
     /**
      * Display the specified resource.
@@ -120,7 +138,8 @@ class SongController extends Controller
      * @param int $id
      * @return Application|Factory|View
      */
-    public function show($id)
+    public
+    function show($id)
     {
         $song = Song::find($id);
         return view('song', compact('song'));
@@ -132,7 +151,8 @@ class SongController extends Controller
      * @param int $id
      * @return Response
      */
-    public function edit($id)
+    public
+    function edit($id)
     {
         //
     }
@@ -144,7 +164,8 @@ class SongController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public
+    function update(Request $request, $id)
     {
         //
     }
@@ -155,18 +176,21 @@ class SongController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         //
     }
 
-    public function favourite($id)
+    public
+    function favourite($id)
     {
         Favorite::toggle(Song::find($id), Auth::user());
         return redirect()->back();
     }
 
-    public function showFavourites()
+    public
+    function showFavourites()
     {
 
         //if there is a request 'sort' with value of 'Z-A'
