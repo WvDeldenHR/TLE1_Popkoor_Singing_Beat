@@ -1,5 +1,3 @@
-##Conclusies
-
 In September 2022 kregen wij als team de probleemstelling van Popkoor Singing Beat. Doormiddel van de hoofdvraag “Hoe kun je met behulp van technologie de interne en externe communicatie optimaliseren, waarbij content gebruiksvriendelijk en laagdrempelig aan te passen is door de opdrachtgever zelf?” zijn we uiteindelijk tot een eindproduct gekomen.
 
 We zijn begonnen met het onderzoek. Door soort gelijke problemen op te zoeken ter inspiratie, en interviews en enquêtes te houden, hebben we uiteindelijk een beter beeld gekregen van het probleem en de potentiële oplossingen. Hieruit konden we uiteindelijk een concept verzinnen: een vernieuwende website die de oude features verbeterd en gebruiksvriendelijker maakt voor zowel gebruikers op desktop als op mobile. Verder is een nieuwe huisstijl en uitstraling ook deel van het concept geworden. Op deze manier zou het aanpassen en toevoegen van content makkelijker gemaakt worden voor de opdrachtgever, en kon de communicatie naar leden en niet leden van het koor verbeterd worden.
@@ -15,7 +13,6 @@ Na een concept bedacht te hebben, hebben we deze uitgewerkt in een “design spr
 
 Na dit concept te valideren met de opdrachtgever hebben we een prototype gebouwd. Hiervoor hebben wij Laravel gebruikt, een MVC PHP-framework, deze zal ook overgedragen worden via GitHub. Nadat dit prototype af was konden we het testen bij de opdrachtgever en de leden van het koor. Dit zorgde voor handige feedback waardoor we het project konden verbeteren.
 
-##Adviezen
 
 Echter is er natuurlijk een limiet met wat je allemaal kan doen in 6 maanden. Daarom hebben wij nog een aantal aanbevelingen voor als er aan dit project verder wordt gewerkt.
 •	We hebben al een manier van foto’s en fotoalbums uploaden geïmplementeerd, echter deze is nog onvoldoende uitgewerkt. Er kan een betere manier van hele albums downloaden worden geïmplementeerd, nu is er alleen een mogelijkheid om alle foto’s een voor een los te downloaden.
